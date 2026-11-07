@@ -5,7 +5,10 @@ Every backlog item and every pull request follows these conventions. When an ite
 ## Code layout
 
 ```
+eslint/
+  module-boundaries.mjs      the lint rule that enforces module boundaries
 src/
+  proxy.ts                   session refresh and sign-in redirects (Next.js 16's name for middleware)
   app/                       routes: pages, layouts, route handlers, server action entry points
   modules/<module>/
     index.ts                 the only file other modules may import
@@ -36,7 +39,7 @@ tests/e2e/                   Playwright, one spec per journey
 
 The ten modules are `identity`, `groups`, `catalog`, `logbook`, `social`, `gamification`, `notifications`, `moderation`, `media` and `species-id`. Their responsibilities and owned tables are in the [data model](data-model.md).
 
-A lint rule fails the build when a file imports another module's internals. Import `@/modules/<name>` (its `index.ts`) only.
+A lint rule (`eslint/module-boundaries.mjs`, run by `npm run lint`) fails when a file imports another module's internals, through the alias or a relative path. Import `@/modules/<name>` (its `index.ts`) only. Inside a module, import your own files with relative paths.
 
 ## Writes
 

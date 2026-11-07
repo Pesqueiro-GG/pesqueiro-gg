@@ -1,0 +1,16 @@
+/* Replaced by the design tokens and Tailwind setup in #6. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 24px max(16px, env(safe-area-inset-left, 0px));
+  font-family:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    sans-serif;
+}

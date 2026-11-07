@@ -9,11 +9,15 @@ Branches, environments, where each one's data lives, and the environment variabl
 | feature branches | Local | Supabase CLI in Docker, ports 553xx (so it can run next to other local Supabase projects) | — | Development |
 | pull requests | CI | Supabase CLI in GitHub Actions | Every push | Lint, types, tests, Playwright |
 | pull requests | Preview | Dev project | Every push (Vercel preview) | Clicking through a change |
-| `dev` | Dev | Dev project (Kauê's Supabase account) | Merge into `dev`, after migrations | Team testing before release |
-| `main` | Demo | Demo project (team organization) | Merge into `main`, after migrations | What jurors and the video see; seeded data |
-| `main` | Production | Production project (team organization) | Merge into `main`, after migrations | Real users |
+| `dev` | Dev | `pesqueiro-dev` (team organization) | Merge into `dev`, after migrations | Team testing before release |
+| `main` | Production | `pesqueiro-prod` (team organization) | Merge into `main`, after migrations | Real users |
+| `main` | Demo | `pesqueiro-demo`, created later (see below) | Merge into `main`, after migrations | What jurors and the video see; seeded data |
 
-The Supabase free plan allows two active projects per account, so demo and production live in the team's organization and dev lives in Kauê's account.
+### Supabase projects and the free-plan limit
+
+The free plan allows two active projects for each person who is an Owner or Administrator of the organizations that hold them. The team organization (owner: Amanda) holds dev and production, which uses both of her free slots. Kauê and Guma are **Developers** in it, so those projects don't count against their limits.
+
+The demo environment isn't needed until the demo seed ([#52](https://github.com/Pesqueiro-GG/pesqueiro-gg/issues/52), M6). Before then (by about 22 Nov), someone with a free slot creates `pesqueiro-demo` in São Paulo: Guma has two, and Kauê has one (his other is the old app's project). Until the demo exists, deploys from `main` go to production only.
 
 All cloud resources run in the São Paulo region (Vercel `gru1`, Supabase `sa-east-1`).
 
@@ -51,7 +55,9 @@ Every variable is listed in `.env.example`. Secrets live only in Vercel and GitH
 | Secret | Used by |
 |---|---|
 | `DEV_DATABASE_MIGRATION_URL` | Migrations on merge into `dev` |
-| `DEMO_DATABASE_MIGRATION_URL`, `PROD_DATABASE_MIGRATION_URL` | Migrations on merge into `main` |
+| `PROD_DATABASE_MIGRATION_URL` | Migrations on merge into `main` |
+| `DEMO_DATABASE_MIGRATION_URL` | Demo migrations on merge into `main`, once the demo project exists; steps skip while it is unset |
+| `DEV_APP_SERVER_DB_PASSWORD`, `PROD_APP_SERVER_DB_PASSWORD`, `DEMO_APP_SERVER_DB_PASSWORD` | The `app_server` password `db:migrate` sets in each project |
 | `VERCEL_TOKEN`, `VERCEL_ORG_ID`, `VERCEL_PROJECT_ID`, `VERCEL_DEMO_PROJECT_ID` | Deploys after migrations |
 | `SENTRY_AUTH_TOKEN` | Source maps |
 

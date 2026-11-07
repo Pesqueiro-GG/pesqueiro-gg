@@ -37,42 +37,7 @@ In the session pooler string, replace `[YOUR-PASSWORD]` with the database passwo
    $env:APP_SERVER_DB_PASSWORD = '<the app_server password>'
    ```
 
-   Use single quotes: inside double quotes, PowerShell changes anything after a `# Apply migrations to a cloud database
-
-This guide shows you how to set up a Supabase cloud project (dev, production or demo) for the first time: create the `app_server` role, apply the migrations, and confirm the app can connect. After the delivery pipeline ([#4](https://github.com/Pesqueiro-GG/pesqueiro-gg/issues/4)) is in place, CI applies migrations on every merge, and you only need this guide for a new project.
-
-## Before you begin
-
-- The project exists in the São Paulo region (South America).
-- You have its database password (the one set when the project was created) in a password manager.
-- You've chosen a strong password for `app_server`, different for each project, and stored it in the password manager. Don't reuse the database password.
-- You've cloned the repository and run `npm ci`.
-
-Never paste these passwords or connection strings into issues, pull requests, chats or files that are committed. `.env.local` is ignored by git, so it's safe for local use.
-
-## Get the connection strings
-
-In the Supabase dashboard, open the project and select **Connect**. On the **Connection String** tab, choose **Session pooler** as the method and copy the URI. If only the transaction pooler is shown, copy it and change the port from `6543` to `5432`.
-
-Copy the string; don't type it. The pooler host differs between projects (`aws-0-sa-east-1…` or `aws-1-sa-east-1…`), and a wrong host fails with "tenant/user not found". The user is `postgres.<project-ref>`, where the project reference is the project's random ID (shown in the dashboard address and under **Project Settings → General**), not its name.
-
-The two connections the project uses:
-
-| Use | Pooler mode | Port | User | Why |
-|---|---|---|---|---|
-| Migrations (`DATABASE_MIGRATION_URL`) | Session | 5432 | `postgres.<project-ref>` | Runs as the owner. The direct connection is IPv6-only, and many networks and GitHub Actions don't support IPv6, so use the session pooler. |
-| The app (`DATABASE_URL`) | Transaction | 6543 | `app_server.<project-ref>` | How the app connects: as its own role, through the pooler built for serverless functions |
-
-You only need to copy the session pooler string. `npm run db:check` builds the app's string from it.
-
-In the session pooler string, replace `[YOUR-PASSWORD]` with the database password. If that password contains `@ : / ? # [ ] % &` or spaces, encode them (`@` → `%40`, `:` → `%3A`, `/` → `%2F`, `?` → `%3F`, `#` → `%23`, `%` → `%25`, `&` → `%26`). Choose the `app_server` password with letters and numbers only (at least 24 characters).
-
-## Apply the migrations
-
-1. In a terminal at the repository root, set the variables for this session only. In PowerShell:
-
-   ```powershell
-. In bash, use `export DATABASE_MIGRATION_URL='…'` and `export APP_SERVER_DB_PASSWORD='…'`.
+   Use single quotes: inside double quotes, PowerShell changes anything after a `$` sign. In bash, use `export DATABASE_MIGRATION_URL='…'` and `export APP_SERVER_DB_PASSWORD='…'`.
 
 2. Run the migrations:
 

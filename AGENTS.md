@@ -11,7 +11,8 @@ Pesqueiro.GG is a gamified social network for recreational anglers in Brazil, bu
 Keep this section true: update it in the pull request that changes it.
 
 - **Exists:** the app skeleton (Next.js 16, TypeScript 6 strict, the ten empty modules, `src/shared/` errors, results and `authedAction`), the module-boundary lint rule, Vitest and Playwright, documentation (`docs/`), design source files (`design/`), the backlog and board script.
-- **Not yet:** the database ([#3](https://github.com/Pesqueiro-GG/pesqueiro-gg/issues/3)), deploys and CI ([#4](https://github.com/Pesqueiro-GG/pesqueiro-gg/issues/4)), login ([#9](https://github.com/Pesqueiro-GG/pesqueiro-gg/issues/9)), styling ([#6](https://github.com/Pesqueiro-GG/pesqueiro-gg/issues/6)), languages ([#7](https://github.com/Pesqueiro-GG/pesqueiro-gg/issues/7)). `authedAction` answers `UNAUTHENTICATED` until login exists, and ignores `rateLimit` and `tx` until the database exists.
+- **Database:** local Supabase (Docker, ports 553xx), Drizzle migrations in `drizzle/` applied by `scripts/db/migrate.ts`, the `app_server` role and `app_enable_access()`, and `src/shared/db/client.ts` (`db()`, `withTransaction`). No application tables yet.
+- **Not yet:** deploys and CI ([#4](https://github.com/Pesqueiro-GG/pesqueiro-gg/issues/4)), login ([#9](https://github.com/Pesqueiro-GG/pesqueiro-gg/issues/9)), styling ([#6](https://github.com/Pesqueiro-GG/pesqueiro-gg/issues/6)), languages ([#7](https://github.com/Pesqueiro-GG/pesqueiro-gg/issues/7)). `authedAction` answers `UNAUTHENTICATED` until login exists, runs handlers in a transaction when built with `{ tx: true }`, and ignores `rateLimit` until #41.
 
 ### Commands
 
@@ -22,7 +23,11 @@ Keep this section true: update it in the pull request that changes it.
 | `npm run lint` | ESLint, including the module-boundary rule |
 | `npm run typecheck` | TypeScript, no output files |
 | `npm test` | Unit tests (Vitest) |
-| `npm run test:int` | Integration tests (none until #3) |
+| `npm run db:start` / `db:stop` / `db:status` | Starts, stops or shows the local Supabase (needs Docker running) |
+| `npm run db:migrate` | Applies migrations (local by default; see the cloud how-to) |
+| `npm run db:generate` | Generates a migration from changes to `schema.ts` files |
+| `npm run db:check` | Confirms `DATABASE_URL` connects as `app_server` |
+| `npm run test:int` | Integration tests against the local Supabase (applies migrations first) |
 | `npm run test:e2e` | Builds, starts the app and runs Playwright (run `npx playwright install chromium` once first) |
 | `npm run format` | Prettier on code (Markdown is left as written) |
 | `npm run build` | Production build |

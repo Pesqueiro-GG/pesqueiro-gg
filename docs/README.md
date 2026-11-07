@@ -23,6 +23,7 @@ Directions for a specific task, for someone who already knows the basics.
 - [Sync the board with the backlog files](how-to/sync-the-board.md)
 - [Release to production](how-to/release-to-production.md)
 - [Fix production with a hotfix](how-to/hotfix-production.md)
+- [Apply migrations to a cloud database](how-to/apply-migrations-to-a-cloud-database.md)
 
 Planned with their backlog items: reset the demo ([#52](https://github.com/Pesqueiro-GG/pesqueiro-gg/issues/52)), handle an incident ([#42](https://github.com/Pesqueiro-GG/pesqueiro-gg/issues/42)).
 

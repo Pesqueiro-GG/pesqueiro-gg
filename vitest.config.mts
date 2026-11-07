@@ -22,6 +22,11 @@ export default defineConfig({
           name: 'integration',
           environment: 'node',
           include: ['src/**/*.int.test.ts'],
+          globalSetup: ['./tests/integration/global-setup.ts'],
+          // Integration tests share one local database; run files one at a time.
+          fileParallelism: false,
+          testTimeout: 20_000,
+          hookTimeout: 60_000,
         },
       },
     ],

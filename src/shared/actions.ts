@@ -1,4 +1,5 @@
 import type { z } from 'zod'
+import { withTransaction, type Tx } from './db/client'
 import { isDomainError } from './errors'
 import { fail, ok, type Result } from './result'
 
@@ -9,12 +10,13 @@ export type Viewer = {
   isPlatformAdmin: boolean
 }
 
-export type ActionContext = { viewer: Viewer }
+/** `tx` is set when the action was built with `{ tx: true }`. */
+export type ActionContext = { viewer: Viewer; tx?: Tx }
 
 export type ActionOptions = {
   /** Applied before anything else. Wired up with rate limits (#41). */
   rateLimit?: { key: string; limit: number; windowSec: number }
-  /** Run the handler in a database transaction. Wired up with the database (#3). */
+  /** Run the handler in a database transaction (5-second statement timeout). */
   tx?: boolean
 }
 
@@ -35,10 +37,8 @@ export function setViewerResolver(resolver: () => Promise<Viewer | null>) {
 export function authedAction<S extends z.ZodType, T>(
   schema: S,
   handler: (input: z.infer<S>, ctx: ActionContext) => Promise<T>,
-  // Used once rate limits (#41) and transactions (#3) are wired up.
   options: ActionOptions = {},
 ): (raw: unknown) => Promise<Result<T>> {
-  void options
   return async (raw) => {
     const viewer = await resolveViewer()
     if (!viewer) return fail('UNAUTHENTICATED')
@@ -50,7 +50,10 @@ export function authedAction<S extends z.ZodType, T>(
     }
 
     try {
-      return ok(await handler(parsed.data, { viewer }))
+      const data = options.tx
+        ? await withTransaction((tx) => handler(parsed.data, { viewer, tx }))
+        : await handler(parsed.data, { viewer })
+      return ok(data)
     } catch (error) {
       if (isDomainError(error)) return fail(error.code, error.field)
       throw error

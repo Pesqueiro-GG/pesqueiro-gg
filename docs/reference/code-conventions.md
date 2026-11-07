@@ -22,7 +22,7 @@ src/
     *.int.test.ts            integration tests against a real Postgres
   shared/
     actions.ts               authedAction()
-    db/                      Drizzle client, withTransaction(), schema barrel
+    db/                      Drizzle client (db(), withTransaction()), shared tables in schema.ts
     events.ts                emit(), on(), afterResponse()
     errors.ts                DomainError and error codes
     rate-limit.ts            rateLimit()
@@ -78,7 +78,9 @@ Event types: `CatchChanged`, `PostPublished`, `PostHidden`, `PostDeleted`, `Audi
 
 ## Database
 
-- Drizzle ORM. Each module's tables live in its `schema.ts`. Generate migrations with `npm run db:generate` and apply them with `npm run db:migrate`.
+- Drizzle ORM. Each module's tables live in its `schema.ts`; shared tables in `src/shared/db/schema.ts`. Generate a migration with `npm run db:generate`, then add `SELECT app_enable_access('public.<table>');` for each new table at the end of the generated SQL. Apply with `npm run db:migrate`.
+- SQL that Drizzle can't express (roles, functions, policies) goes in a custom migration: `npx drizzle-kit generate --custom --name=<what>`.
+- Never edit a migration that's already merged. Write a new one.
 - Primary keys are `uuid default gen_random_uuid()`. Timestamps are `timestamptz default now()`. Soft delete uses `deleted_at` where an item says so.
 - Weights are whole grams (`weight_g`). Lengths are whole millimetres (`length_mm`).
 - Every new table calls `select app_enable_access('<table>')` in its migration: row-level security on, with one policy for the `app_server` role and none for `anon` or `authenticated`.
@@ -116,7 +118,7 @@ These never break. Reviewers reject any pull request that does.
 | Kind | Files | Run with | Covers |
 |---|---|---|---|
 | Unit | `*.test.ts` | `npm test` | Pure logic: rules, policies, formatters, schemas |
-| Integration | `*.int.test.ts` | `npm run test:int` | Commands and queries against the local Supabase from `supabase start` |
+| Integration | `*.int.test.ts` | `npm run test:int` | Commands and queries against the local Supabase (`npm run db:start`); migrations are applied first |
 | End to end | `tests/e2e/*.spec.ts` | `npm run test:e2e` | Journeys J1–J7 against `next build && next start` with a seeded database |
 
 Name tests after behavior: `it('awards the species bonus once when two catches are saved at once')`.

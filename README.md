@@ -30,9 +30,9 @@ Progress is tracked on the [project board](https://github.com/orgs/Pesqueiro-GG/
 
 ## Get started
 
-The app skeleton runs, but it has no database or screens yet. Database setup arrives with [#3](https://github.com/Pesqueiro-GG/pesqueiro-gg/issues/3).
+The app skeleton and its local database run, but there are no screens yet.
 
-You need [Node.js](https://nodejs.org) 22.12 or later.
+You need [Node.js](https://nodejs.org) 22.12 or later and [Docker Desktop](https://www.docker.com/products/docker-desktop/) running.
 
 1. Clone the repository and install the pinned dependencies:
 
@@ -42,15 +42,24 @@ You need [Node.js](https://nodejs.org) 22.12 or later.
    npm ci
    ```
 
-2. Start the app:
+2. Start the local database and apply the migrations. The first start downloads several Docker images.
+
+   ```bash
+   npm run db:start
+   npm run db:migrate
+   ```
+
+3. Copy `.env.example` to `.env.local`. Fill in the two Supabase keys from `npm run db:status`.
+
+4. Start the app:
 
    ```bash
    npm run dev
    ```
 
-3. Open http://localhost:3000.
+5. Open http://localhost:3000.
 
-To check your changes, run `npm run lint`, `npm run typecheck` and `npm test`. Every command is listed in [AGENTS.md](AGENTS.md#commands).
+To check your changes, run `npm run lint`, `npm run typecheck`, `npm test` and `npm run test:int`. Every command is listed in [AGENTS.md](AGENTS.md#commands).
 
 Before contributing, read [CONTRIBUTING.md](CONTRIBUTING.md) and [Pick up a backlog item](docs/how-to/pick-up-a-backlog-item.md).
 

@@ -36,6 +36,7 @@ Exact descriptions of the system, kept in sync with the code.
 - [Environments](reference/environments.md): branches, environments, environment variables, secrets.
 - [Design system](reference/design-system.md): tokens, fonts, components, voice.
 - [Observability](reference/observability.md): tools, targets and alerts.
+- [Glossary](reference/glossary.md): fishing, product and technical terms, including the Portuguese ones in the interface.
 
 ## Explanation
 
@@ -47,6 +48,10 @@ Background and reasoning, for when you want to understand the design.
 - [Privacy and trust](explanation/privacy-and-trust.md): location privacy, visibility, proof levels, moderation.
 - [Feeds and the path to scale](explanation/scaling.md): how feeds work now and how they grow.
 - [Decision records](explanation/decisions/README.md): each major decision, its alternatives and why.
+
+## Design source files
+
+- [`design/`](../design/README.md) holds the design system: tokens, brand book, component guidelines and a working prototype of each component.
 
 ## Not part of the docs
 

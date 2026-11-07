@@ -1,0 +1,203 @@
+@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap");
+
+/* Pesqueiro.GG components. Every color, radius and shadow comes from tokens.css. */
+
+body { margin: 0; font-family: var(--font-body); font-size: 16px; line-height: 1.5; background: var(--bg); color: var(--ink); -webkit-font-smoothing: antialiased; }
+
+/* Preview helpers */
+.pq-demo { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center; padding: var(--space-4); }
+.pq-demo-col { display: grid; gap: var(--space-3); padding: var(--space-4); max-width: 440px; }
+
+/* Icon */
+.pq-ico { flex: none; display: inline-block; vertical-align: middle; }
+
+/* Logo */
+.pq-logo { display: inline-flex; align-items: center; gap: .2em; color: var(--ink); }
+.pq-logo-word { font-family: var(--font-display); font-weight: 800; line-height: 1; letter-spacing: .005em; }
+.pq-logo-tld { color: var(--water); }
+.pq-mark { display: block; overflow: visible; }
+.pq-mark-top { fill: var(--bobber); }
+.pq-mark-cream { fill: var(--mark-cream); }
+.pq-mark-band { fill: var(--mark-band); }
+.pq-mark-ripple { fill: none; stroke: var(--water); stroke-width: 2.5; }
+.pq-mark-shine { fill: none; stroke: var(--mark-cream); stroke-width: 2; stroke-linecap: round; opacity: .7; }
+.pq-logo:hover .pq-mark g { animation: pq-bite .9s ease-in-out; transform-box: fill-box; }
+@keyframes pq-bite { 0%, 100% { translate: 0 0; } 25% { translate: 0 3px; } 45% { translate: 0 1px; } 70% { translate: 0 3px; } }
+
+/* Button: one primary per view; secondary and text for everything else */
+.pq-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2);
+  min-height: var(--tap-min); padding: 0 var(--space-5); border-radius: var(--radius-full);
+  border: 1.5px solid transparent; font: inherit; font-size: 15px; font-weight: 700; line-height: 1.2;
+  cursor: pointer; text-decoration: none; white-space: nowrap;
+  transition: background-color .15s ease-out, transform .15s ease-out;
+}
+.pq-btn:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+.pq-btn:active:not(:disabled) { transform: translateY(1px); }
+.pq-btn:disabled { opacity: .5; cursor: default; }
+.pq-btn-primary { background: var(--bobber); color: var(--on-bobber); }
+.pq-btn-primary:hover:not(:disabled) { background: var(--bobber-hover); }
+.pq-btn-secondary { background: var(--surface); color: var(--ink); border-color: var(--line-strong); }
+.pq-btn-secondary:hover:not(:disabled) { background: var(--surface-sunken); }
+.pq-btn-text { background: transparent; color: var(--water); padding: 0 var(--space-3); }
+.pq-btn-text:hover:not(:disabled) { background: var(--water-soft); }
+.pq-btn-danger { background: var(--surface); color: var(--bobber-text); border-color: var(--bobber-text); }
+.pq-btn-danger:hover:not(:disabled) { background: var(--bobber-soft); }
+.pq-btn-sm { min-height: 36px; padding: 0 var(--space-4); font-size: 14px; }
+.pq-btn-full { width: 100%; }
+
+/* Chip: filters, tip categories, small facts */
+.pq-chip {
+  display: inline-flex; align-items: center; gap: 6px; min-height: 32px; padding: 0 12px;
+  border-radius: var(--radius-full); border: 1.5px solid transparent;
+  font: inherit; font-size: 14px; font-weight: 700; line-height: 1.2; white-space: nowrap;
+  background: var(--surface-sunken); color: var(--ink);
+}
+button.pq-chip { cursor: pointer; }
+button.pq-chip:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+.pq-chip-water { background: var(--water-soft); color: var(--water); }
+.pq-chip-bobber { background: var(--bobber-soft); color: var(--bobber-text); }
+.pq-chip-reed { background: var(--reed-soft); color: var(--reed); }
+.pq-chip-gold { background: var(--gold-soft); color: var(--gold-text); }
+.pq-chip-on { background: var(--ink); color: var(--surface); }
+
+/* Rarity badge: the tier word always shows; color is never the only signal */
+.pq-rarity {
+  display: inline-flex; align-items: center; gap: 6px; padding: 2px 8px;
+  border-radius: var(--radius-full); border: 1.5px solid currentColor; background: var(--surface);
+  font-size: 12px; line-height: 16px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; white-space: nowrap;
+}
+.pq-rarity-dot { width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
+.pq-rarity-comum { color: var(--rarity-comum); }
+.pq-rarity-incomum { color: var(--rarity-incomum); }
+.pq-rarity-raro { color: var(--rarity-raro); }
+.pq-rarity-epico { color: var(--rarity-epico); }
+.pq-rarity-protegida { color: var(--reed); }
+
+/* Avatar */
+.pq-avatar { display: inline-grid; place-items: center; flex: none; border-radius: 50%; overflow: hidden; background: var(--water-soft); color: var(--water); font-weight: 700; }
+.pq-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.pq-avatar-sm { width: 32px; height: 32px; font-size: 13px; }
+.pq-avatar-md { width: 40px; height: 40px; font-size: 15px; }
+.pq-avatar-lg { width: 64px; height: 64px; font-size: 22px; }
+
+/* Album page and stickers */
+.pq-album { background: var(--paper); color: var(--paper-ink); border-radius: var(--radius-lg); padding: var(--space-4); display: grid; gap: var(--space-4); }
+.pq-album-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(132px, 1fr)); gap: var(--space-3); }
+.pq-sticker {
+  position: relative; box-sizing: border-box; width: 100%; max-width: var(--sticker-w); aspect-ratio: 3 / 4;
+  display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 10px 10px 12px;
+  border-radius: var(--radius-sticker); background: var(--surface); color: var(--ink);
+  box-shadow: var(--shadow-sticker); overflow: hidden;
+  --tier: var(--rarity-comum);
+}
+.pq-tier-incomum { --tier: var(--rarity-incomum); }
+.pq-tier-raro { --tier: var(--rarity-raro); }
+.pq-tier-epico { --tier: var(--rarity-epico); }
+.pq-sticker-no { align-self: flex-start; font-family: var(--font-display); font-size: 13px; line-height: 14px; font-weight: 700; letter-spacing: .06em; color: var(--ink-muted); }
+.pq-sticker-art { width: 100%; flex: 1; min-height: 0; display: grid; place-items: center; border-radius: 4px; background: var(--sea-shallow); color: var(--sea-deep); box-shadow: inset 0 0 0 3px var(--tier); overflow: hidden; }
+.pq-sticker-art img { width: 100%; height: 100%; object-fit: cover; }
+.pq-sticker-fish { width: 70%; height: auto; fill: currentColor; }
+.pq-fish-eye { fill: var(--sea-shallow); }
+.pq-sticker-name { font-family: var(--font-display); font-size: 18px; line-height: 1; font-weight: 800; text-transform: uppercase; text-align: center; overflow-wrap: anywhere; }
+.pq-sticker-sci { margin-top: -4px; font-size: 11px; line-height: 14px; font-style: italic; color: var(--ink-muted); text-align: center; }
+.pq-sticker-flag { position: absolute; top: 8px; right: 8px; padding: 2px 8px; border-radius: var(--radius-full); background: var(--gold); color: var(--on-gold); font-size: 12px; line-height: 16px; font-weight: 700; }
+.pq-sticker-shine::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none; border-radius: inherit;
+  background: linear-gradient(115deg, rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, .45) 46%, rgba(255, 255, 255, 0) 60%);
+  background-size: 250% 100%; background-position: 100% 0; transition: background-position .9s ease-out;
+}
+.pq-sticker-shine:hover::after { background-position: 0 0; }
+.pq-tier-epico.pq-sticker-shine { box-shadow: var(--shadow-sticker), 0 0 0 2px var(--gold); }
+.pq-sticker-empty { background: transparent; box-shadow: none; border: 2px dashed var(--paper-line); color: var(--paper-ink); justify-content: space-between; }
+.pq-sticker-empty .pq-sticker-no { color: var(--paper-ink); }
+.pq-sticker-q { font-family: var(--font-display); font-size: 44px; line-height: 1; font-weight: 900; color: var(--paper-line); }
+.pq-sticker-empty .pq-sticker-name { font-size: 16px; }
+
+/* Fishing-line progress */
+.pq-fishline { display: grid; gap: 4px; }
+.pq-fishline-track { position: relative; height: 30px; margin: 0 10px; }
+.pq-fishline-track::before { content: ""; position: absolute; left: 0; right: 0; top: 60%; border-top: 2px dashed var(--line-strong); }
+.pq-fishline-line { position: absolute; left: 0; top: calc(60% - 1px); height: 2px; background: var(--water); }
+.pq-fishline-bobber { position: absolute; top: 0; width: 20px; height: 30px; transform: translateX(-50%); }
+.pq-fishline-bobber svg { display: block; width: 100%; height: 100%; }
+.pq-fishline-label { margin: 0; font-size: 14px; line-height: 20px; color: var(--ink-muted); }
+
+/* Leaderboard row */
+.pq-lb-row { display: flex; align-items: center; gap: var(--space-3); padding: 10px 14px; border-radius: var(--radius-md); background: var(--surface); box-shadow: var(--shadow-card); }
+.pq-lb-me { background: var(--water-soft); }
+.pq-lb-pos { flex: none; width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; font-family: var(--font-display); font-size: 20px; font-weight: 900; color: var(--ink-muted); font-variant-numeric: tabular-nums; }
+.pq-pos-1 { background: var(--gold); color: var(--on-gold); }
+.pq-pos-2 { background: var(--podium-silver); color: var(--on-podium); }
+.pq-pos-3 { background: var(--podium-bronze); color: var(--on-podium); }
+.pq-lb-who { flex: 1; min-width: 0; display: grid; line-height: 1.3; }
+.pq-lb-name { font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pq-lb-name small { margin-left: 6px; font-size: 12px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--water); }
+.pq-lb-rank { font-size: 13px; color: var(--ink-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pq-lb-delta { flex: none; font-size: 12px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.pq-lb-delta.up { color: var(--reed); }
+.pq-lb-delta.down { color: var(--bobber-text); }
+.pq-lb-xp { flex: none; display: grid; justify-items: end; line-height: 1; }
+.pq-lb-xp b { font-family: var(--font-display); font-size: 24px; font-weight: 900; font-variant-numeric: tabular-nums; }
+.pq-lb-xp span { font-size: 11px; font-weight: 700; letter-spacing: .06em; color: var(--ink-muted); }
+
+/* Cards */
+.pq-card { background: var(--surface); color: var(--ink); border-radius: var(--radius-md); box-shadow: var(--shadow-card); overflow: hidden; }
+
+/* Catch card */
+.pq-catch { max-width: var(--content-max); }
+.pq-catch-head { display: flex; align-items: center; gap: 10px; padding: 12px 14px; }
+.pq-catch-who { flex: 1; min-width: 0; display: grid; line-height: 1.3; }
+.pq-catch-who b { font-size: 15px; }
+.pq-catch-who span { font-size: 13px; color: var(--ink-muted); }
+.pq-verified { flex: none; display: inline-flex; align-items: center; gap: 4px; font-size: 12px; font-weight: 700; color: var(--reed); }
+.pq-catch-photo { position: relative; aspect-ratio: 4 / 3; display: grid; place-items: center; background: var(--sea-shallow); color: var(--sea-deep); }
+.pq-catch-photo img { width: 100%; height: 100%; object-fit: cover; }
+.pq-catch-fish { width: 44%; height: auto; fill: currentColor; }
+.pq-catch-sticker { position: absolute; left: 12px; bottom: 12px; display: inline-flex; align-items: center; gap: 6px; padding: 6px 10px; border-radius: var(--radius-full); background: var(--gold); color: var(--on-gold); font-size: 13px; font-weight: 700; box-shadow: var(--shadow-float); }
+.pq-catch-body { display: grid; gap: 6px; padding: 12px 14px 4px; }
+.pq-catch-title { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.pq-catch-title h3 { margin: 0; font-family: var(--font-display); font-size: 24px; line-height: 28px; font-weight: 800; }
+.pq-catch-stats { margin: 0; font-weight: 700; font-variant-numeric: tabular-nums; }
+.pq-catch-place { margin: 0; display: inline-flex; align-items: center; gap: 4px; font-size: 14px; color: var(--ink-muted); }
+.pq-catch-story { margin: 0; }
+.pq-catch-actions { display: flex; gap: 4px; padding: 6px 8px 8px; }
+.pq-react { display: inline-flex; align-items: center; gap: 6px; min-height: var(--tap-min); padding: 0 10px; border: 0; border-radius: var(--radius-full); background: transparent; color: var(--ink-muted); font: inherit; font-size: 14px; cursor: pointer; }
+.pq-react b { color: var(--ink); font-variant-numeric: tabular-nums; }
+.pq-react:hover { background: var(--surface-sunken); }
+.pq-react:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+.pq-react.on, .pq-react.on b { color: var(--bobber-text); }
+.pq-react-end { margin-left: auto; }
+
+/* Challenge card */
+.pq-challenge { display: grid; gap: 8px; padding: 16px; max-width: 440px; }
+.pq-challenge-official { box-shadow: var(--shadow-card), inset 0 0 0 2px var(--gold); }
+.pq-challenge-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; }
+.pq-challenge-scope { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--water); }
+.pq-challenge h3 { margin: 0; font-family: var(--font-display); font-size: 26px; line-height: 28px; font-weight: 800; }
+.pq-challenge-rule { margin: 0; color: var(--ink-muted); }
+.pq-challenge-meta { display: flex; flex-wrap: wrap; gap: 12px; font-size: 14px; }
+.pq-challenge-meta span { display: inline-flex; align-items: center; gap: 4px; }
+.pq-challenge-me { color: var(--gold-text); font-weight: 700; }
+
+/* Promotion banner */
+.pq-promo { display: grid; justify-items: center; gap: 6px; max-width: 440px; padding: var(--space-6) var(--space-4); border-radius: var(--radius-lg); background: var(--gold-soft); color: var(--ink); text-align: center; }
+.pq-promo > .pq-ico { color: var(--gold-text); }
+.pq-promo p { margin: 0; color: var(--ink-muted); }
+.pq-promo strong { font-family: var(--font-display); font-size: 34px; line-height: 38px; font-weight: 900; }
+.pq-promo-level { font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--gold-text); }
+.pq-promo .pq-btn { margin-top: var(--space-2); }
+
+/* Bottom navigation */
+.pq-nav { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); align-items: end; max-width: 480px; padding: 6px 4px calc(6px + env(safe-area-inset-bottom, 0px)); background: var(--surface); border-top: 1px solid var(--line); }
+.pq-nav a { display: grid; justify-items: center; gap: 2px; min-height: var(--tap-min); padding: 6px 0; border-radius: var(--radius-sm); color: var(--ink-muted); font-size: 12px; line-height: 16px; font-weight: 700; text-decoration: none; }
+.pq-nav a:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+.pq-nav-item.on { color: var(--water); }
+.pq-nav-log { color: var(--ink) !important; }
+.pq-nav-log-btn { display: grid; place-items: center; width: 52px; height: 52px; margin-top: -22px; border-radius: 50%; background: var(--bobber); color: var(--on-bobber); box-shadow: var(--shadow-float); }
+
+@media (prefers-reduced-motion: reduce) {
+  .pq-btn, .pq-sticker-shine::after { transition: none; }
+  .pq-logo:hover .pq-mark g { animation: none; }
+}

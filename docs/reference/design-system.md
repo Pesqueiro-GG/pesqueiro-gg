@@ -1,6 +1,6 @@
 # Design system
 
-A summary of the Pesqueiro.GG design system for building screens. The full system, with live component previews, is the [Pesqueiro.GG Design System](https://claude.ai/artifact/8D7Dsvkz9mjkSQ2JApKXot) (team access only). The values below are what the code uses.
+A summary of the Pesqueiro.GG design system for building screens. The complete source files (every token with its usage note, the brand book, one guideline per component, and a working prototype of each component) are in [`design/`](../../design/README.md). The values below are what the code uses.
 
 ## Colors
 

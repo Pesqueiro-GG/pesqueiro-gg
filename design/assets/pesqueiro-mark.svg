@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <title>Pesqueiro.GG</title>
+  <rect width="512" height="512" rx="112" fill="#1D5E7D"/>
+  <ellipse cx="256" cy="372" rx="184" ry="42" fill="none" stroke="#63B7BD" stroke-width="12" opacity=".45"/>
+  <ellipse cx="256" cy="372" rx="120" ry="26" fill="none" stroke="#63B7BD" stroke-width="12"/>
+  <g transform="rotate(-12 256 300)">
+    <rect x="244" y="84" width="24" height="116" rx="12" fill="#F5EEDD"/>
+    <path d="M148 296a108 108 0 0 1 216 0Z" fill="#CF3727"/>
+    <path d="M148 296a108 108 0 0 0 216 0Z" fill="#F5EEDD"/>
+    <rect x="142" y="287" width="228" height="18" rx="9" fill="#14304A"/>
+    <path d="M196 246a70 70 0 0 1 42-46" fill="none" stroke="#F5EEDD" stroke-opacity=".65" stroke-width="14" stroke-linecap="round"/>
+  </g>
+</svg>

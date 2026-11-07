@@ -1,0 +1,1151 @@
+{
+  "project": {
+    "title": "Pesqueiro.GG · Hack Brasil 2026",
+    "description": "Backlog and board for the Hack Brasil 2026 build of Pesqueiro.GG: a gamified social network for recreational anglers."
+  },
+  "milestones": [
+    {
+      "id": "M0",
+      "title": "M0 · Foundations",
+      "due": "2026-11-09",
+      "description": "Pipeline from branch to Dev and production, with checks and alerts."
+    },
+    {
+      "id": "M1",
+      "title": "M1 · Accounts, groups and the catch log",
+      "due": "2026-11-13",
+      "description": "J1 and J2 without XP."
+    },
+    {
+      "id": "M2",
+      "title": "M2 · Gamification core",
+      "due": "2026-11-16",
+      "description": "Ledger, album, levels, season ranking, reward screen."
+    },
+    {
+      "id": "M3",
+      "title": "M3 · Social and challenges",
+      "due": "2026-11-18",
+      "description": "J3, J4, J5."
+    },
+    {
+      "id": "M4",
+      "title": "M4 · Beta launch with real groups",
+      "due": "2026-11-20",
+      "description": "Outside groups use production."
+    },
+    {
+      "id": "M5",
+      "title": "M5 · Should-haves and polish",
+      "due": "2026-11-25",
+      "description": "J6, J7 and what the beta asks for."
+    },
+    {
+      "id": "M6",
+      "title": "M6 · Demo, video and docs",
+      "due": "2026-11-28",
+      "description": "Jurors can understand, see and try it without help."
+    },
+    {
+      "id": "M7",
+      "title": "M7 · Freeze and submit",
+      "due": "2026-11-30",
+      "description": "Submitted by noon on 30 Nov."
+    }
+  ],
+  "labels": [
+    {
+      "name": "type: story",
+      "color": "1D6575",
+      "description": "A user-facing capability"
+    },
+    {
+      "name": "type: task",
+      "color": "4A5B6A",
+      "description": "Technical or team work without a user story"
+    },
+    {
+      "name": "ws: A platform",
+      "color": "D3EDF2",
+      "description": "Workstream A: platform and catches"
+    },
+    {
+      "name": "ws: B gamification",
+      "color": "FFF1C4",
+      "description": "Workstream B: gamification"
+    },
+    {
+      "name": "ws: C social",
+      "color": "D8F1E1",
+      "description": "Workstream C: social and experience"
+    },
+    {
+      "name": "ws: all",
+      "color": "E9EEF2",
+      "description": "Shared by the whole team"
+    },
+    {
+      "name": "must",
+      "color": "A9402F",
+      "description": "Must have for the hackathon"
+    },
+    {
+      "name": "should",
+      "color": "7E5B0C",
+      "description": "Should have, after the Musts of its milestone"
+    },
+    {
+      "name": "could",
+      "color": "54468F",
+      "description": "Could have, only with spare time"
+    },
+    {
+      "name": "privacy",
+      "color": "FFDCD4",
+      "description": "Touches location, personal data or what leaves the server"
+    }
+  ],
+  "owners": {
+    "A": [
+      "Skyerv"
+    ],
+    "B": [
+      "Kauecsilva"
+    ],
+    "C": [
+      "Guma325"
+    ],
+    "all": [
+      "Skyerv",
+      "Kauecsilva",
+      "Guma325"
+    ]
+  },
+  "fields": {
+    "Workstream": [
+      "A · Platform",
+      "B · Gamification",
+      "C · Social",
+      "All"
+    ],
+    "Priority": [
+      "Must",
+      "Should",
+      "Could"
+    ],
+    "Size": [
+      "S",
+      "M",
+      "L"
+    ],
+    "Journey": [
+      "J1",
+      "J2",
+      "J3",
+      "J4",
+      "J5",
+      "J6",
+      "J7",
+      "—"
+    ]
+  },
+  "items": [
+    {
+      "id": "T-01",
+      "type": "task",
+      "milestone": "M0",
+      "ws": "all",
+      "priority": "must",
+      "size": "S",
+      "journey": "—",
+      "title": "Repo foundations and compliance",
+      "summary": "Create the public repo with everything jurors and agents read first.",
+      "acceptance": [
+        "Repo is public, created after 4 Nov 21:00, no imported history",
+        "MIT LICENSE, README skeleton and HACKATHON_COMPLIANCE.md in the first commit",
+        "AGENTS.md is the rulebook; CLAUDE.md imports it with @AGENTS.md",
+        "docs/ holds product, architecture, gamification, data model, design system, observability and delivery"
+      ]
+    },
+    {
+      "id": "T-02",
+      "type": "task",
+      "milestone": "M0",
+      "ws": "A",
+      "priority": "must",
+      "size": "M",
+      "journey": "—",
+      "title": "App skeleton with module boundaries",
+      "summary": "Next.js app in strict TypeScript with the ten modules and a lint rule that enforces their boundaries.",
+      "acceptance": [
+        "Next.js, React and TypeScript pinned to current stable versions",
+        "src/modules/<module>/index.ts for all ten modules",
+        "Importing another module's internals fails lint",
+        "Vitest and Playwright run locally"
+      ]
+    },
+    {
+      "id": "T-03",
+      "type": "task",
+      "milestone": "M0",
+      "ws": "A",
+      "priority": "must",
+      "size": "M",
+      "journey": "—",
+      "title": "Databases, migrations and the app database account",
+      "summary": "Supabase projects per environment, Drizzle migrations, and a database account that can't edit the XP ledger.",
+      "acceptance": [
+        "Production and demo projects in the team organization; dev project in Kauê's account; local Supabase via CLI",
+        "Drizzle schema and first migration applied by a script",
+        "App connects through the transaction pooler with prepared statements off",
+        "App account bypasses row security; row security on every table with no rules",
+        "A test proves the app account can't update or delete xp_events"
+      ]
+    },
+    {
+      "id": "T-04",
+      "type": "task",
+      "milestone": "M0",
+      "ws": "A",
+      "priority": "must",
+      "size": "M",
+      "journey": "—",
+      "title": "Delivery pipeline: feature → dev → main",
+      "summary": "CI, previews, environments and branch protection.",
+      "acceptance": [
+        "GitHub Actions runs lint, types, boundaries, Vitest and Playwright against a local Supabase",
+        "dev and main are protected: pull request plus green CI",
+        "Merging into dev migrates the dev database and deploys the Dev environment",
+        "Merging into main migrates and deploys demo and production",
+        "Pull request previews use the dev database"
+      ]
+    },
+    {
+      "id": "T-05",
+      "type": "task",
+      "milestone": "M0",
+      "ws": "A",
+      "priority": "must",
+      "size": "S",
+      "journey": "—",
+      "title": "Observability base and Discord alerts",
+      "summary": "Errors, traces, logs, health checks and alert routing from day one.",
+      "labels": [
+        "privacy"
+      ],
+      "acceptance": [
+        "Sentry on server and browser; personal data off; catch request bodies scrubbed; no session replay",
+        "/api/health checks the database and returns the deployed commit",
+        "Uptime monitor on demo and production every 5 minutes",
+        "A test error reaches #alerts-dev; a stopped health check reaches #alerts",
+        "Webhook URLs live only in environment variables"
+      ]
+    },
+    {
+      "id": "T-06",
+      "type": "task",
+      "milestone": "M0",
+      "ws": "C",
+      "priority": "must",
+      "size": "M",
+      "journey": "—",
+      "title": "Design tokens and app shell",
+      "summary": "The design system's tokens, fonts and the phone shell with the bottom bar.",
+      "acceptance": [
+        "Tokens from the design system drive Tailwind; no literal colors in components",
+        "Big Shoulders Display and Atkinson Hyperlegible loaded with next/font",
+        "Bottom bar with Feed, Álbum, Registrar, Desafios, Perfil",
+        "Light and dark themes follow the device and can be switched"
+      ]
+    },
+    {
+      "id": "T-07",
+      "type": "task",
+      "milestone": "M0",
+      "ws": "C",
+      "priority": "must",
+      "size": "S",
+      "journey": "—",
+      "title": "Portuguese and English from the first screen",
+      "summary": "i18n set up so no string is ever hard-coded.",
+      "acceptance": [
+        "Messages in messages/pt-BR.json and messages/en.json",
+        "Language from the profile, else the browser",
+        "Numbers and dates follow the language; season dates use Brasília time",
+        "A CI check fails on keys missing from either file"
+      ]
+    },
+    {
+      "id": "T-08",
+      "type": "task",
+      "milestone": "M1",
+      "ws": "B",
+      "priority": "must",
+      "size": "L",
+      "journey": "—",
+      "title": "Species catalog: research and review",
+      "summary": "60–100 Brazilian species with names in both languages, rarity tier and protection status, each checked by a person.",
+      "acceptance": [
+        "Each species has scientific name, name_pt, name_en, habitat, rarity tier and protected flag",
+        "Rarity follows the rubric: range, difficulty, stocking",
+        "Protected status checked against Brazil's official threatened species list",
+        "Sources recorded; AI drafts are reviewed by a person",
+        "At least 40 reviewed species by 12 Nov"
+      ]
+    },
+    {
+      "id": "S-01",
+      "type": "story",
+      "milestone": "M1",
+      "ws": "A",
+      "priority": "must",
+      "size": "S",
+      "journey": "J1",
+      "title": "Sign in with Google",
+      "story": "As an angler invited by a friend, I want to sign in with Google, so that I can join without waiting for an email.",
+      "acceptance": [
+        "Google sign-in works on a phone browser",
+        "First sign-in leads to profile setup, then back to the invite",
+        "Session persists across visits"
+      ]
+    },
+    {
+      "id": "S-02",
+      "type": "story",
+      "milestone": "M1",
+      "ws": "A",
+      "priority": "must",
+      "size": "S",
+      "journey": "J1",
+      "title": "Sign up with email and password",
+      "story": "As an angler without a Google account, I want to sign up with my email, so that I can still join.",
+      "acceptance": [
+        "Confirmation and password-reset emails are sent through Resend",
+        "Signing up with an existing email leads to password recovery",
+        "Errors say what to do, in the person's language"
+      ]
+    },
+    {
+      "id": "S-03",
+      "type": "story",
+      "milestone": "M1",
+      "ws": "A",
+      "priority": "must",
+      "size": "M",
+      "journey": "J1",
+      "title": "Set up my profile",
+      "story": "As a new angler, I want to set my nickname, photo, home city, language and title form, so that my friends recognize me and my career title fits me.",
+      "labels": [
+        "privacy"
+      ],
+      "acceptance": [
+        "Handle is unique and lowercase",
+        "Home city is picked from the IBGE municipality list",
+        "Title form: masculine or feminine",
+        "Language choice switches the interface immediately"
+      ]
+    },
+    {
+      "id": "S-04",
+      "type": "story",
+      "milestone": "M1",
+      "ws": "C",
+      "priority": "must",
+      "size": "S",
+      "journey": "J1",
+      "title": "Create a group and invite friends",
+      "story": "As a group captain, I want to create a group and get an invite link, so that I can bring my fishing friends in from WhatsApp.",
+      "acceptance": [
+        "Creator becomes the group's admin",
+        "Invite link and code can be copied and shared",
+        "The admin can regenerate the code, which invalidates the old link"
+      ]
+    },
+    {
+      "id": "S-05",
+      "type": "story",
+      "milestone": "M1",
+      "ws": "C",
+      "priority": "must",
+      "size": "M",
+      "journey": "J1",
+      "title": "Join a group from an invite link",
+      "story": "As a friend who got a link on WhatsApp, I want to open it and land in the group, so that I can see my friends' catches right away.",
+      "acceptance": [
+        "The landing shows the group's name and who invited me",
+        "Link to joined group in under 60 seconds with Google",
+        "Opening a link while already a member goes straight to the group"
+      ]
+    },
+    {
+      "id": "S-06",
+      "type": "story",
+      "milestone": "M1",
+      "ws": "C",
+      "priority": "must",
+      "size": "S",
+      "journey": "—",
+      "title": "Leave a group or remove a member",
+      "story": "As a member, I want to leave a group, and as an admin, I want to remove a member, so that groups stay among people who fish together.",
+      "acceptance": [
+        "Leaving removes the group's feed and ranking from my view",
+        "Admins remove members but not other admins",
+        "A removed member's catches stop counting in that group's ranking"
+      ]
+    },
+    {
+      "id": "S-07",
+      "type": "story",
+      "milestone": "M1",
+      "ws": "A",
+      "priority": "must",
+      "size": "M",
+      "journey": "J2",
+      "title": "Upload catch photos safely",
+      "story": "As an angler, I want my photos uploaded fast and without hidden location data, so that sharing a catch never reveals my spot.",
+      "labels": [
+        "privacy"
+      ],
+      "acceptance": [
+        "The browser resizes to at most 2048 px before upload",
+        "The server checks the real file type and rejects anything else",
+        "Stored as WebP at 1600, 800 and 320 px under random paths",
+        "A test proves GPS metadata is gone from stored files",
+        "A perceptual hash is saved with each photo"
+      ]
+    },
+    {
+      "id": "S-08",
+      "type": "story",
+      "milestone": "M1",
+      "ws": "A",
+      "priority": "must",
+      "size": "M",
+      "journey": "J2",
+      "title": "Get a species suggestion from my photo",
+      "story": "As an angler, I want the app to suggest the species from my photo, so that logging is quick even when I'm unsure of the name.",
+      "acceptance": [
+        "Claude Haiku 5.5 answers only with species from the catalog",
+        "Shows the top suggestion with confidence and up to 3 alternatives",
+        "The result is stored per photo on the server",
+        "Daily limit per person and a monthly cap for the app",
+        "If the AI fails, I pick the species by hand"
+      ]
+    },
+    {
+      "id": "S-09",
+      "type": "story",
+      "milestone": "M1",
+      "ws": "A",
+      "priority": "must",
+      "size": "L",
+      "journey": "J2",
+      "title": "Log a catch",
+      "story": "As an angler back from a trip, I want to log a catch with its details and choose who sees it, so that it becomes a lasting record shared with the right people.",
+      "labels": [
+        "privacy"
+      ],
+      "acceptance": [
+        "Fields: species (or unknown), weight and/or length, type of water, released or kept, date, place, story",
+        "Place is a pay-to-fish lake or the city nearest to my GPS; exact coordinates stored for me only",
+        "Audience: my groups (default) and optionally public",
+        "Submitting twice with the same request ID creates one catch",
+        "Date can't be in the future"
+      ]
+    },
+    {
+      "id": "S-10",
+      "type": "story",
+      "milestone": "M2",
+      "ws": "A",
+      "priority": "must",
+      "size": "S",
+      "journey": "J2",
+      "title": "Edit or delete my catch",
+      "story": "As an angler who made a mistake, I want to edit or delete a catch, so that my record and my XP stay right.",
+      "acceptance": [
+        "Each edit raises the catch's revision and replays XP",
+        "Deleting soft-deletes the catch and reverses its XP",
+        "Only the owner can edit or delete"
+      ]
+    },
+    {
+      "id": "S-11",
+      "type": "story",
+      "milestone": "M1",
+      "ws": "C",
+      "priority": "must",
+      "size": "M",
+      "journey": "J2",
+      "title": "See my group's feed",
+      "story": "As a group member, I want a feed of my group's catches and posts, so that I keep up with my friends between trips.",
+      "labels": [
+        "privacy"
+      ],
+      "acceptance": [
+        "Goes through TimelineSource (IDs + opaque cursor) and hydratePosts",
+        "20 items per page; new posts never shift the page being read",
+        "Cards show the city, never coordinates",
+        "Feed query time is logged"
+      ]
+    },
+    {
+      "id": "S-12",
+      "type": "story",
+      "milestone": "M1",
+      "ws": "C",
+      "priority": "must",
+      "size": "S",
+      "journey": "J2",
+      "title": "Open a catch page",
+      "story": "As a friend, I want to open a catch and see its photos and story, so that I can appreciate it properly.",
+      "acceptance": [
+        "Shows all photos, species with rarity badge, facts, place and story",
+        "A catch you can't see returns 404",
+        "The owner sees the exact spot on a map; nobody else does"
+      ]
+    },
+    {
+      "id": "S-13",
+      "type": "story",
+      "milestone": "M2",
+      "ws": "B",
+      "priority": "must",
+      "size": "L",
+      "journey": "J2",
+      "title": "Earn XP for fishing",
+      "story": "As an angler, I want to earn XP for the fishing I log, so that my progress reflects variety and effort, not volume.",
+      "acceptance": [
+        "Rules: catch logged (diminishing per day), new species by tier, new type of water, milestones",
+        "Pay-to-fish lakes cap the rarity bonus at Incomum; protected species kept give no XP",
+        "Saves lock the angler's row; ledger unique on (award key, revision)",
+        "Species edited back and forth leaves correct totals",
+        "Social actions never touch the ledger"
+      ]
+    },
+    {
+      "id": "S-14",
+      "type": "story",
+      "milestone": "M2",
+      "ws": "B",
+      "priority": "must",
+      "size": "L",
+      "journey": "J2",
+      "title": "Fill my species album",
+      "story": "As an angler, I want an album where each new species fills a sticker, so that I have a reason to try new species and places.",
+      "acceptance": [
+        "Paper album page with numbered slots for every catalog species",
+        "Filled stickers show my best photo or the silhouette, with the tier",
+        "Raro and Épico stickers have the sheen; Épico has the gold edge",
+        "Empty slots show the number and name",
+        "A new sticker has the Nova flag the first time I see it"
+      ]
+    },
+    {
+      "id": "S-15",
+      "type": "story",
+      "milestone": "M2",
+      "ws": "B",
+      "priority": "must",
+      "size": "M",
+      "journey": "J2",
+      "title": "Level up through the career",
+      "story": "As an angler, I want to climb from Jovem Aprendiz to CEO dos Mares, so that my progress has a name my friends can laugh about.",
+      "acceptance": [
+        "Level n needs 50 × n × (n − 1) lifetime XP",
+        "Titles in the form chosen in my profile (masculine or feminine) and in English",
+        "Crossing a level shows the promotion banner once",
+        "Progress to the next level shows on the fishing line"
+      ]
+    },
+    {
+      "id": "S-16",
+      "type": "story",
+      "milestone": "M2",
+      "ws": "B",
+      "priority": "must",
+      "size": "M",
+      "journey": "J2",
+      "title": "See my group's season ranking",
+      "story": "As a group member, I want a season ranking for my group, so that the friendly rivalry has a scoreboard.",
+      "acceptance": [
+        "Quarterly seasons in Brasília time",
+        "Counts only XP from catches the group can see",
+        "Podium for 1–3, my row highlighted, movement since my last visit",
+        "Explains in one line why scores can differ between groups"
+      ]
+    },
+    {
+      "id": "S-17",
+      "type": "story",
+      "milestone": "M2",
+      "ws": "C",
+      "priority": "must",
+      "size": "M",
+      "journey": "J2",
+      "title": "See my rewards after logging a catch",
+      "story": "As an angler who just logged a catch, I want to see what I earned, so that logging feels like a moment, not a form.",
+      "acceptance": [
+        "Shows new sticker, XP gained and ranking change from the logCatch response",
+        "Skippable with a tap; under 1.5 s",
+        "Reduced motion shows the end state only"
+      ]
+    },
+    {
+      "id": "S-18",
+      "type": "story",
+      "milestone": "M2",
+      "ws": "C",
+      "priority": "must",
+      "size": "M",
+      "journey": "J2",
+      "title": "Get notified about progress and rivals",
+      "story": "As an angler, I want to know when I earn a sticker or level, or when someone passes me, so that I come back between trips.",
+      "acceptance": [
+        "In-app bell with unread count",
+        "Sticker and level notices are written in the save; overtaken runs right after the response",
+        "Stored as type plus data, shown in the reader's language"
+      ]
+    },
+    {
+      "id": "S-19",
+      "type": "story",
+      "milestone": "M2",
+      "ws": "B",
+      "priority": "should",
+      "size": "S",
+      "journey": "—",
+      "title": "Earn milestone badges",
+      "story": "As an angler, I want badges for firsts and milestones, so that small achievements get recognized too.",
+      "acceptance": [
+        "First catch; 5, 10, 25, 50 species; all four types of water",
+        "Shown on my profile with the date earned"
+      ]
+    },
+    {
+      "id": "S-20",
+      "type": "story",
+      "milestone": "M3",
+      "ws": "C",
+      "priority": "must",
+      "size": "S",
+      "journey": "J4",
+      "title": "React \"Fisgou\" to a catch",
+      "story": "As a friend, I want to react to a catch with one tap, so that I can cheer someone on quickly.",
+      "acceptance": [
+        "One reaction per person, toggled, with the fishing-hook icon",
+        "Updates instantly and rolls back if the server refuses",
+        "Only where I can see the post; gives no XP"
+      ]
+    },
+    {
+      "id": "S-21",
+      "type": "story",
+      "milestone": "M3",
+      "ws": "C",
+      "priority": "must",
+      "size": "S",
+      "journey": "J4",
+      "title": "Comment on a post",
+      "story": "As a friend, I want to comment on a catch or post, so that we can talk about it in the app.",
+      "acceptance": [
+        "Flat comment list, text only, links made clickable",
+        "The owner gets a notification",
+        "Authors delete their own comments; admins can hide"
+      ]
+    },
+    {
+      "id": "S-22",
+      "type": "story",
+      "milestone": "M3",
+      "ws": "C",
+      "priority": "must",
+      "size": "M",
+      "journey": "—",
+      "title": "Share a tip",
+      "story": "As an experienced angler, I want to share a tip about gear, bait, technique or a recipe, so that what I know reaches others.",
+      "acceptance": [
+        "Category with fixed colors; optional species and place",
+        "Same audience options as catches",
+        "Gives no XP"
+      ]
+    },
+    {
+      "id": "S-23",
+      "type": "story",
+      "milestone": "M3",
+      "ws": "C",
+      "priority": "must",
+      "size": "S",
+      "journey": "—",
+      "title": "Share a trip story",
+      "story": "As an angler, I want to post a story with photos about a trip, so that the experience is recorded even without a catch.",
+      "acceptance": [
+        "Text plus up to 4 photos, same pipeline as catches",
+        "Same audience options; gives no XP"
+      ]
+    },
+    {
+      "id": "S-24",
+      "type": "story",
+      "milestone": "M3",
+      "ws": "C",
+      "priority": "must",
+      "size": "S",
+      "journey": "J5",
+      "title": "Browse the public feed",
+      "story": "As an angler, I want to see public catches from other anglers, so that I discover fishing beyond my group.",
+      "acceptance": [
+        "Public posts, newest first, through TimelineSource",
+        "Hidden posts never appear"
+      ]
+    },
+    {
+      "id": "S-25",
+      "type": "story",
+      "milestone": "M3",
+      "ws": "B",
+      "priority": "must",
+      "size": "M",
+      "journey": "J5",
+      "title": "View a public profile and album",
+      "story": "As a curious angler, I want to see someone's level, album and public catches, so that I know who they are as an angler.",
+      "labels": [
+        "privacy"
+      ],
+      "acceptance": [
+        "Shows only what the viewer is allowed to see",
+        "Album shows filled and empty stickers",
+        "No home city if the person hid it"
+      ]
+    },
+    {
+      "id": "S-26",
+      "type": "story",
+      "milestone": "M3",
+      "ws": "B",
+      "priority": "must",
+      "size": "M",
+      "journey": "J3",
+      "title": "Create a group challenge",
+      "story": "As a group admin, I want to create a challenge from a template, so that our group has a goal for the month.",
+      "acceptance": [
+        "Templates: most species, heaviest, longest, species goal, most released",
+        "Filters: species, types of water, released only, dates",
+        "Every member is in automatically"
+      ]
+    },
+    {
+      "id": "S-27",
+      "type": "story",
+      "milestone": "M3",
+      "ws": "B",
+      "priority": "must",
+      "size": "M",
+      "journey": "J3",
+      "title": "Compete on a challenge leaderboard",
+      "story": "As a member, I want a live leaderboard and a final result, so that the challenge feels fair and finished.",
+      "acceptance": [
+        "Leaderboard updates as qualifying catches arrive; ties go to who logged first",
+        "Catches count up to 48 h after the end; the daily job finalizes, with a heartbeat",
+        "XP only with 3+ people scoring; at most 600 challenge XP per angler per season",
+        "Finalizing twice awards once"
+      ]
+    },
+    {
+      "id": "S-28",
+      "type": "story",
+      "milestone": "M3",
+      "ws": "C",
+      "priority": "must",
+      "size": "S",
+      "journey": "—",
+      "title": "Report a post, comment or profile",
+      "story": "As a member, I want to report something abusive, so that the community stays a good place.",
+      "acceptance": [
+        "One report per person per item, with a reason",
+        "Three reports from accounts 3+ days old with a catch hide the item until review"
+      ]
+    },
+    {
+      "id": "S-29",
+      "type": "story",
+      "milestone": "M3",
+      "ws": "A",
+      "priority": "must",
+      "size": "M",
+      "journey": "—",
+      "title": "Review reports",
+      "story": "As a platform admin, I want a queue of reported content, so that I can restore or remove it quickly.",
+      "acceptance": [
+        "List of open reports with the content and reasons",
+        "Restore or remove; every action written to moderation_actions",
+        "Group admins can remove posts from their own group"
+      ]
+    },
+    {
+      "id": "S-30",
+      "type": "story",
+      "milestone": "M3",
+      "ws": "C",
+      "priority": "must",
+      "size": "S",
+      "journey": "J4",
+      "title": "Get notified about social activity",
+      "story": "As an angler, I want to know when someone reacts, comments, follows me or joins my group, so that I can respond.",
+      "acceptance": [
+        "Reactions, comments, new followers and members joining",
+        "Bell checks on navigation and every 60 seconds while open"
+      ]
+    },
+    {
+      "id": "S-31",
+      "type": "story",
+      "milestone": "M4",
+      "ws": "A",
+      "priority": "must",
+      "size": "S",
+      "journey": "—",
+      "title": "Accept the terms and privacy notice",
+      "story": "As a new user, I want to know what's collected and agree to it, so that I trust the app with my data.",
+      "labels": [
+        "privacy"
+      ],
+      "acceptance": [
+        "Terms of Use and privacy notice in pt-BR and en",
+        "Consent recorded at sign-up with the version accepted"
+      ]
+    },
+    {
+      "id": "S-32",
+      "type": "story",
+      "milestone": "M4",
+      "ws": "A",
+      "priority": "must",
+      "size": "M",
+      "journey": "—",
+      "title": "Delete my account",
+      "story": "As a user, I want to delete my account and data, so that I stay in control of what I shared.",
+      "labels": [
+        "privacy"
+      ],
+      "acceptance": [
+        "Removes profile, catches, posts, comments, media and XP rows",
+        "XP rows go by a database cascade; a test covers it",
+        "Asks for confirmation inside the app"
+      ]
+    },
+    {
+      "id": "S-33",
+      "type": "task",
+      "milestone": "M4",
+      "ws": "A",
+      "priority": "must",
+      "size": "S",
+      "journey": "—",
+      "title": "Rate limits and AI spending cap",
+      "summary": "Protect the app and the budget before real users arrive.",
+      "acceptance": [
+        "Limits on catches, posts, comments, uploads, species ID and reports",
+        "Monthly AI cap turns species ID off at the limit; alert at 80%",
+        "Spending limit set in the Anthropic console"
+      ]
+    },
+    {
+      "id": "S-34",
+      "type": "task",
+      "milestone": "M4",
+      "ws": "A",
+      "priority": "must",
+      "size": "S",
+      "journey": "—",
+      "title": "Monitoring targets and alerts",
+      "summary": "The five targets from the system design, alerting to Discord.",
+      "acceptance": [
+        "Uptime, catch-save success, feed p95, daily job and AI spending alerts configured",
+        "Each alert tested once"
+      ]
+    },
+    {
+      "id": "S-35",
+      "type": "story",
+      "milestone": "M4",
+      "ws": "B",
+      "priority": "must",
+      "size": "S",
+      "journey": "—",
+      "title": "Impact page with totals",
+      "story": "As the team, we want totals of what anglers create, so that the pitch shows real impact without personal data.",
+      "labels": [
+        "privacy"
+      ],
+      "acceptance": [
+        "Catches, species documented, stories and tips, active groups, shared links opened",
+        "Totals only; admins only"
+      ]
+    },
+    {
+      "id": "S-36",
+      "type": "story",
+      "milestone": "M4",
+      "ws": "C",
+      "priority": "must",
+      "size": "M",
+      "journey": "J1",
+      "title": "First-run experience and empty states",
+      "story": "As someone opening the app for the first time, I want to understand what to do, so that I log my first catch.",
+      "acceptance": [
+        "Empty feed, album and ranking explain the next step",
+        "Sea moment on empty states",
+        "First catch is reachable in one tap from anywhere"
+      ]
+    },
+    {
+      "id": "S-37",
+      "type": "task",
+      "milestone": "M4",
+      "ws": "all",
+      "priority": "must",
+      "size": "M",
+      "journey": "—",
+      "title": "Beta release and invite outside groups",
+      "summary": "Release dev → main and bring in the 2–3 outside groups.",
+      "acceptance": [
+        "Release PR passes the full Playwright suite",
+        "At least one outside group has joined and logged catches",
+        "Daily triage of Sentry and feedback"
+      ]
+    },
+    {
+      "id": "S-38",
+      "type": "story",
+      "milestone": "M5",
+      "ws": "C",
+      "priority": "should",
+      "size": "M",
+      "journey": "J7",
+      "title": "Share a catch to WhatsApp with a preview",
+      "story": "As an angler proud of a catch, I want to share a link that looks good in WhatsApp, so that friends outside the app see it and join.",
+      "acceptance": [
+        "Public catch page works without login",
+        "Preview image with photo, species and sticker",
+        "Page invites the visitor to join"
+      ]
+    },
+    {
+      "id": "S-39",
+      "type": "story",
+      "milestone": "M5",
+      "ws": "B",
+      "priority": "should",
+      "size": "M",
+      "journey": "J6",
+      "title": "Enter an official public challenge",
+      "story": "As a competitive angler, I want to enter the platform's monthly challenge, so that I can compete beyond my group.",
+      "acceptance": [
+        "Join with a tap; only photo + AI matched catches count",
+        "The same photo on two accounts is flagged by the perceptual hash",
+        "Three valid reports freeze an entry until review",
+        "November and December challenges respect piracema (pay-to-fish, sea or released only)"
+      ]
+    },
+    {
+      "id": "S-40",
+      "type": "story",
+      "milestone": "M5",
+      "ws": "C",
+      "priority": "should",
+      "size": "M",
+      "journey": "J5",
+      "title": "Follow anglers and see a following feed",
+      "story": "As an angler, I want to follow people I don't know personally, so that I see their public catches.",
+      "acceptance": [
+        "One-way follow, no requests",
+        "Following feed through TimelineSource",
+        "Follow notification"
+      ]
+    },
+    {
+      "id": "S-41",
+      "type": "story",
+      "milestone": "M5",
+      "ws": "A",
+      "priority": "should",
+      "size": "S",
+      "journey": "—",
+      "title": "Install the app on my phone",
+      "story": "As a regular user, I want to add the app to my home screen, so that it opens like any other app.",
+      "acceptance": [
+        "Web app manifest with the bobber icon",
+        "Installable on Android and iPhone"
+      ]
+    },
+    {
+      "id": "S-42",
+      "type": "story",
+      "milestone": "M5",
+      "ws": "C",
+      "priority": "should",
+      "size": "M",
+      "journey": "J2",
+      "title": "Reward animation and sea moments",
+      "story": "As an angler, I want the reward moment to feel alive, so that each catch is worth celebrating.",
+      "acceptance": [
+        "Sticker drops onto the album, sheen on Raro and Épico, XP counts up",
+        "Animated sea only on reward, album, onboarding and empty states",
+        "Reduced motion respected"
+      ]
+    },
+    {
+      "id": "S-43",
+      "type": "task",
+      "milestone": "M5",
+      "ws": "all",
+      "priority": "must",
+      "size": "M",
+      "journey": "—",
+      "title": "Accessibility, performance and copy pass",
+      "summary": "Meet the non-functional targets before the demo.",
+      "acceptance": [
+        "Automated accessibility check passes on key screens",
+        "Main screen under ~2.5 s on a mid-range Android phone on 4G",
+        "English copy reviewed by someone reading it fresh",
+        "Dark theme checked on every screen"
+      ]
+    },
+    {
+      "id": "S-44",
+      "type": "task",
+      "milestone": "M6",
+      "ws": "B",
+      "priority": "must",
+      "size": "M",
+      "journey": "—",
+      "title": "Demo environment seed and reset",
+      "summary": "A believable, clearly labeled demo that can be reset before recording.",
+      "acceptance": [
+        "Invented people, two groups, a season in progress, an active challenge",
+        "Photos are the team's own or openly licensed, credited in the compliance file",
+        "scripts/reset-demo.ts restores the demo in one command",
+        "Full Playwright suite passes against the demo"
+      ]
+    },
+    {
+      "id": "S-45",
+      "type": "task",
+      "milestone": "M6",
+      "ws": "all",
+      "priority": "must",
+      "size": "M",
+      "journey": "—",
+      "title": "Record the demo video",
+      "summary": "Three minutes in English, story first, from the demo environment.",
+      "acceptance": [
+        "Follows the script on the roadmap",
+        "Under 3:00 and public without login"
+      ]
+    },
+    {
+      "id": "S-46",
+      "type": "task",
+      "milestone": "M6",
+      "ws": "all",
+      "priority": "must",
+      "size": "S",
+      "journey": "—",
+      "title": "Final README, docs and compliance",
+      "summary": "Everything a juror needs, in the repo.",
+      "acceptance": [
+        "README: what it is, demo link, demo login, video, how to run",
+        "HACKATHON_COMPLIANCE.md lists dependencies, licenses, services and asset sources",
+        "Someone outside the team follows the README to the demo"
+      ]
+    },
+    {
+      "id": "S-47",
+      "type": "task",
+      "milestone": "M7",
+      "ws": "all",
+      "priority": "must",
+      "size": "S",
+      "journey": "—",
+      "title": "Freeze, release and submit",
+      "summary": "Submitted with hours to spare.",
+      "acceptance": [
+        "Feature freeze on 29 Nov; final dev → main",
+        "Repo public, demo and video open without our logins, monitors green",
+        "Submitted by noon on 30 Nov"
+      ]
+    },
+    {
+      "id": "C-01",
+      "type": "story",
+      "milestone": null,
+      "ws": "C",
+      "priority": "could",
+      "size": "M",
+      "journey": "—",
+      "title": "Vote for the Fish of the Month",
+      "story": "As a group member, I want to nominate one fish a month and vote on others, so that great catches get recognized without XP.",
+      "acceptance": [
+        "One nomination and one vote per person per month; no voting for your own"
+      ]
+    },
+    {
+      "id": "C-02",
+      "type": "story",
+      "milestone": null,
+      "ws": "A",
+      "priority": "could",
+      "size": "M",
+      "journey": "—",
+      "title": "Get push notifications",
+      "story": "As an angler, I want notifications on my phone, so that I don't miss a reaction or a challenge result.",
+      "acceptance": [
+        "Opt-in web push; works on installed app"
+      ]
+    },
+    {
+      "id": "C-03",
+      "type": "story",
+      "milestone": null,
+      "ws": "C",
+      "priority": "could",
+      "size": "M",
+      "journey": "J5",
+      "title": "Explore fishing by state",
+      "story": "As a curious angler, I want to browse public catches by state, so that I discover fishing in other regions.",
+      "acceptance": [
+        "State filter on the public feed"
+      ]
+    },
+    {
+      "id": "C-04",
+      "type": "story",
+      "milestone": null,
+      "ws": "B",
+      "priority": "could",
+      "size": "S",
+      "journey": "—",
+      "title": "Pages for pay-to-fish lakes",
+      "story": "As an angler, I want a page per pay-to-fish lake with what was caught there, so that I can choose where to go.",
+      "acceptance": [
+        "Lake page with recent public catches and species"
+      ]
+    },
+    {
+      "id": "C-05",
+      "type": "story",
+      "milestone": null,
+      "ws": "B",
+      "priority": "could",
+      "size": "S",
+      "journey": "—",
+      "title": "Protected species notice",
+      "story": "As an angler logging a protected species, I want a short notice about it, so that I learn without being lectured.",
+      "acceptance": [
+        "Neutral notice when a protected species is logged as kept"
+      ]
+    }
+  ]
+}

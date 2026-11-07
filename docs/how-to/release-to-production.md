@@ -2,8 +2,6 @@
 
 This guide shows you how to move tested work from `dev` to demo and production.
 
-> The automated parts of this flow (migrations and deploys after a merge) arrive with the delivery pipeline ([#4](https://github.com/Pesqueiro-GG/pesqueiro-gg/issues/4)). Until then, only the pull request steps apply.
-
 ## Before you begin
 
 - Everything you're releasing is merged into `dev` and checked on the Dev environment.
@@ -16,14 +14,16 @@ This guide shows you how to move tested work from `dev` to demo and production.
 3. Get one approval from a teammate.
 4. Merge. Don't squash, so `main` keeps the same commits as `dev`.
 
-The pipeline then:
+The deploy workflow then, for production and demo separately:
 
-1. Runs migrations on the demo and production databases.
-2. Deploys both Vercel projects with the merged commit.
+1. Runs migrations on the database.
+2. Deploys the merged commit to the Vercel project.
+
+Follow it under **Actions → Deploy**. Until the demo exists, its job skips with a notice.
 
 ## Check the release
 
-1. Open `/api/health` on demo and production. Check that `commit` matches the merge commit.
+1. Open `/api/health` on demo and production. Check that `commit` matches the merge commit. (The health route arrives with [#5](https://github.com/Pesqueiro-GG/pesqueiro-gg/issues/5); until then, open the home page.)
 2. On production, sign in and open the feed and the album.
 3. Watch `#alerts` for 15 minutes.
 

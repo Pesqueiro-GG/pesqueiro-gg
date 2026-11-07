@@ -24,7 +24,10 @@ export default defineConfig({
     { name: 'desktop', use: { ...devices['Desktop Chrome'] } },
   ],
   webServer: {
-    command: `npm run build && npm run start -- --port ${PORT}`,
+    // CI builds in an earlier step, so it only starts the server here.
+    command: process.env.CI
+      ? `npm run start -- --port ${PORT}`
+      : `npm run build && npm run start -- --port ${PORT}`,
     url: `http://localhost:${PORT}`,
     reuseExistingServer: !process.env.CI,
     timeout: 180_000,

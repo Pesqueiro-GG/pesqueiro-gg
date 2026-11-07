@@ -6,3 +6,4 @@ test-results/
 design/
 package-lock.json
 **/*.md
+drizzle/

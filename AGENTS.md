@@ -12,7 +12,8 @@ Keep this section true: update it in the pull request that changes it.
 
 - **Exists:** the app skeleton (Next.js 16, TypeScript 6 strict, the ten empty modules, `src/shared/` errors, results and `authedAction`), the module-boundary lint rule, Vitest and Playwright, documentation (`docs/`), design source files (`design/`), the backlog and board script.
 - **Database:** local Supabase (Docker, ports 553xx), Drizzle migrations in `drizzle/` applied by `scripts/db/migrate.ts`, the `app_server` role and `app_enable_access()`, and `src/shared/db/client.ts` (`db()`, `withTransaction`). No application tables yet.
-- **Not yet:** deploys and CI ([#4](https://github.com/Pesqueiro-GG/pesqueiro-gg/issues/4)), login ([#9](https://github.com/Pesqueiro-GG/pesqueiro-gg/issues/9)), styling ([#6](https://github.com/Pesqueiro-GG/pesqueiro-gg/issues/6)), languages ([#7](https://github.com/Pesqueiro-GG/pesqueiro-gg/issues/7)). `authedAction` answers `UNAUTHENTICATED` until login exists, runs handlers in a transaction when built with `{ tx: true }`, and ignores `rateLimit` until #41.
+- **Delivery:** CI on every pull request (`.github/workflows/ci.yml`, job `ci`); `deploy.yml` migrates and then deploys `dev` to Dev and `main` to production (and demo, once it exists). See [Environments](docs/reference/environments.md#how-a-change-is-deployed).
+- **Not yet:** monitoring and `/api/health` ([#5](https://github.com/Pesqueiro-GG/pesqueiro-gg/issues/5)), login ([#9](https://github.com/Pesqueiro-GG/pesqueiro-gg/issues/9)), styling ([#6](https://github.com/Pesqueiro-GG/pesqueiro-gg/issues/6)), languages ([#7](https://github.com/Pesqueiro-GG/pesqueiro-gg/issues/7)). `authedAction` answers `UNAUTHENTICATED` until login exists, runs handlers in a transaction when built with `{ tx: true }`, and ignores `rateLimit` until #41.
 
 ### Commands
 

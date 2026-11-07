@@ -8,7 +8,7 @@ Branches, environments, where each one's data lives, and the environment variabl
 |---|---|---|---|---|
 | feature branches | Local | Supabase CLI in Docker, ports 553xx (so it can run next to other local Supabase projects) | — | Development |
 | pull requests | CI | Supabase CLI in GitHub Actions | Every push | Lint, types, tests, Playwright |
-| pull requests | Preview | Dev project | Every push (Vercel preview) | Clicking through a change |
+| pull requests | Preview | `pesqueiro-dev` | Every push (Vercel preview of the `pesqueiro-dev` project) | Clicking through a change |
 | `dev` | Dev | `pesqueiro-dev` (team organization) | Merge into `dev`, after migrations | Team testing before release |
 | `main` | Production | `pesqueiro-prod` (team organization) | Merge into `main`, after migrations | Real users |
 | `main` | Demo | `pesqueiro-demo`, created later (see below) | Merge into `main`, after migrations | What jurors and the video see; seeded data |
@@ -21,6 +21,33 @@ The demo environment isn't needed until the demo seed ([#52](https://github.com/
 
 All cloud resources run in the São Paulo region (Vercel `gru1`, Supabase `sa-east-1`).
 
+## How a change is deployed
+
+```
+feature branch ──PR──▶ dev ──PR + 1 approval──▶ main
+      │                 │                         │
+   CI (ci.yml)     deploy.yml (dev)          deploy.yml (production, demo)
+   + Vercel        1. migrate pesqueiro-dev  1. migrate each database
+     preview       2. deploy pesqueiro-dev   2. deploy each Vercel project
+```
+
+- **CI** (`.github/workflows/ci.yml`) runs on every pull request into `dev` or `main`: lint, format, types, unit tests, a local Supabase, migrations, integration tests, build and Playwright. Its job is named `ci`, and branch protection requires it.
+- **Deploy** (`.github/workflows/deploy.yml`) runs on every push to `dev` or `main`. For each environment it migrates the database first, then builds and deploys the same commit with the Vercel CLI. It never cancels a run halfway; a newer push waits.
+- Vercel's own Git deploys are off for `dev` and `main` (`vercel.json`), so code never reaches an environment before its migrations. Pull request previews stay on.
+- Pull request previews use the dev database, which may not have that pull request's migrations yet. A preview that needs a new migration fails until the pull request is merged into `dev`.
+
+### Vercel projects
+
+One Vercel project per environment, all on Amanda's Hobby account in region `gru1`:
+
+| Project | Environment | Deployed by | Git connected |
+|---|---|---|---|
+| `pesqueiro-dev` | Dev, plus pull request previews | `deploy.yml` on `dev` | Yes, for previews only |
+| `pesqueiro` | Production | `deploy.yml` on `main` | No |
+| `pesqueiro-demo` | Demo, created with its database | `deploy.yml` on `main` | No |
+
+Each environment deploys to its project's production domain (`<project>.vercel.app`), so it has a stable address that teammates open without a Vercel account. One project for dev and production (dev as a branch preview) was the first plan; it was dropped because Hobby has one seat and protects preview addresses with Vercel sign-in.
+
 ## Branch protection
 
 | Branch | Rules |
@@ -30,7 +57,7 @@ All cloud resources run in the São Paulo region (Vercel `gru1`, Supabase `sa-ea
 
 ## Environment variables
 
-Every variable is listed in `.env.example`. Secrets live only in Vercel and GitHub Actions settings, never in the repository.
+Every variable is listed in `.env.example`. Secrets live only in Vercel and GitHub Actions settings, never in the repository. Set the app's variables in each Vercel project's **Production** environment; for `pesqueiro-dev`, set the same values in **Preview** too, so pull request previews work.
 
 | Variable | Where | Secret | Purpose |
 |---|---|---|---|
@@ -52,14 +79,23 @@ Every variable is listed in `.env.example`. Secrets live only in Vercel and GitH
 
 ## GitHub Actions secrets
 
+The deploy workflow reads each environment's secrets from a GitHub environment (**Settings → Environments**) with the same name. Each environment holds the same three names with its own values, so a missing secret can never fall through to another environment's database.
+
+| GitHub environment | Deployment branch | Secrets |
+|---|---|---|
+| `dev` | `dev` | `DATABASE_MIGRATION_URL`, `APP_SERVER_DB_PASSWORD`, `VERCEL_PROJECT_ID` (of `pesqueiro-dev`) |
+| `production` | `main` | `DATABASE_MIGRATION_URL`, `APP_SERVER_DB_PASSWORD`, `VERCEL_PROJECT_ID` (of `pesqueiro`) |
+| `demo` | `main` | The same three, once the demo exists. Until then the environment has none, and the demo job skips with a notice. |
+
+Repository secrets, shared by every environment:
+
 | Secret | Used by |
 |---|---|
-| `DEV_DATABASE_MIGRATION_URL` | Migrations on merge into `dev` |
-| `PROD_DATABASE_MIGRATION_URL` | Migrations on merge into `main` |
-| `DEMO_DATABASE_MIGRATION_URL` | Demo migrations on merge into `main`, once the demo project exists; steps skip while it is unset |
-| `DEV_APP_SERVER_DB_PASSWORD`, `PROD_APP_SERVER_DB_PASSWORD`, `DEMO_APP_SERVER_DB_PASSWORD` | The `app_server` password `db:migrate` sets in each project |
-| `VERCEL_TOKEN`, `VERCEL_ORG_ID`, `VERCEL_PROJECT_ID`, `VERCEL_DEMO_PROJECT_ID` | Deploys after migrations |
-| `SENTRY_AUTH_TOKEN` | Source maps |
+| `VERCEL_TOKEN` | The Vercel CLI in `deploy.yml` |
+| `VERCEL_ORG_ID` | The Vercel account that owns the projects |
+| `SENTRY_AUTH_TOKEN` | Source maps (#5) |
+
+`DATABASE_MIGRATION_URL` is the session pooler string as `postgres.<project-ref>`, and `APP_SERVER_DB_PASSWORD` is the one used when the project was set up; see [Apply migrations to a cloud database](../how-to/apply-migrations-to-a-cloud-database.md).
 
 ## Monitoring per environment
 

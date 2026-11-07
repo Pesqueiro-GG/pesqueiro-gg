@@ -106,48 +106,16 @@
     }
   ],
   "owners": {
-    "A": [
-      "Skyerv"
-    ],
-    "B": [
-      "Kauecsilva"
-    ],
-    "C": [
-      "Guma325"
-    ],
-    "all": [
-      "Skyerv",
-      "Kauecsilva",
-      "Guma325"
-    ]
+    "A": ["Skyerv"],
+    "B": ["Kauecsilva"],
+    "C": ["Guma325"],
+    "all": ["Skyerv", "Kauecsilva", "Guma325"]
   },
   "fields": {
-    "Workstream": [
-      "A · Platform",
-      "B · Gamification",
-      "C · Social",
-      "All"
-    ],
-    "Priority": [
-      "Must",
-      "Should",
-      "Could"
-    ],
-    "Size": [
-      "S",
-      "M",
-      "L"
-    ],
-    "Journey": [
-      "J1",
-      "J2",
-      "J3",
-      "J4",
-      "J5",
-      "J6",
-      "J7",
-      "—"
-    ]
+    "Workstream": ["A · Platform", "B · Gamification", "C · Social", "All"],
+    "Priority": ["Must", "Should", "Could"],
+    "Size": ["S", "M", "L"],
+    "Journey": ["J1", "J2", "J3", "J4", "J5", "J6", "J7", "—"]
   },
   "items": [
     {
@@ -230,9 +198,7 @@
       "journey": "—",
       "title": "Observability base and Discord alerts",
       "summary": "Errors, traces, logs, health checks and alert routing from day one.",
-      "labels": [
-        "privacy"
-      ],
+      "labels": ["privacy"],
       "acceptance": [
         "Sentry on server and browser; personal data off; catch request bodies scrubbed; no session replay",
         "/api/health checks the database and returns the deployed commit",
@@ -335,9 +301,7 @@
       "journey": "J1",
       "title": "Set up my profile",
       "story": "As a new angler, I want to set my nickname, photo, home city, language and title form, so that my friends recognize me and my career title fits me.",
-      "labels": [
-        "privacy"
-      ],
+      "labels": ["privacy"],
       "acceptance": [
         "Handle is unique and lowercase",
         "Home city is picked from the IBGE municipality list",
@@ -403,9 +367,7 @@
       "journey": "J2",
       "title": "Upload catch photos safely",
       "story": "As an angler, I want my photos uploaded fast and without hidden location data, so that sharing a catch never reveals my spot.",
-      "labels": [
-        "privacy"
-      ],
+      "labels": ["privacy"],
       "acceptance": [
         "The browser resizes to at most 2048 px before upload",
         "The server checks the real file type and rejects anything else",
@@ -442,9 +404,7 @@
       "journey": "J2",
       "title": "Log a catch",
       "story": "As an angler back from a trip, I want to log a catch with its details and choose who sees it, so that it becomes a lasting record shared with the right people.",
-      "labels": [
-        "privacy"
-      ],
+      "labels": ["privacy"],
       "acceptance": [
         "Fields: species (or unknown), weight and/or length, type of water, released or kept, date, place, story",
         "Place is a pay-to-fish lake or the city nearest to my GPS; exact coordinates stored for me only",
@@ -479,9 +439,7 @@
       "journey": "J2",
       "title": "See my group's feed",
       "story": "As a group member, I want a feed of my group's catches and posts, so that I keep up with my friends between trips.",
-      "labels": [
-        "privacy"
-      ],
+      "labels": ["privacy"],
       "acceptance": [
         "Goes through TimelineSource (IDs + opaque cursor) and hydratePosts",
         "20 items per page; new posts never shift the page being read",
@@ -695,10 +653,7 @@
       "journey": "J5",
       "title": "Browse the public feed",
       "story": "As an angler, I want to see public catches from other anglers, so that I discover fishing beyond my group.",
-      "acceptance": [
-        "Public posts, newest first, through TimelineSource",
-        "Hidden posts never appear"
-      ]
+      "acceptance": ["Public posts, newest first, through TimelineSource", "Hidden posts never appear"]
     },
     {
       "id": "S-25",
@@ -710,9 +665,7 @@
       "journey": "J5",
       "title": "View a public profile and album",
       "story": "As a curious angler, I want to see someone's level, album and public catches, so that I know who they are as an angler.",
-      "labels": [
-        "privacy"
-      ],
+      "labels": ["privacy"],
       "acceptance": [
         "Shows only what the viewer is allowed to see",
         "Album shows filled and empty stickers",
@@ -808,9 +761,7 @@
       "journey": "—",
       "title": "Accept the terms and privacy notice",
       "story": "As a new user, I want to know what's collected and agree to it, so that I trust the app with my data.",
-      "labels": [
-        "privacy"
-      ],
+      "labels": ["privacy"],
       "acceptance": [
         "Terms of Use and privacy notice in pt-BR and en",
         "Consent recorded at sign-up with the version accepted"
@@ -826,9 +777,7 @@
       "journey": "—",
       "title": "Delete my account",
       "story": "As a user, I want to delete my account and data, so that I stay in control of what I shared.",
-      "labels": [
-        "privacy"
-      ],
+      "labels": ["privacy"],
       "acceptance": [
         "Removes profile, catches, posts, comments, media and XP rows",
         "XP rows go by a database cascade; a test covers it",
@@ -876,9 +825,7 @@
       "journey": "—",
       "title": "Impact page with totals",
       "story": "As the team, we want totals of what anglers create, so that the pitch shows real impact without personal data.",
-      "labels": [
-        "privacy"
-      ],
+      "labels": ["privacy"],
       "acceptance": [
         "Catches, species documented, stories and tips, active groups, shared links opened",
         "Totals only; admins only"
@@ -975,10 +922,7 @@
       "journey": "—",
       "title": "Install the app on my phone",
       "story": "As a regular user, I want to add the app to my home screen, so that it opens like any other app.",
-      "acceptance": [
-        "Web app manifest with the bobber icon",
-        "Installable on Android and iPhone"
-      ]
+      "acceptance": ["Web app manifest with the bobber icon", "Installable on Android and iPhone"]
     },
     {
       "id": "S-42",
@@ -1040,10 +984,7 @@
       "journey": "—",
       "title": "Record the demo video",
       "summary": "Three minutes in English, story first, from the demo environment.",
-      "acceptance": [
-        "Follows the script on the roadmap",
-        "Under 3:00 and public without login"
-      ]
+      "acceptance": ["Follows the script on the roadmap", "Under 3:00 and public without login"]
     },
     {
       "id": "S-46",
@@ -1087,9 +1028,7 @@
       "journey": "—",
       "title": "Vote for the Fish of the Month",
       "story": "As a group member, I want to nominate one fish a month and vote on others, so that great catches get recognized without XP.",
-      "acceptance": [
-        "One nomination and one vote per person per month; no voting for your own"
-      ]
+      "acceptance": ["One nomination and one vote per person per month; no voting for your own"]
     },
     {
       "id": "C-02",
@@ -1101,9 +1040,7 @@
       "journey": "—",
       "title": "Get push notifications",
       "story": "As an angler, I want notifications on my phone, so that I don't miss a reaction or a challenge result.",
-      "acceptance": [
-        "Opt-in web push; works on installed app"
-      ]
+      "acceptance": ["Opt-in web push; works on installed app"]
     },
     {
       "id": "C-03",
@@ -1115,9 +1052,7 @@
       "journey": "J5",
       "title": "Explore fishing by state",
       "story": "As a curious angler, I want to browse public catches by state, so that I discover fishing in other regions.",
-      "acceptance": [
-        "State filter on the public feed"
-      ]
+      "acceptance": ["State filter on the public feed"]
     },
     {
       "id": "C-04",
@@ -1129,9 +1064,7 @@
       "journey": "—",
       "title": "Pages for pay-to-fish lakes",
       "story": "As an angler, I want a page per pay-to-fish lake with what was caught there, so that I can choose where to go.",
-      "acceptance": [
-        "Lake page with recent public catches and species"
-      ]
+      "acceptance": ["Lake page with recent public catches and species"]
     },
     {
       "id": "C-05",
@@ -1143,9 +1076,7 @@
       "journey": "—",
       "title": "Protected species notice",
       "story": "As an angler logging a protected species, I want a short notice about it, so that I learn without being lectured.",
-      "acceptance": [
-        "Neutral notice when a protected species is logged as kept"
-      ]
+      "acceptance": ["Neutral notice when a protected species is logged as kept"]
     }
   ]
 }

@@ -30,9 +30,29 @@ Progress is tracked on the [project board](https://github.com/orgs/Pesqueiro-GG/
 
 ## Get started
 
-The application code doesn't exist yet. Setup instructions arrive with the app skeleton ([#2](https://github.com/Pesqueiro-GG/pesqueiro-gg/issues/2)) and the database setup ([#3](https://github.com/Pesqueiro-GG/pesqueiro-gg/issues/3)).
+The app skeleton runs, but it has no database or screens yet. Database setup arrives with [#3](https://github.com/Pesqueiro-GG/pesqueiro-gg/issues/3).
 
-To contribute now, read [CONTRIBUTING.md](CONTRIBUTING.md) and [Pick up a backlog item](docs/how-to/pick-up-a-backlog-item.md).
+You need [Node.js](https://nodejs.org) 22.12 or later.
+
+1. Clone the repository and install the pinned dependencies:
+
+   ```bash
+   git clone https://github.com/Pesqueiro-GG/pesqueiro-gg.git
+   cd pesqueiro-gg
+   npm ci
+   ```
+
+2. Start the app:
+
+   ```bash
+   npm run dev
+   ```
+
+3. Open http://localhost:3000.
+
+To check your changes, run `npm run lint`, `npm run typecheck` and `npm test`. Every command is listed in [AGENTS.md](AGENTS.md#commands).
+
+Before contributing, read [CONTRIBUTING.md](CONTRIBUTING.md) and [Pick up a backlog item](docs/how-to/pick-up-a-backlog-item.md).
 
 ## Documentation
 

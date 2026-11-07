@@ -10,9 +10,24 @@ Pesqueiro.GG is a gamified social network for recreational anglers in Brazil, bu
 
 Keep this section true: update it in the pull request that changes it.
 
-- **Exists:** documentation (`docs/`), design source files (`design/`), the backlog and board script (`docs/backlog/`, `scripts/board/`).
-- **Not yet:** the application. The app skeleton is [#2](https://github.com/Pesqueiro-GG/pesqueiro-gg/issues/2) (T-02) and the database setup [#3](https://github.com/Pesqueiro-GG/pesqueiro-gg/issues/3) (T-03). Don't assume any `src/` file, script or command exists until those are merged.
-- **Commands:** none yet. T-02 adds them here.
+- **Exists:** the app skeleton (Next.js 16, TypeScript 6 strict, the ten empty modules, `src/shared/` errors, results and `authedAction`), the module-boundary lint rule, Vitest and Playwright, documentation (`docs/`), design source files (`design/`), the backlog and board script.
+- **Not yet:** the database ([#3](https://github.com/Pesqueiro-GG/pesqueiro-gg/issues/3)), deploys and CI ([#4](https://github.com/Pesqueiro-GG/pesqueiro-gg/issues/4)), login ([#9](https://github.com/Pesqueiro-GG/pesqueiro-gg/issues/9)), styling ([#6](https://github.com/Pesqueiro-GG/pesqueiro-gg/issues/6)), languages ([#7](https://github.com/Pesqueiro-GG/pesqueiro-gg/issues/7)). `authedAction` answers `UNAUTHENTICATED` until login exists, and ignores `rateLimit` and `tx` until the database exists.
+
+### Commands
+
+| Command | Does |
+|---|---|
+| `npm ci` | Installs the pinned dependencies (Node 22.12 or later; see `.nvmrc`) |
+| `npm run dev` | Starts the app at http://localhost:3000 |
+| `npm run lint` | ESLint, including the module-boundary rule |
+| `npm run typecheck` | TypeScript, no output files |
+| `npm test` | Unit tests (Vitest) |
+| `npm run test:int` | Integration tests (none until #3) |
+| `npm run test:e2e` | Builds, starts the app and runs Playwright (run `npx playwright install chromium` once first) |
+| `npm run format` | Prettier on code (Markdown is left as written) |
+| `npm run build` | Production build |
+
+Next.js 16 notes: the request-intercepting file is `src/proxy.ts` (the `middleware` name is deprecated), and `next build` no longer runs the linter, so CI runs `npm run lint` itself. The version-specific Next.js docs ship in `node_modules/next/dist/docs/`; prefer them over memory.
 
 ## Open decisions
 

@@ -30,9 +30,38 @@ Progress is tracked on the [project board](https://github.com/orgs/Pesqueiro-GG/
 
 ## Get started
 
-The application code doesn't exist yet. Setup instructions arrive with the app skeleton ([#2](https://github.com/Pesqueiro-GG/pesqueiro-gg/issues/2)) and the database setup ([#3](https://github.com/Pesqueiro-GG/pesqueiro-gg/issues/3)).
+The app skeleton and its local database run, but there are no screens yet.
 
-To contribute now, read [CONTRIBUTING.md](CONTRIBUTING.md) and [Pick up a backlog item](docs/how-to/pick-up-a-backlog-item.md).
+You need [Node.js](https://nodejs.org) 22.12 or later and [Docker Desktop](https://www.docker.com/products/docker-desktop/) running.
+
+1. Clone the repository and install the pinned dependencies:
+
+   ```bash
+   git clone https://github.com/Pesqueiro-GG/pesqueiro-gg.git
+   cd pesqueiro-gg
+   npm ci
+   ```
+
+2. Start the local database and apply the migrations. The first start downloads several Docker images.
+
+   ```bash
+   npm run db:start
+   npm run db:migrate
+   ```
+
+3. Copy `.env.example` to `.env.local`. Fill in the two Supabase keys from `npm run db:status`.
+
+4. Start the app:
+
+   ```bash
+   npm run dev
+   ```
+
+5. Open http://localhost:3000.
+
+To check your changes, run `npm run lint`, `npm run typecheck`, `npm test` and `npm run test:int`. Every command is listed in [AGENTS.md](AGENTS.md#commands).
+
+Before contributing, read [CONTRIBUTING.md](CONTRIBUTING.md) and [Pick up a backlog item](docs/how-to/pick-up-a-backlog-item.md).
 
 ## Documentation
 

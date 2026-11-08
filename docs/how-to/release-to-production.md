@@ -11,15 +11,15 @@ This guide shows you how to move tested work from `dev` to demo and production.
 
 1. Open a pull request from `dev` into `main`. Title it `release: <date>` and list the items it includes.
 2. Wait for CI to pass. It runs the full Playwright suite.
-3. Get one approval from a teammate.
-4. Merge. Don't squash, so `main` keeps the same commits as `dev`.
+3. Get one approval from a teammate. If no teammate can approve (for example, nobody else has write access yet), an admin may tick **Merge without waiting for requirements to be met (bypass rules)**. Say why in the pull request.
+4. Merge with **Create a merge commit**, the only method the rules allow, so `main` keeps the same commits as `dev`.
 
 The deploy workflow then, for production and demo separately:
 
 1. Runs migrations on the database.
 2. Deploys the merged commit to the Vercel project.
 
-Follow it under **Actions → Deploy**. Until the demo exists, its job skips with a notice.
+Follow it under **Actions → Deploy**. Until the demo exists, its job skips with a notice. To deploy `main` again without a new merge (for example, after fixing a secret), use **Actions → Deploy → Run workflow** on `main`.
 
 ## Check the release
 

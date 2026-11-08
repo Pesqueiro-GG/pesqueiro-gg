@@ -1,0 +1,148 @@
+{
+  "id": "84576716-61d5-4b05-ad55-9bab61f4400b",
+  "prevId": "6b6e29b9-5cb0-47d0-ab6d-7a6579379a68",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "public.species": {
+      "name": "species",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "album_no": {
+          "name": "album_no",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "scientific_name": {
+          "name": "scientific_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "name_pt": {
+          "name": "name_pt",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "name_en": {
+          "name": "name_en",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "aliases_pt": {
+          "name": "aliases_pt",
+          "type": "text[]",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'{}'"
+        },
+        "habitat": {
+          "name": "habitat",
+          "type": "species_habitat",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "rarity_tier": {
+          "name": "rarity_tier",
+          "type": "rarity_tier",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "is_protected": {
+          "name": "is_protected",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": false
+        },
+        "protection_note_pt": {
+          "name": "protection_note_pt",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "protection_note_en": {
+          "name": "protection_note_en",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "sources": {
+          "name": "sources",
+          "type": "text[]",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "reviewed_by": {
+          "name": "reviewed_by",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "reviewed_at": {
+          "name": "reviewed_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "species_album_no_unique": {
+          "name": "species_album_no_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "album_no"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    }
+  },
+  "enums": {
+    "public.rarity_tier": {
+      "name": "rarity_tier",
+      "schema": "public",
+      "values": [
+        "comum",
+        "incomum",
+        "raro",
+        "epico"
+      ]
+    },
+    "public.species_habitat": {
+      "name": "species_habitat",
+      "schema": "public",
+      "values": [
+        "freshwater",
+        "marine",
+        "both"
+      ]
+    }
+  },
+  "schemas": {},
+  "sequences": {},
+  "roles": {},
+  "policies": {},
+  "views": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}

@@ -17,7 +17,8 @@ This guide shows you how to move tested work from `dev` to demo and production.
 The deploy workflow then, for production and demo separately:
 
 1. Runs migrations on the database.
-2. Deploys the merged commit to the Vercel project.
+2. Seeds the species catalog (`npm run db:seed:catalog`).
+3. Deploys the merged commit to the Vercel project.
 
 Follow it under **Actions → Deploy**. Until the demo exists, its job skips with a notice. To deploy `main` again without a new merge (for example, after fixing a secret), use **Actions → Deploy → Run workflow** on `main`.
 

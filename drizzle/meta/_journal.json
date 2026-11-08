@@ -8,6 +8,20 @@
       "when": 1794088533101,
       "tag": "0000_app_server_access",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1794154192144,
+      "tag": "0001_species",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1794154199334,
+      "tag": "0002_unaccent",
+      "breakpoints": true
     }
   ]
 }

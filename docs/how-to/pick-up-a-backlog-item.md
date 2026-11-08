@@ -14,6 +14,8 @@ This guide shows you how to take an item from the board and turn it into a merge
 3. Check its **Depends on** list. Every dependency must be in **Done**, unless the item explains how to stub it.
 4. Assign yourself if you aren't already, and move the item to **In Progress**.
 
+`node scripts/agent/next-item.mjs` does steps 1 to 3: it lists the items in your workstreams whose dependencies are all Done. `node scripts/agent/start-item.mjs <ID>` does step 4 and the branch below. See [Agent tooling](../reference/agent-tooling.md).
+
 ## Understand the item
 
 1. Read the whole item: story or summary, context, scope, implementation notes, acceptance criteria and tests.
@@ -43,6 +45,8 @@ The item's text lives in `docs/backlog/<milestone>.md`. If you find a mistake in
    npm test
    npm run test:int
    ```
+
+   Or run them all at once with `npm run check`, which prints only what failed.
 
 4. Commit with [Conventional Commits](https://www.conventionalcommits.org), for example `feat(logbook): log a catch with audience`.
 

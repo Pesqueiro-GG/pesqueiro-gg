@@ -14,6 +14,7 @@ Keep this section true: update it in the pull request that changes it.
 - **Database:** local Supabase (Docker, ports 553xx), Drizzle migrations in `drizzle/` applied by `scripts/db/migrate.ts`, the `app_server` role and `app_enable_access()`, and `src/shared/db/client.ts` (`db()`, `withTransaction`). No application tables yet.
 - **Delivery:** CI on every pull request (`.github/workflows/ci.yml`, job `ci`); `deploy.yml` migrates and then deploys `dev` to Dev and `main` to production (and demo, once it exists). Dev is https://pesqueiro-dev.vercel.app and production is https://pesqueirogg.vercel.app. `dev` is the default branch and is protected; see [Environments](docs/reference/environments.md#how-a-change-is-deployed).
 - **Observability:** Sentry (errors, traces, logs) with every personal data category off and a scrubber on everything sent; `log` and `withSpan` from `@/shared/observability`; `/api/health`, checked after every deploy; `/api/debug/boom` on local and dev only. See [Observability](docs/reference/observability.md).
+- **Agent tooling:** `scripts/agent/` (next item, item details, start, card status, pull request body, `npm run check`), and for Claude Code the skills, subagents and context hooks in `.claude/`. See [Agent tooling](docs/reference/agent-tooling.md).
 - **Not yet:** login ([#9](https://github.com/Pesqueiro-GG/pesqueiro-gg/issues/9)), styling ([#6](https://github.com/Pesqueiro-GG/pesqueiro-gg/issues/6)), languages ([#7](https://github.com/Pesqueiro-GG/pesqueiro-gg/issues/7)). `authedAction` answers `UNAUTHENTICATED` until login exists, runs handlers in a transaction when built with `{ tx: true }`, and ignores `rateLimit` until #41.
 
 ### Commands
@@ -31,6 +32,7 @@ Keep this section true: update it in the pull request that changes it.
 | `npm run db:check` | Confirms `DATABASE_URL` connects as `app_server` |
 | `npm run test:int` | Integration tests against the local Supabase (applies migrations first) |
 | `npm run test:e2e` | Builds, starts the app and runs Playwright (run `npx playwright install chromium` once first) |
+| `npm run check` | Lint, format, types, unit and integration tests in one run, printing only failures (`-- --quick` skips integration) |
 | `npm run format` | Prettier on code (Markdown is left as written) |
 | `npm run build` | Production build |
 

@@ -37,6 +37,7 @@ Exact descriptions of the system, kept in sync with the code.
 - [XP, levels and rarity](reference/xp-and-levels.md): rules, numbers, career titles, challenge templates.
 - [Environments](reference/environments.md): branches, environments, environment variables, secrets.
 - [Design system](reference/design-system.md): tokens, fonts, components, voice.
+- [Agent tooling](reference/agent-tooling.md): the board scripts, and the Claude Code skills, subagents and hooks.
 - [Observability](reference/observability.md): tools, targets and alerts.
 - [Glossary](reference/glossary.md): fishing, product and technical terms, including the Portuguese ones in the interface.
 

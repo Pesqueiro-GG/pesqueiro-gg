@@ -22,7 +22,8 @@
     "db:start": "supabase start",
     "db:stop": "supabase stop",
     "db:status": "supabase status",
-    "db:check": "tsx scripts/db/check-app-access.ts"
+    "db:check": "tsx scripts/db/check-app-access.ts",
+    "check": "node scripts/agent/check.mjs"
   },
   "dependencies": {
     "@sentry/nextjs": "11.9.0",

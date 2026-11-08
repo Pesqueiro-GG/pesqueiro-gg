@@ -40,20 +40,30 @@ feature branch ──PR──▶ dev ──PR + 1 approval──▶ main
 
 One Vercel project per environment, all on Amanda's Hobby account in region `gru1`:
 
-| Project | Environment | Deployed by | Git connected |
-|---|---|---|---|
-| `pesqueiro-dev` | Dev, plus pull request previews | `deploy.yml` on `dev` | Yes, for previews only |
-| `pesqueiro` | Production | `deploy.yml` on `main` | No |
-| `pesqueiro-demo` | Demo, created with its database | `deploy.yml` on `main` | No |
+| Project | Environment | Address | Deployed by | Git connected |
+|---|---|---|---|---|
+| `pesqueiro-dev` | Dev, plus pull request previews | https://pesqueiro-dev.vercel.app | `deploy.yml` on `dev` | Yes, for previews only |
+| `pesqueiro` | Production | https://pesqueirogg.vercel.app | `deploy.yml` on `main` | No |
+| `pesqueiro-demo` | Demo, created with its database | `pesqueirogg-demo.vercel.app` (planned) | `deploy.yml` on `main` | No |
 
-Each environment deploys to its project's production domain (`<project>.vercel.app`), so it has a stable address that teammates open without a Vercel account. One project for dev and production (dev as a branch preview) was the first plan; it was dropped because Hobby has one seat and protects preview addresses with Vercel sign-in.
+Each environment deploys to its project's production domain, so it has a stable address that teammates open without a Vercel account. `pesqueiro.vercel.app` belongs to someone else, so production uses `pesqueirogg.vercel.app`. With the real domain, these become `dev.<domain>`, `<domain>` and `demo.<domain>`.
+
+Every project uses the Next.js preset (`vercel.json` sets it, so projects created with `vercel project add` get it too) and Node.js 22.x, matching `.nvmrc` and CI. One project for dev and production (dev as a branch preview) was the first plan; it was dropped because Hobby has one seat and protects preview addresses with Vercel sign-in.
 
 ## Branch protection
 
 | Branch | Rules |
 |---|---|
-| `dev` | Pull request required; `ci` check must pass; no force pushes |
-| `main` | Pull request required; `ci` must pass; one approval; no force pushes; only `dev` or a hotfix branch merges in |
+Set as repository rulesets (**Settings → Rules → Rulesets**):
+
+| Branch | Rules |
+|---|---|
+| `dev` | Pull request required; `ci` (from GitHub Actions) must pass; merge commits only; no force pushes or deletion; no bypass |
+| `main` | The same, plus one approval; only `dev` or a hotfix branch merges in |
+
+On `main`, repository admins may bypass the approval **only when merging a pull request**; nobody can push to `main` directly. Use the bypass only when no teammate can approve, and say so in the pull request.
+
+`dev` is the repository's default branch until the final release (S-47), so new pull requests target it and `Closes #…` closes issues when work merges into `dev`.
 
 ## Environment variables
 
@@ -61,7 +71,7 @@ Every variable is listed in `.env.example`. Secrets live only in Vercel and GitH
 
 | Variable | Where | Secret | Purpose |
 |---|---|---|---|
-| `APP_ENV` | All | No | `local`, `dev`, `demo` or `production` |
+| `APP_ENV` | All | No | `local`, `dev`, `demo` or `production`. Read at build time: it picks the Sentry environment and sample rate, and turns `/api/debug/boom` off outside local and dev. |
 | `NEXT_PUBLIC_SUPABASE_URL` | All | No | Supabase project URL |
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | All | No | Public key, used only for login. Row-level security denies it every table. |
 | `SUPABASE_SERVICE_ROLE_KEY` | Server | Yes | Storage uploads and auth admin (account deletion) |
@@ -70,8 +80,7 @@ Every variable is listed in `.env.example`. Secrets live only in Vercel and GitH
 | `APP_SERVER_DB_PASSWORD` | CI only | Yes | Password `db:migrate` sets for the `app_server` role; must match the one in `DATABASE_URL` |
 | `ANTHROPIC_API_KEY` | Server | Yes | Species identification |
 | `AI_MONTHLY_CALL_CAP` | Server | No | Identifications allowed per month |
-| `SENTRY_DSN`, `NEXT_PUBLIC_SENTRY_DSN` | All | No | Error and trace reporting |
-| `SENTRY_AUTH_TOKEN` | CI only | Yes | Uploading source maps |
+| `NEXT_PUBLIC_SENTRY_DSN` | All | No | Where Sentry sends errors, traces and logs (one Sentry project for every environment). Without it, Sentry stays off. |
 | `CRON_SECRET` | Server | Yes | Protects `/api/cron/daily` |
 | `HEALTHCHECKS_PING_URL` | Server | Yes | Daily job heartbeat |
 | `DISCORD_ALERTS_WEBHOOK` | Server | Yes | AI spending alert |
@@ -79,23 +88,31 @@ Every variable is listed in `.env.example`. Secrets live only in Vercel and GitH
 
 ## GitHub Actions secrets
 
-The deploy workflow reads each environment's secrets from a GitHub environment (**Settings → Environments**) with the same name. Each environment holds the same three names with its own values, so a missing secret can never fall through to another environment's database.
+The deploy workflow reads each environment's secrets from a GitHub environment (**Settings → Environments**) with the same name. Each environment holds the same four names with its own values, so a missing secret can never fall through to another environment's database or project, and each environment deploys only from its branch.
 
 | GitHub environment | Deployment branch | Secrets |
 |---|---|---|
-| `dev` | `dev` | `DATABASE_MIGRATION_URL`, `APP_SERVER_DB_PASSWORD`, `VERCEL_PROJECT_ID` (of `pesqueiro-dev`) |
-| `production` | `main` | `DATABASE_MIGRATION_URL`, `APP_SERVER_DB_PASSWORD`, `VERCEL_PROJECT_ID` (of `pesqueiro`) |
-| `demo` | `main` | The same three, once the demo exists. Until then the environment has none, and the demo job skips with a notice. |
+| `dev` | `dev` | `DATABASE_MIGRATION_URL`, `APP_SERVER_DB_PASSWORD`, `VERCEL_PROJECT_ID` and `VERCEL_TOKEN` for `pesqueiro-dev` |
+| `production` | `main` | The same four, for `pesqueiro` |
+| `demo` | `main` | The same four, once the demo exists. Until then the environment has none, and the demo job skips with a notice. |
+
+`VERCEL_TOKEN` is a Vercel token limited to that environment's project (scope "project-only"), so a leaked dev token can't deploy production. Tokens last 90 days: the current ones expire in early February 2027. Replace a token before it expires, or deploys fail with an authentication error.
 
 Repository secrets, shared by every environment:
 
 | Secret | Used by |
 |---|---|
-| `VERCEL_TOKEN` | The Vercel CLI in `deploy.yml` |
-| `VERCEL_ORG_ID` | The Vercel account that owns the projects |
-| `SENTRY_AUTH_TOKEN` | Source maps (#5) |
+| `VERCEL_ORG_ID` | The Vercel account that owns the projects (`team_…`, under **Settings → General → Team ID**; not the account's slug or user ID) |
+| `SENTRY_AUTH_TOKEN` | Uploading source maps during the build in `deploy.yml`; without it the build skips the upload |
 
-`DATABASE_MIGRATION_URL` is the session pooler string as `postgres.<project-ref>`, and `APP_SERVER_DB_PASSWORD` is the one used when the project was set up; see [Apply migrations to a cloud database](../how-to/apply-migrations-to-a-cloud-database.md).
+Variables (not secrets), under **Settings → Secrets and variables → Actions → Variables**:
+
+| Variable | Level | Value |
+|---|---|---|
+| `APP_URL` | Each GitHub environment | The environment's address, such as `https://pesqueirogg.vercel.app`. After deploying, `deploy.yml` waits until `$APP_URL/api/health` answers with the new commit and `status: ok`, and fails otherwise. Without it, the check is skipped with a warning. |
+| `SENTRY_ORG`, `SENTRY_PROJECT` | Repository | The Sentry organization and project slugs, for the source map upload |
+
+`DATABASE_MIGRATION_URL` is the session pooler string as `postgres.<project-ref>`, and `APP_SERVER_DB_PASSWORD` is the one used when the project was set up; see [Apply migrations to a cloud database](../how-to/apply-migrations-to-a-cloud-database.md). To set up a whole environment, see [Set up a deploy environment](../how-to/set-up-a-deploy-environment.md).
 
 ## Monitoring per environment
 

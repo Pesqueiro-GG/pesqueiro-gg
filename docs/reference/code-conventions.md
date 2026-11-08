@@ -43,7 +43,7 @@ A lint rule (`eslint/module-boundaries.mjs`, run by `npm run lint`) fails when a
 
 ## Writes
 
-Every mutation is a server action built with `authedAction(schema, handler, options?)` from `src/shared/actions.ts`. It does the following, in order:
+Every mutation is a server action built with `authedAction(schema, handler, options?)` from `src/shared/actions.ts`, with `options.name` set to the command's name (`{ name: 'logbook.logCatch' }`). It does the following, in order:
 
 1. Applies `options.rateLimit` (`{ key, limit, windowSec }`), returning `RATE_LIMITED` when exceeded.
 2. Reads the session and passes `viewer` (`{ id, locale, isPlatformAdmin }`) to the handler, or returns `UNAUTHENTICATED`.
@@ -109,9 +109,12 @@ These never break. Reviewers reject any pull request that does.
 
 ## Observability
 
-- Commands get spans automatically through `authedAction`.
-- Log meaningful events with `log.info('<module>.<event>', { userId, … })`.
-- Never log personal data. The scrubber removes known keys, but don't rely on it.
+Import from `@/shared/observability`:
+
+- Commands get spans automatically through `authedAction` (named by `options.name`). Wrap other meaningful work, such as a feed page or a query, in `withSpan('<module>.<operation>', fn)`.
+- Log meaningful events with `log.info|warn|error('<module>.<event>', { userId, … })`. Logs go to Sentry, linked to the current trace, and to the console.
+- Errors thrown in route handlers, Server Components and server actions reach Sentry on their own. Don't catch them only to log them.
+- Never log personal data. The scrubber removes known keys and email addresses, but don't rely on it.
 
 ## Tests
 

@@ -31,7 +31,7 @@ jobs:
       cancel-in-progress: false
     environment:
       name: ${{ matrix.environment }}
-      url: ${{ steps.deploy.outputs.url }}
+      url: ${{ vars.APP_URL || steps.deploy.outputs.url }}
     # Each GitHub environment (dev, production, demo) holds its own copy of these secrets.
     env:
       DATABASE_MIGRATION_URL: ${{ secrets.DATABASE_MIGRATION_URL }}
@@ -78,6 +78,10 @@ jobs:
         if: steps.check.outputs.ready == 'true'
         env:
           APP_COMMIT_SHA: ${{ github.sha }}
+          # Source maps go to Sentry when the token is set; the build skips the upload otherwise.
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: ${{ vars.SENTRY_ORG }}
+          SENTRY_PROJECT: ${{ vars.SENTRY_PROJECT }}
         run: npx --yes "$VERCEL_CLI" build --prod --token="$VERCEL_TOKEN"
 
       - name: Deploy
@@ -87,3 +91,32 @@ jobs:
           url=$(npx --yes "$VERCEL_CLI" deploy --prebuilt --prod --token="$VERCEL_TOKEN")
           echo "url=$url" >> "$GITHUB_OUTPUT"
           echo "Deployed ${{ github.sha }} to ${{ matrix.environment }}: $url" >> "$GITHUB_STEP_SUMMARY"
+
+      # The environment's address (GitHub environment variable APP_URL) must answer /api/health
+      # with this commit and status ok. A 503 means the app can't reach its database.
+      - name: Check the live site serves this commit
+        if: steps.check.outputs.ready == 'true'
+        env:
+          APP_URL: ${{ vars.APP_URL }}
+        run: |
+          if [ -z "$APP_URL" ]; then
+            echo "::warning::APP_URL isn't set for ${{ matrix.environment }}; skipping the health check."
+            exit 0
+          fi
+          for attempt in $(seq 1 18); do
+            body=$(curl -s --max-time 10 "$APP_URL/api/health" || true)
+            commit=$(echo "$body" | jq -r '.commit // empty' 2>/dev/null || true)
+            status=$(echo "$body" | jq -r '.status // empty' 2>/dev/null || true)
+            if [ "$commit" = "$GITHUB_SHA" ]; then
+              if [ "$status" = "ok" ]; then
+                echo "$APP_URL serves $GITHUB_SHA and its database answers." >> "$GITHUB_STEP_SUMMARY"
+                exit 0
+              fi
+              echo "::error::$APP_URL serves this commit, but /api/health says '$status'. Check DATABASE_URL in the Vercel project."
+              exit 1
+            fi
+            echo "Waiting for $APP_URL: live commit is '${commit:-unknown}' ($attempt/18)"
+            sleep 10
+          done
+          echo "::error::$APP_URL didn't serve $GITHUB_SHA within 3 minutes."
+          exit 1

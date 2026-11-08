@@ -107,8 +107,8 @@
   ],
   "owners": {
     "A": ["Skyerv"],
-    "B": ["Kauecsilva"],
-    "C": ["Guma325"],
+    "B": ["Guma325"],
+    "C": ["Kauecsilva"],
     "all": ["Skyerv", "Kauecsilva", "Guma325"]
   },
   "fields": {
@@ -537,7 +537,7 @@
       "id": "S-17",
       "type": "story",
       "milestone": "M2",
-      "ws": "C",
+      "ws": "B",
       "priority": "must",
       "size": "M",
       "journey": "J2",
@@ -928,7 +928,7 @@
       "id": "S-42",
       "type": "story",
       "milestone": "M5",
-      "ws": "C",
+      "ws": "B",
       "priority": "should",
       "size": "M",
       "journey": "J2",

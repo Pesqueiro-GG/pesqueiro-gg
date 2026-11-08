@@ -80,8 +80,8 @@ The [documentation](docs/README.md) follows the [Diátaxis](https://diataxis.fr)
 ## Maintainers
 
 - [Amanda](https://github.com/Skyerv): platform and catches
-- [Kauê](https://github.com/Kauecsilva): gamification
-- [Guma](https://github.com/Guma325): social and experience
+- [Guma](https://github.com/Guma325): gamification
+- [Kauê](https://github.com/Kauecsilva): social and experience
 
 ## Hackathon compliance
 

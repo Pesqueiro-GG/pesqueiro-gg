@@ -26,7 +26,8 @@ Never paste passwords, tokens or connection strings into issues, pull requests o
 2. In the Vercel dashboard, open the project and go to **Settings → Build and Deployment**. Set **Node.js Version** to **22.x**.
 3. In **Settings → Domains**, add the environment's address (for example `pesqueirogg-demo.vercel.app`) and connect it to **Production**. If Vercel says it's taken, pick another and update [Environments](../reference/environments.md#vercel-projects).
 4. In **Settings → Environment Variables**, add the app's variables for **Production**, as listed in [Environments](../reference/environments.md#environment-variables).
-5. In **Settings → General**, copy the **Project ID** (`prj_…`).
+5. In **Settings → Git**, check that no repository is connected. If one is, choose **Disconnect**. Only `pesqueiro-dev` is connected, for pull request previews; a connected demo or production project would build pull request code with its own variables.
+6. In **Settings → General**, copy the **Project ID** (`prj_…`).
 
 ## Create a token for the project
 

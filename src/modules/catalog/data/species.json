@@ -517,8 +517,30 @@
     "reviewed_at": null
   },
   {
-    "id": "curimbata",
+    "id": "pirarara",
     "album_no": 25,
+    "family": "Pimelodidae",
+    "scientific_name": "Phractocephalus hemioliptherus",
+    "name_pt": "Pirarara",
+    "name_en": "Redtail catfish",
+    "aliases_pt": [],
+    "habitat": "freshwater",
+    "rubric": {
+      "range": 1,
+      "difficulty": 2,
+      "stocking": -1
+    },
+    "is_protected": false,
+    "protection_note_pt": null,
+    "protection_note_en": null,
+    "sources": ["FishBase: https://www.fishbase.se/summary/Phractocephalus-hemioliptherus.html"],
+    "reviewed_by": null,
+    "reviewed_at": null,
+    "review_notes": "Pontuação estimada (peixe de pesque-pague e de rio amazônico). O revisor deve confirmar alcance, dificuldade e a marcação de espécie estocada."
+  },
+  {
+    "id": "curimbata",
+    "album_no": 26,
     "family": "Prochilodontidae",
     "scientific_name": "Prochilodus lineatus",
     "name_pt": "Curimbatá",
@@ -539,7 +561,7 @@
   },
   {
     "id": "pacu",
-    "album_no": 26,
+    "album_no": 27,
     "family": "Serrasalmidae",
     "scientific_name": "Piaractus mesopotamicus",
     "name_pt": "Pacu",
@@ -560,7 +582,7 @@
   },
   {
     "id": "piranha-preta",
-    "album_no": 27,
+    "album_no": 28,
     "family": "Serrasalmidae",
     "scientific_name": "Serrasalmus rhombeus",
     "name_pt": "Piranha-preta",
@@ -581,7 +603,7 @@
   },
   {
     "id": "piranha-vermelha",
-    "album_no": 28,
+    "album_no": 29,
     "family": "Serrasalmidae",
     "scientific_name": "Pygocentrus nattereri",
     "name_pt": "Piranha-vermelha",
@@ -602,7 +624,7 @@
   },
   {
     "id": "pirapitinga",
-    "album_no": 29,
+    "album_no": 30,
     "family": "Serrasalmidae",
     "scientific_name": "Piaractus brachypomus",
     "name_pt": "Pirapitinga",
@@ -623,7 +645,7 @@
   },
   {
     "id": "tambaqui",
-    "album_no": 30,
+    "album_no": 31,
     "family": "Serrasalmidae",
     "scientific_name": "Colossoma macropomum",
     "name_pt": "Tambaqui",
@@ -644,7 +666,7 @@
   },
   {
     "id": "xareu",
-    "album_no": 31,
+    "album_no": 32,
     "family": "Carangidae",
     "scientific_name": "Caranx hippos",
     "name_pt": "Xaréu",
@@ -665,7 +687,7 @@
   },
   {
     "id": "dourado-do-mar",
-    "album_no": 32,
+    "album_no": 33,
     "family": "Coryphaenidae",
     "scientific_name": "Coryphaena hippurus",
     "name_pt": "Dourado-do-mar",
@@ -686,7 +708,7 @@
   },
   {
     "id": "garoupa-verdadeira",
-    "album_no": 33,
+    "album_no": 34,
     "family": "Epinephelidae",
     "scientific_name": "Epinephelus marginatus",
     "name_pt": "Garoupa-verdadeira",
@@ -711,7 +733,7 @@
   },
   {
     "id": "mero",
-    "album_no": 34,
+    "album_no": 35,
     "family": "Epinephelidae",
     "scientific_name": "Epinephelus itajara",
     "name_pt": "Mero",
@@ -736,7 +758,7 @@
   },
   {
     "id": "enchova",
-    "album_no": 35,
+    "album_no": 36,
     "family": "Pomatomidae",
     "scientific_name": "Pomatomus saltatrix",
     "name_pt": "Enchova",
@@ -757,7 +779,7 @@
   },
   {
     "id": "sororoca",
-    "album_no": 36,
+    "album_no": 37,
     "family": "Scombridae",
     "scientific_name": "Scomberomorus brasiliensis",
     "name_pt": "Sororoca",
@@ -778,7 +800,7 @@
   },
   {
     "id": "badejo",
-    "album_no": 37,
+    "album_no": 38,
     "family": "Serranidae",
     "scientific_name": "Mycteroperca bonaci",
     "name_pt": "Badejo",
@@ -800,7 +822,7 @@
   },
   {
     "id": "robalo-flecha",
-    "album_no": 38,
+    "album_no": 39,
     "family": "Centropomidae",
     "scientific_name": "Centropomus undecimalis",
     "name_pt": "Robalo-flecha",
@@ -821,7 +843,7 @@
   },
   {
     "id": "robalo-peva",
-    "album_no": 39,
+    "album_no": 40,
     "family": "Centropomidae",
     "scientific_name": "Centropomus parallelus",
     "name_pt": "Robalo-peva",
@@ -842,7 +864,7 @@
   },
   {
     "id": "camurupim",
-    "album_no": 40,
+    "album_no": 41,
     "family": "Megalopidae",
     "scientific_name": "Megalops atlanticus",
     "name_pt": "Camurupim",
@@ -863,7 +885,7 @@
   },
   {
     "id": "tainha",
-    "album_no": 41,
+    "album_no": 42,
     "family": "Mugilidae",
     "scientific_name": "Mugil liza",
     "name_pt": "Tainha",
@@ -884,7 +906,7 @@
   },
   {
     "id": "corvina",
-    "album_no": 42,
+    "album_no": 43,
     "family": "Sciaenidae",
     "scientific_name": "Micropogonias furnieri",
     "name_pt": "Corvina",

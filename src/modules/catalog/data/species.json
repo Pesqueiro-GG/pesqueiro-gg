@@ -17,8 +17,8 @@
     "protection_note_pt": null,
     "protection_note_en": null,
     "sources": ["FishBase: https://www.fishbase.se/summary/Megaleporinus-obtusidens.html"],
-    "reviewed_by": null,
-    "reviewed_at": null
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
   },
   {
     "id": "piau-tres-pintas",
@@ -38,8 +38,8 @@
     "protection_note_pt": null,
     "protection_note_en": null,
     "sources": ["FishBase: https://www.fishbase.se/summary/Leporinus-friderici.html"],
-    "reviewed_by": null,
-    "reviewed_at": null
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
   },
   {
     "id": "pirarucu",
@@ -62,8 +62,8 @@
       "FishBase: https://www.fishbase.se/summary/Arapaima-gigas.html",
       "MMA, Portaria MMA nº 148/2022 (Lista Nacional de Espécies Ameaçadas de Extinção)"
     ],
-    "reviewed_by": null,
-    "reviewed_at": null,
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08",
     "review_notes": "Pesca regulada (manejo e período de defeso). Confirmar enquadramento antes de aprovar."
   },
   {
@@ -84,8 +84,8 @@
     "protection_note_pt": null,
     "protection_note_en": null,
     "sources": ["FishBase: https://www.fishbase.se/summary/Brycon-amazonicus.html"],
-    "reviewed_by": null,
-    "reviewed_at": null
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
   },
   {
     "id": "piracanjuba",
@@ -108,8 +108,8 @@
       "FishBase: https://www.fishbase.se/summary/Brycon-orbignyanus.html",
       "MMA, Portaria MMA nº 148/2022 (Lista Nacional de Espécies Ameaçadas de Extinção)"
     ],
-    "reviewed_by": null,
-    "reviewed_at": null,
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08",
     "review_notes": "Confirmar na Portaria MMA 148/2022 antes de aprovar."
   },
   {
@@ -130,8 +130,8 @@
     "protection_note_pt": null,
     "protection_note_en": null,
     "sources": ["FishBase: https://www.fishbase.se/summary/Brycon-hilarii.html"],
-    "reviewed_by": null,
-    "reviewed_at": null
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
   },
   {
     "id": "dourado",
@@ -151,8 +151,8 @@
     "protection_note_pt": null,
     "protection_note_en": null,
     "sources": ["FishBase: https://www.fishbase.se/summary/Salminus-brasiliensis.html"],
-    "reviewed_by": null,
-    "reviewed_at": null
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
   },
   {
     "id": "lambari-do-rabo-amarelo",
@@ -172,8 +172,8 @@
     "protection_note_pt": null,
     "protection_note_en": null,
     "sources": ["FishBase: https://www.fishbase.se/summary/Astyanax-lacustris.html"],
-    "reviewed_by": null,
-    "reviewed_at": null
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
   },
   {
     "id": "tilapia-do-nilo",
@@ -193,8 +193,8 @@
     "protection_note_pt": null,
     "protection_note_en": null,
     "sources": ["FishBase: https://www.fishbase.se/summary/Oreochromis-niloticus.html"],
-    "reviewed_by": null,
-    "reviewed_at": null
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
   },
   {
     "id": "tucunare-acu",
@@ -214,8 +214,8 @@
     "protection_note_pt": null,
     "protection_note_en": null,
     "sources": ["FishBase: https://www.fishbase.se/summary/Cichla-temensis.html"],
-    "reviewed_by": null,
-    "reviewed_at": null
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
   },
   {
     "id": "tucunare-amarelo",
@@ -235,8 +235,8 @@
     "protection_note_pt": null,
     "protection_note_en": null,
     "sources": ["FishBase: https://www.fishbase.se/summary/Cichla-kelberi.html"],
-    "reviewed_by": null,
-    "reviewed_at": null
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
   },
   {
     "id": "tucunare-azul",
@@ -256,8 +256,8 @@
     "protection_note_pt": null,
     "protection_note_en": null,
     "sources": ["FishBase: https://www.fishbase.se/summary/Cichla-piquiti.html"],
-    "reviewed_by": null,
-    "reviewed_at": null
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
   },
   {
     "id": "tucunare-pinima",
@@ -277,8 +277,8 @@
     "protection_note_pt": null,
     "protection_note_en": null,
     "sources": ["FishBase: https://www.fishbase.se/summary/Cichla-pinima.html"],
-    "reviewed_by": null,
-    "reviewed_at": null
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
   },
   {
     "id": "bagre-africano",
@@ -298,8 +298,8 @@
     "protection_note_pt": null,
     "protection_note_en": null,
     "sources": ["FishBase: https://www.fishbase.se/summary/Clarias-gariepinus.html"],
-    "reviewed_by": null,
-    "reviewed_at": null
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
   },
   {
     "id": "peixe-cachorro",
@@ -319,8 +319,8 @@
     "protection_note_pt": null,
     "protection_note_en": null,
     "sources": ["FishBase: https://www.fishbase.se/summary/Hydrolycus-scomberoides.html"],
-    "reviewed_by": null,
-    "reviewed_at": null
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
   },
   {
     "id": "carpa-comum",
@@ -340,8 +340,8 @@
     "protection_note_pt": null,
     "protection_note_en": null,
     "sources": ["FishBase: https://www.fishbase.se/summary/Cyprinus-carpio.html"],
-    "reviewed_by": null,
-    "reviewed_at": null
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
   },
   {
     "id": "traira",
@@ -361,8 +361,8 @@
     "protection_note_pt": null,
     "protection_note_en": null,
     "sources": ["FishBase: https://www.fishbase.se/summary/Hoplias-malabaricus.html"],
-    "reviewed_by": null,
-    "reviewed_at": null
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
   },
   {
     "id": "aruana",
@@ -382,8 +382,8 @@
     "protection_note_pt": null,
     "protection_note_en": null,
     "sources": ["FishBase: https://www.fishbase.se/summary/Osteoglossum-bicirrhosum.html"],
-    "reviewed_by": null,
-    "reviewed_at": null
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
   },
   {
     "id": "cachara",
@@ -403,8 +403,8 @@
     "protection_note_pt": null,
     "protection_note_en": null,
     "sources": ["FishBase: https://www.fishbase.se/summary/Pseudoplatystoma-reticulatum.html"],
-    "reviewed_by": null,
-    "reviewed_at": null
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
   },
   {
     "id": "dourada",
@@ -424,8 +424,8 @@
     "protection_note_pt": null,
     "protection_note_en": null,
     "sources": ["FishBase: https://www.fishbase.se/summary/Brachyplatystoma-rousseauxii.html"],
-    "reviewed_by": null,
-    "reviewed_at": null
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
   },
   {
     "id": "jau",
@@ -448,8 +448,8 @@
       "FishBase: https://www.fishbase.se/summary/Zungaro-jahu.html",
       "MMA, Portaria MMA nº 148/2022 (Lista Nacional de Espécies Ameaçadas de Extinção)"
     ],
-    "reviewed_by": null,
-    "reviewed_at": null,
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08",
     "review_notes": "Confirmar na Portaria MMA 148/2022 antes de aprovar."
   },
   {
@@ -470,8 +470,8 @@
     "protection_note_pt": null,
     "protection_note_en": null,
     "sources": ["FishBase: https://www.fishbase.se/summary/Pimelodus-maculatus.html"],
-    "reviewed_by": null,
-    "reviewed_at": null
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
   },
   {
     "id": "pintado",
@@ -491,8 +491,8 @@
     "protection_note_pt": null,
     "protection_note_en": null,
     "sources": ["FishBase: https://www.fishbase.se/summary/Pseudoplatystoma-corruscans.html"],
-    "reviewed_by": null,
-    "reviewed_at": null,
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08",
     "review_notes": "Pontuação definida para que o pintado de pesque-pague seja Raro (exemplo da história S-13). O revisor deve confirmar alcance 2 e dificuldade 2, ou o exemplo muda."
   },
   {
@@ -513,8 +513,8 @@
     "protection_note_pt": null,
     "protection_note_en": null,
     "sources": ["FishBase: https://www.fishbase.se/summary/Brachyplatystoma-filamentosum.html"],
-    "reviewed_by": null,
-    "reviewed_at": null
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
   },
   {
     "id": "pirarara",
@@ -534,8 +534,8 @@
     "protection_note_pt": null,
     "protection_note_en": null,
     "sources": ["FishBase: https://www.fishbase.se/summary/Phractocephalus-hemioliptherus.html"],
-    "reviewed_by": null,
-    "reviewed_at": null,
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08",
     "review_notes": "Pontuação estimada (peixe de pesque-pague e de rio amazônico). O revisor deve confirmar alcance, dificuldade e a marcação de espécie estocada."
   },
   {
@@ -556,8 +556,8 @@
     "protection_note_pt": null,
     "protection_note_en": null,
     "sources": ["FishBase: https://www.fishbase.se/summary/Prochilodus-lineatus.html"],
-    "reviewed_by": null,
-    "reviewed_at": null
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
   },
   {
     "id": "pacu",
@@ -577,8 +577,8 @@
     "protection_note_pt": null,
     "protection_note_en": null,
     "sources": ["FishBase: https://www.fishbase.se/summary/Piaractus-mesopotamicus.html"],
-    "reviewed_by": null,
-    "reviewed_at": null
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
   },
   {
     "id": "piranha-preta",
@@ -598,8 +598,8 @@
     "protection_note_pt": null,
     "protection_note_en": null,
     "sources": ["FishBase: https://www.fishbase.se/summary/Serrasalmus-rhombeus.html"],
-    "reviewed_by": null,
-    "reviewed_at": null
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
   },
   {
     "id": "piranha-vermelha",
@@ -619,8 +619,8 @@
     "protection_note_pt": null,
     "protection_note_en": null,
     "sources": ["FishBase: https://www.fishbase.se/summary/Pygocentrus-nattereri.html"],
-    "reviewed_by": null,
-    "reviewed_at": null
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
   },
   {
     "id": "pirapitinga",
@@ -640,8 +640,8 @@
     "protection_note_pt": null,
     "protection_note_en": null,
     "sources": ["FishBase: https://www.fishbase.se/summary/Piaractus-brachypomus.html"],
-    "reviewed_by": null,
-    "reviewed_at": null
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
   },
   {
     "id": "tambaqui",
@@ -661,8 +661,8 @@
     "protection_note_pt": null,
     "protection_note_en": null,
     "sources": ["FishBase: https://www.fishbase.se/summary/Colossoma-macropomum.html"],
-    "reviewed_by": null,
-    "reviewed_at": null
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
   },
   {
     "id": "xareu",
@@ -682,8 +682,8 @@
     "protection_note_pt": null,
     "protection_note_en": null,
     "sources": ["FishBase: https://www.fishbase.se/summary/Caranx-hippos.html"],
-    "reviewed_by": null,
-    "reviewed_at": null
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
   },
   {
     "id": "dourado-do-mar",
@@ -703,8 +703,8 @@
     "protection_note_pt": null,
     "protection_note_en": null,
     "sources": ["FishBase: https://www.fishbase.se/summary/Coryphaena-hippurus.html"],
-    "reviewed_by": null,
-    "reviewed_at": null
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
   },
   {
     "id": "garoupa-verdadeira",
@@ -727,8 +727,8 @@
       "FishBase: https://www.fishbase.se/summary/Epinephelus-marginatus.html",
       "MMA, Portaria MMA nº 148/2022 (Lista Nacional de Espécies Ameaçadas de Extinção)"
     ],
-    "reviewed_by": null,
-    "reviewed_at": null,
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08",
     "review_notes": "Confirmar na Portaria MMA 148/2022 antes de aprovar."
   },
   {
@@ -752,8 +752,8 @@
       "FishBase: https://www.fishbase.se/summary/Epinephelus-itajara.html",
       "MMA, Portaria MMA nº 148/2022 (Lista Nacional de Espécies Ameaçadas de Extinção)"
     ],
-    "reviewed_by": null,
-    "reviewed_at": null,
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08",
     "review_notes": "Pesca proibida por moratória no Brasil. Confirmar a norma vigente."
   },
   {
@@ -774,8 +774,8 @@
     "protection_note_pt": null,
     "protection_note_en": null,
     "sources": ["FishBase: https://www.fishbase.se/summary/Pomatomus-saltatrix.html"],
-    "reviewed_by": null,
-    "reviewed_at": null
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
   },
   {
     "id": "sororoca",
@@ -795,8 +795,8 @@
     "protection_note_pt": null,
     "protection_note_en": null,
     "sources": ["FishBase: https://www.fishbase.se/summary/Scomberomorus-brasiliensis.html"],
-    "reviewed_by": null,
-    "reviewed_at": null
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
   },
   {
     "id": "badejo",
@@ -816,8 +816,8 @@
     "protection_note_pt": null,
     "protection_note_en": null,
     "sources": ["FishBase: https://www.fishbase.se/summary/Mycteroperca-bonaci.html"],
-    "reviewed_by": null,
-    "reviewed_at": null,
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08",
     "review_notes": "Verificar se consta na lista de ameaçadas."
   },
   {
@@ -838,8 +838,8 @@
     "protection_note_pt": null,
     "protection_note_en": null,
     "sources": ["FishBase: https://www.fishbase.se/summary/Centropomus-undecimalis.html"],
-    "reviewed_by": null,
-    "reviewed_at": null
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
   },
   {
     "id": "robalo-peva",
@@ -859,8 +859,8 @@
     "protection_note_pt": null,
     "protection_note_en": null,
     "sources": ["FishBase: https://www.fishbase.se/summary/Centropomus-parallelus.html"],
-    "reviewed_by": null,
-    "reviewed_at": null
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
   },
   {
     "id": "camurupim",
@@ -880,8 +880,8 @@
     "protection_note_pt": null,
     "protection_note_en": null,
     "sources": ["FishBase: https://www.fishbase.se/summary/Megalops-atlanticus.html"],
-    "reviewed_by": null,
-    "reviewed_at": null
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
   },
   {
     "id": "tainha",
@@ -901,8 +901,8 @@
     "protection_note_pt": null,
     "protection_note_en": null,
     "sources": ["FishBase: https://www.fishbase.se/summary/Mugil-liza.html"],
-    "reviewed_by": null,
-    "reviewed_at": null
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
   },
   {
     "id": "corvina",
@@ -922,7 +922,7 @@
     "protection_note_pt": null,
     "protection_note_en": null,
     "sources": ["FishBase: https://www.fishbase.se/summary/Micropogonias-furnieri.html"],
-    "reviewed_by": null,
-    "reviewed_at": null
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
   }
 ]

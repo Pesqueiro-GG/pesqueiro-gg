@@ -16,6 +16,20 @@ describe('scrub', () => {
     })
   })
 
+  it('removes dotted attribute names that end in a sensitive key', () => {
+    expect(
+      scrub({
+        'user.id': 'u1',
+        'user.email': 'x@y.z',
+        'user.ip_address': '1.2.3.4',
+        'client.address': '1.2.3.4',
+        'http.request.header.cookie': 'session=abc',
+        'url.query': 'lat=-23.1',
+        'http.request.method': 'GET',
+      }),
+    ).toEqual({ 'user.id': 'u1', 'http.request.method': 'GET' })
+  })
+
   it('leaves file paths with @ alone', () => {
     const path = '/var/task/node_modules/@sentry/core/build/index.js'
     expect(scrub({ filename: path })).toEqual({ filename: path })

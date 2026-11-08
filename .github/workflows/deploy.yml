@@ -103,20 +103,24 @@ jobs:
             echo "::warning::APP_URL isn't set for ${{ matrix.environment }}; skipping the health check."
             exit 0
           fi
+          # A fresh deployment's first database connection can miss the 2-second limit (cold start),
+          # so "degraded" only fails the job if it lasts the whole 3 minutes.
+          commit=""
+          status=""
           for attempt in $(seq 1 18); do
             body=$(curl -s --max-time 10 "$APP_URL/api/health" || true)
             commit=$(echo "$body" | jq -r '.commit // empty' 2>/dev/null || true)
             status=$(echo "$body" | jq -r '.status // empty' 2>/dev/null || true)
-            if [ "$commit" = "$GITHUB_SHA" ]; then
-              if [ "$status" = "ok" ]; then
-                echo "$APP_URL serves $GITHUB_SHA and its database answers." >> "$GITHUB_STEP_SUMMARY"
-                exit 0
-              fi
-              echo "::error::$APP_URL serves this commit, but /api/health says '$status'. Check DATABASE_URL in the Vercel project."
-              exit 1
+            if [ "$commit" = "$GITHUB_SHA" ] && [ "$status" = "ok" ]; then
+              echo "$APP_URL serves $GITHUB_SHA and its database answers." >> "$GITHUB_STEP_SUMMARY"
+              exit 0
             fi
-            echo "Waiting for $APP_URL: live commit is '${commit:-unknown}' ($attempt/18)"
+            echo "Waiting for $APP_URL: commit '${commit:-unknown}', status '${status:-unknown}' ($attempt/18)"
             sleep 10
           done
-          echo "::error::$APP_URL didn't serve $GITHUB_SHA within 3 minutes."
+          if [ "$commit" = "$GITHUB_SHA" ]; then
+            echo "::error::$APP_URL serves this commit, but /api/health still says '$status' after 3 minutes. Check DATABASE_URL in the Vercel project, and the health.degraded log for the reason."
+          else
+            echo "::error::$APP_URL didn't serve $GITHUB_SHA within 3 minutes."
+          fi
           exit 1

@@ -1,0 +1,928 @@
+[
+  {
+    "id": "piapara",
+    "album_no": 1,
+    "family": "Anostomidae",
+    "scientific_name": "Megaleporinus obtusidens",
+    "name_pt": "Piapara",
+    "name_en": "Piapara",
+    "aliases_pt": ["piau-vermelho"],
+    "habitat": "freshwater",
+    "rubric": {
+      "range": 0,
+      "difficulty": 1,
+      "stocking": 0
+    },
+    "is_protected": false,
+    "protection_note_pt": null,
+    "protection_note_en": null,
+    "sources": ["FishBase: https://www.fishbase.se/summary/Megaleporinus-obtusidens.html"],
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
+  },
+  {
+    "id": "piau-tres-pintas",
+    "album_no": 2,
+    "family": "Anostomidae",
+    "scientific_name": "Leporinus friderici",
+    "name_pt": "Piau-três-pintas",
+    "name_en": "Threespot leporinus",
+    "aliases_pt": ["piau"],
+    "habitat": "freshwater",
+    "rubric": {
+      "range": 0,
+      "difficulty": 0,
+      "stocking": 0
+    },
+    "is_protected": false,
+    "protection_note_pt": null,
+    "protection_note_en": null,
+    "sources": ["FishBase: https://www.fishbase.se/summary/Leporinus-friderici.html"],
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
+  },
+  {
+    "id": "pirarucu",
+    "album_no": 3,
+    "family": "Arapaimidae",
+    "scientific_name": "Arapaima gigas",
+    "name_pt": "Pirarucu",
+    "name_en": "Arapaima",
+    "aliases_pt": [],
+    "habitat": "freshwater",
+    "rubric": {
+      "range": 2,
+      "difficulty": 2,
+      "stocking": -1
+    },
+    "is_protected": true,
+    "protection_note_pt": "Espécie ameaçada de extinção ou com pesca regulada no Brasil. A figurinha pode ser preenchida, mas não rende XP. Confira a regra local antes de pescar.",
+    "protection_note_en": "Threatened or regulated in Brazil. The sticker can be filled, but it earns no XP. Check the local rules before fishing.",
+    "sources": [
+      "FishBase: https://www.fishbase.se/summary/Arapaima-gigas.html",
+      "MMA, Portaria MMA nº 148/2022 (Lista Nacional de Espécies Ameaçadas de Extinção)"
+    ],
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08",
+    "review_notes": "Pesca regulada (manejo e período de defeso). Confirmar enquadramento antes de aprovar."
+  },
+  {
+    "id": "matrinxa",
+    "album_no": 4,
+    "family": "Bryconidae",
+    "scientific_name": "Brycon amazonicus",
+    "name_pt": "Matrinxã",
+    "name_en": "Matrinxã",
+    "aliases_pt": ["matrincha"],
+    "habitat": "freshwater",
+    "rubric": {
+      "range": 1,
+      "difficulty": 1,
+      "stocking": -1
+    },
+    "is_protected": false,
+    "protection_note_pt": null,
+    "protection_note_en": null,
+    "sources": ["FishBase: https://www.fishbase.se/summary/Brycon-amazonicus.html"],
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
+  },
+  {
+    "id": "piracanjuba",
+    "album_no": 5,
+    "family": "Bryconidae",
+    "scientific_name": "Brycon orbignyanus",
+    "name_pt": "Piracanjuba",
+    "name_en": "Piracanjuba",
+    "aliases_pt": [],
+    "habitat": "freshwater",
+    "rubric": {
+      "range": 1,
+      "difficulty": 1,
+      "stocking": 0
+    },
+    "is_protected": true,
+    "protection_note_pt": "Espécie ameaçada de extinção ou com pesca regulada no Brasil. A figurinha pode ser preenchida, mas não rende XP. Confira a regra local antes de pescar.",
+    "protection_note_en": "Threatened or regulated in Brazil. The sticker can be filled, but it earns no XP. Check the local rules before fishing.",
+    "sources": [
+      "FishBase: https://www.fishbase.se/summary/Brycon-orbignyanus.html",
+      "MMA, Portaria MMA nº 148/2022 (Lista Nacional de Espécies Ameaçadas de Extinção)"
+    ],
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08",
+    "review_notes": "Confirmar na Portaria MMA 148/2022 antes de aprovar."
+  },
+  {
+    "id": "piraputanga",
+    "album_no": 6,
+    "family": "Bryconidae",
+    "scientific_name": "Brycon hilarii",
+    "name_pt": "Piraputanga",
+    "name_en": "Piraputanga",
+    "aliases_pt": [],
+    "habitat": "freshwater",
+    "rubric": {
+      "range": 1,
+      "difficulty": 1,
+      "stocking": 0
+    },
+    "is_protected": false,
+    "protection_note_pt": null,
+    "protection_note_en": null,
+    "sources": ["FishBase: https://www.fishbase.se/summary/Brycon-hilarii.html"],
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
+  },
+  {
+    "id": "dourado",
+    "album_no": 7,
+    "family": "Characidae",
+    "scientific_name": "Salminus brasiliensis",
+    "name_pt": "Dourado",
+    "name_en": "Golden dorado",
+    "aliases_pt": ["dourado-do-rio", "dourado do rio"],
+    "habitat": "freshwater",
+    "rubric": {
+      "range": 1,
+      "difficulty": 2,
+      "stocking": 0
+    },
+    "is_protected": false,
+    "protection_note_pt": null,
+    "protection_note_en": null,
+    "sources": ["FishBase: https://www.fishbase.se/summary/Salminus-brasiliensis.html"],
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
+  },
+  {
+    "id": "lambari-do-rabo-amarelo",
+    "album_no": 8,
+    "family": "Characidae",
+    "scientific_name": "Astyanax lacustris",
+    "name_pt": "Lambari-do-rabo-amarelo",
+    "name_en": "Yellowtail tetra",
+    "aliases_pt": ["lambari"],
+    "habitat": "freshwater",
+    "rubric": {
+      "range": 0,
+      "difficulty": 0,
+      "stocking": 0
+    },
+    "is_protected": false,
+    "protection_note_pt": null,
+    "protection_note_en": null,
+    "sources": ["FishBase: https://www.fishbase.se/summary/Astyanax-lacustris.html"],
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
+  },
+  {
+    "id": "tilapia-do-nilo",
+    "album_no": 9,
+    "family": "Cichlidae",
+    "scientific_name": "Oreochromis niloticus",
+    "name_pt": "Tilápia-do-nilo",
+    "name_en": "Nile tilapia",
+    "aliases_pt": ["tilápia", "tilapia"],
+    "habitat": "freshwater",
+    "rubric": {
+      "range": 0,
+      "difficulty": 0,
+      "stocking": -1
+    },
+    "is_protected": false,
+    "protection_note_pt": null,
+    "protection_note_en": null,
+    "sources": ["FishBase: https://www.fishbase.se/summary/Oreochromis-niloticus.html"],
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
+  },
+  {
+    "id": "tucunare-acu",
+    "album_no": 10,
+    "family": "Cichlidae",
+    "scientific_name": "Cichla temensis",
+    "name_pt": "Tucunaré-açu",
+    "name_en": "Speckled peacock bass",
+    "aliases_pt": ["tucunaré açu", "tucunaré-paca"],
+    "habitat": "freshwater",
+    "rubric": {
+      "range": 1,
+      "difficulty": 2,
+      "stocking": 0
+    },
+    "is_protected": false,
+    "protection_note_pt": null,
+    "protection_note_en": null,
+    "sources": ["FishBase: https://www.fishbase.se/summary/Cichla-temensis.html"],
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
+  },
+  {
+    "id": "tucunare-amarelo",
+    "album_no": 11,
+    "family": "Cichlidae",
+    "scientific_name": "Cichla kelberi",
+    "name_pt": "Tucunaré-amarelo",
+    "name_en": "Yellow peacock bass",
+    "aliases_pt": ["tucunaré amarelo"],
+    "habitat": "freshwater",
+    "rubric": {
+      "range": 0,
+      "difficulty": 1,
+      "stocking": -1
+    },
+    "is_protected": false,
+    "protection_note_pt": null,
+    "protection_note_en": null,
+    "sources": ["FishBase: https://www.fishbase.se/summary/Cichla-kelberi.html"],
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
+  },
+  {
+    "id": "tucunare-azul",
+    "album_no": 12,
+    "family": "Cichlidae",
+    "scientific_name": "Cichla piquiti",
+    "name_pt": "Tucunaré-azul",
+    "name_en": "Blue peacock bass",
+    "aliases_pt": ["tucunaré azul", "piquiti"],
+    "habitat": "freshwater",
+    "rubric": {
+      "range": 1,
+      "difficulty": 1,
+      "stocking": 0
+    },
+    "is_protected": false,
+    "protection_note_pt": null,
+    "protection_note_en": null,
+    "sources": ["FishBase: https://www.fishbase.se/summary/Cichla-piquiti.html"],
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
+  },
+  {
+    "id": "tucunare-pinima",
+    "album_no": 13,
+    "family": "Cichlidae",
+    "scientific_name": "Cichla pinima",
+    "name_pt": "Tucunaré-pinima",
+    "name_en": "Pinima peacock bass",
+    "aliases_pt": ["tucunaré pinima", "pinima"],
+    "habitat": "freshwater",
+    "rubric": {
+      "range": 2,
+      "difficulty": 1,
+      "stocking": 0
+    },
+    "is_protected": false,
+    "protection_note_pt": null,
+    "protection_note_en": null,
+    "sources": ["FishBase: https://www.fishbase.se/summary/Cichla-pinima.html"],
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
+  },
+  {
+    "id": "bagre-africano",
+    "album_no": 14,
+    "family": "Clariidae",
+    "scientific_name": "Clarias gariepinus",
+    "name_pt": "Bagre-africano",
+    "name_en": "North African catfish",
+    "aliases_pt": ["bagre"],
+    "habitat": "freshwater",
+    "rubric": {
+      "range": 0,
+      "difficulty": 0,
+      "stocking": -1
+    },
+    "is_protected": false,
+    "protection_note_pt": null,
+    "protection_note_en": null,
+    "sources": ["FishBase: https://www.fishbase.se/summary/Clarias-gariepinus.html"],
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
+  },
+  {
+    "id": "peixe-cachorro",
+    "album_no": 15,
+    "family": "Cynodontidae",
+    "scientific_name": "Hydrolycus scomberoides",
+    "name_pt": "Peixe-cachorro",
+    "name_en": "Payara",
+    "aliases_pt": ["cachorra", "payara"],
+    "habitat": "freshwater",
+    "rubric": {
+      "range": 1,
+      "difficulty": 1,
+      "stocking": 0
+    },
+    "is_protected": false,
+    "protection_note_pt": null,
+    "protection_note_en": null,
+    "sources": ["FishBase: https://www.fishbase.se/summary/Hydrolycus-scomberoides.html"],
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
+  },
+  {
+    "id": "carpa-comum",
+    "album_no": 16,
+    "family": "Cyprinidae",
+    "scientific_name": "Cyprinus carpio",
+    "name_pt": "Carpa-comum",
+    "name_en": "Common carp",
+    "aliases_pt": ["carpa"],
+    "habitat": "freshwater",
+    "rubric": {
+      "range": 0,
+      "difficulty": 0,
+      "stocking": -1
+    },
+    "is_protected": false,
+    "protection_note_pt": null,
+    "protection_note_en": null,
+    "sources": ["FishBase: https://www.fishbase.se/summary/Cyprinus-carpio.html"],
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
+  },
+  {
+    "id": "traira",
+    "album_no": 17,
+    "family": "Erythrinidae",
+    "scientific_name": "Hoplias malabaricus",
+    "name_pt": "Traíra",
+    "name_en": "Trahira",
+    "aliases_pt": ["traira"],
+    "habitat": "freshwater",
+    "rubric": {
+      "range": 0,
+      "difficulty": 0,
+      "stocking": 0
+    },
+    "is_protected": false,
+    "protection_note_pt": null,
+    "protection_note_en": null,
+    "sources": ["FishBase: https://www.fishbase.se/summary/Hoplias-malabaricus.html"],
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
+  },
+  {
+    "id": "aruana",
+    "album_no": 18,
+    "family": "Osteoglossidae",
+    "scientific_name": "Osteoglossum bicirrhosum",
+    "name_pt": "Aruanã",
+    "name_en": "Silver arowana",
+    "aliases_pt": ["aruana"],
+    "habitat": "freshwater",
+    "rubric": {
+      "range": 1,
+      "difficulty": 1,
+      "stocking": -1
+    },
+    "is_protected": false,
+    "protection_note_pt": null,
+    "protection_note_en": null,
+    "sources": ["FishBase: https://www.fishbase.se/summary/Osteoglossum-bicirrhosum.html"],
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
+  },
+  {
+    "id": "cachara",
+    "album_no": 19,
+    "family": "Pimelodidae",
+    "scientific_name": "Pseudoplatystoma reticulatum",
+    "name_pt": "Cachara",
+    "name_en": "Barred sorubim",
+    "aliases_pt": ["pintado-cachara"],
+    "habitat": "freshwater",
+    "rubric": {
+      "range": 1,
+      "difficulty": 2,
+      "stocking": -1
+    },
+    "is_protected": false,
+    "protection_note_pt": null,
+    "protection_note_en": null,
+    "sources": ["FishBase: https://www.fishbase.se/summary/Pseudoplatystoma-reticulatum.html"],
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
+  },
+  {
+    "id": "dourada",
+    "album_no": 20,
+    "family": "Pimelodidae",
+    "scientific_name": "Brachyplatystoma rousseauxii",
+    "name_pt": "Dourada",
+    "name_en": "Goliath catfish",
+    "aliases_pt": [],
+    "habitat": "freshwater",
+    "rubric": {
+      "range": 2,
+      "difficulty": 1,
+      "stocking": 0
+    },
+    "is_protected": false,
+    "protection_note_pt": null,
+    "protection_note_en": null,
+    "sources": ["FishBase: https://www.fishbase.se/summary/Brachyplatystoma-rousseauxii.html"],
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
+  },
+  {
+    "id": "jau",
+    "album_no": 21,
+    "family": "Pimelodidae",
+    "scientific_name": "Zungaro jahu",
+    "name_pt": "Jaú",
+    "name_en": "Jahu catfish",
+    "aliases_pt": ["jahu"],
+    "habitat": "freshwater",
+    "rubric": {
+      "range": 2,
+      "difficulty": 2,
+      "stocking": 0
+    },
+    "is_protected": true,
+    "protection_note_pt": "Espécie ameaçada de extinção ou com pesca regulada no Brasil. A figurinha pode ser preenchida, mas não rende XP. Confira a regra local antes de pescar.",
+    "protection_note_en": "Threatened or regulated in Brazil. The sticker can be filled, but it earns no XP. Check the local rules before fishing.",
+    "sources": [
+      "FishBase: https://www.fishbase.se/summary/Zungaro-jahu.html",
+      "MMA, Portaria MMA nº 148/2022 (Lista Nacional de Espécies Ameaçadas de Extinção)"
+    ],
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08",
+    "review_notes": "Confirmar na Portaria MMA 148/2022 antes de aprovar."
+  },
+  {
+    "id": "mandi",
+    "album_no": 22,
+    "family": "Pimelodidae",
+    "scientific_name": "Pimelodus maculatus",
+    "name_pt": "Mandi",
+    "name_en": "Spotted catfish",
+    "aliases_pt": ["mandi-amarelo"],
+    "habitat": "freshwater",
+    "rubric": {
+      "range": 0,
+      "difficulty": 0,
+      "stocking": 0
+    },
+    "is_protected": false,
+    "protection_note_pt": null,
+    "protection_note_en": null,
+    "sources": ["FishBase: https://www.fishbase.se/summary/Pimelodus-maculatus.html"],
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
+  },
+  {
+    "id": "pintado",
+    "album_no": 23,
+    "family": "Pimelodidae",
+    "scientific_name": "Pseudoplatystoma corruscans",
+    "name_pt": "Pintado",
+    "name_en": "Spotted sorubim",
+    "aliases_pt": ["surubim", "pintado-verdadeiro"],
+    "habitat": "freshwater",
+    "rubric": {
+      "range": 2,
+      "difficulty": 2,
+      "stocking": -1
+    },
+    "is_protected": false,
+    "protection_note_pt": null,
+    "protection_note_en": null,
+    "sources": ["FishBase: https://www.fishbase.se/summary/Pseudoplatystoma-corruscans.html"],
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08",
+    "review_notes": "Pontuação definida para que o pintado de pesque-pague seja Raro (exemplo da história S-13). O revisor deve confirmar alcance 2 e dificuldade 2, ou o exemplo muda."
+  },
+  {
+    "id": "piraiba",
+    "album_no": 24,
+    "family": "Pimelodidae",
+    "scientific_name": "Brachyplatystoma filamentosum",
+    "name_pt": "Piraíba",
+    "name_en": "Giant catfish",
+    "aliases_pt": ["filhote"],
+    "habitat": "freshwater",
+    "rubric": {
+      "range": 2,
+      "difficulty": 2,
+      "stocking": 0
+    },
+    "is_protected": false,
+    "protection_note_pt": null,
+    "protection_note_en": null,
+    "sources": ["FishBase: https://www.fishbase.se/summary/Brachyplatystoma-filamentosum.html"],
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
+  },
+  {
+    "id": "pirarara",
+    "album_no": 25,
+    "family": "Pimelodidae",
+    "scientific_name": "Phractocephalus hemioliptherus",
+    "name_pt": "Pirarara",
+    "name_en": "Redtail catfish",
+    "aliases_pt": [],
+    "habitat": "freshwater",
+    "rubric": {
+      "range": 1,
+      "difficulty": 2,
+      "stocking": -1
+    },
+    "is_protected": false,
+    "protection_note_pt": null,
+    "protection_note_en": null,
+    "sources": ["FishBase: https://www.fishbase.se/summary/Phractocephalus-hemioliptherus.html"],
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08",
+    "review_notes": "Pontuação estimada (peixe de pesque-pague e de rio amazônico). O revisor deve confirmar alcance, dificuldade e a marcação de espécie estocada."
+  },
+  {
+    "id": "curimbata",
+    "album_no": 26,
+    "family": "Prochilodontidae",
+    "scientific_name": "Prochilodus lineatus",
+    "name_pt": "Curimbatá",
+    "name_en": "Streaked prochilod",
+    "aliases_pt": ["curimba", "curimatá"],
+    "habitat": "freshwater",
+    "rubric": {
+      "range": 0,
+      "difficulty": 0,
+      "stocking": 0
+    },
+    "is_protected": false,
+    "protection_note_pt": null,
+    "protection_note_en": null,
+    "sources": ["FishBase: https://www.fishbase.se/summary/Prochilodus-lineatus.html"],
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
+  },
+  {
+    "id": "pacu",
+    "album_no": 27,
+    "family": "Serrasalmidae",
+    "scientific_name": "Piaractus mesopotamicus",
+    "name_pt": "Pacu",
+    "name_en": "Pacu",
+    "aliases_pt": ["pacu-caranha"],
+    "habitat": "freshwater",
+    "rubric": {
+      "range": 0,
+      "difficulty": 1,
+      "stocking": -1
+    },
+    "is_protected": false,
+    "protection_note_pt": null,
+    "protection_note_en": null,
+    "sources": ["FishBase: https://www.fishbase.se/summary/Piaractus-mesopotamicus.html"],
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
+  },
+  {
+    "id": "piranha-preta",
+    "album_no": 28,
+    "family": "Serrasalmidae",
+    "scientific_name": "Serrasalmus rhombeus",
+    "name_pt": "Piranha-preta",
+    "name_en": "Redeye piranha",
+    "aliases_pt": ["piranha"],
+    "habitat": "freshwater",
+    "rubric": {
+      "range": 0,
+      "difficulty": 1,
+      "stocking": 0
+    },
+    "is_protected": false,
+    "protection_note_pt": null,
+    "protection_note_en": null,
+    "sources": ["FishBase: https://www.fishbase.se/summary/Serrasalmus-rhombeus.html"],
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
+  },
+  {
+    "id": "piranha-vermelha",
+    "album_no": 29,
+    "family": "Serrasalmidae",
+    "scientific_name": "Pygocentrus nattereri",
+    "name_pt": "Piranha-vermelha",
+    "name_en": "Red piranha",
+    "aliases_pt": ["piranha"],
+    "habitat": "freshwater",
+    "rubric": {
+      "range": 0,
+      "difficulty": 0,
+      "stocking": 0
+    },
+    "is_protected": false,
+    "protection_note_pt": null,
+    "protection_note_en": null,
+    "sources": ["FishBase: https://www.fishbase.se/summary/Pygocentrus-nattereri.html"],
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
+  },
+  {
+    "id": "pirapitinga",
+    "album_no": 30,
+    "family": "Serrasalmidae",
+    "scientific_name": "Piaractus brachypomus",
+    "name_pt": "Pirapitinga",
+    "name_en": "Red-bellied pacu",
+    "aliases_pt": [],
+    "habitat": "freshwater",
+    "rubric": {
+      "range": 1,
+      "difficulty": 1,
+      "stocking": -1
+    },
+    "is_protected": false,
+    "protection_note_pt": null,
+    "protection_note_en": null,
+    "sources": ["FishBase: https://www.fishbase.se/summary/Piaractus-brachypomus.html"],
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
+  },
+  {
+    "id": "tambaqui",
+    "album_no": 31,
+    "family": "Serrasalmidae",
+    "scientific_name": "Colossoma macropomum",
+    "name_pt": "Tambaqui",
+    "name_en": "Tambaqui",
+    "aliases_pt": ["cachama"],
+    "habitat": "freshwater",
+    "rubric": {
+      "range": 1,
+      "difficulty": 1,
+      "stocking": -1
+    },
+    "is_protected": false,
+    "protection_note_pt": null,
+    "protection_note_en": null,
+    "sources": ["FishBase: https://www.fishbase.se/summary/Colossoma-macropomum.html"],
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
+  },
+  {
+    "id": "xareu",
+    "album_no": 32,
+    "family": "Carangidae",
+    "scientific_name": "Caranx hippos",
+    "name_pt": "Xaréu",
+    "name_en": "Crevalle jack",
+    "aliases_pt": ["xarelete"],
+    "habitat": "marine",
+    "rubric": {
+      "range": 0,
+      "difficulty": 1,
+      "stocking": 0
+    },
+    "is_protected": false,
+    "protection_note_pt": null,
+    "protection_note_en": null,
+    "sources": ["FishBase: https://www.fishbase.se/summary/Caranx-hippos.html"],
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
+  },
+  {
+    "id": "dourado-do-mar",
+    "album_no": 33,
+    "family": "Coryphaenidae",
+    "scientific_name": "Coryphaena hippurus",
+    "name_pt": "Dourado-do-mar",
+    "name_en": "Mahi-mahi",
+    "aliases_pt": ["dorado", "golfinho"],
+    "habitat": "marine",
+    "rubric": {
+      "range": 1,
+      "difficulty": 1,
+      "stocking": 0
+    },
+    "is_protected": false,
+    "protection_note_pt": null,
+    "protection_note_en": null,
+    "sources": ["FishBase: https://www.fishbase.se/summary/Coryphaena-hippurus.html"],
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
+  },
+  {
+    "id": "garoupa-verdadeira",
+    "album_no": 34,
+    "family": "Epinephelidae",
+    "scientific_name": "Epinephelus marginatus",
+    "name_pt": "Garoupa-verdadeira",
+    "name_en": "Dusky grouper",
+    "aliases_pt": ["garoupa"],
+    "habitat": "marine",
+    "rubric": {
+      "range": 1,
+      "difficulty": 2,
+      "stocking": 0
+    },
+    "is_protected": true,
+    "protection_note_pt": "Espécie ameaçada de extinção ou com pesca regulada no Brasil. A figurinha pode ser preenchida, mas não rende XP. Confira a regra local antes de pescar.",
+    "protection_note_en": "Threatened or regulated in Brazil. The sticker can be filled, but it earns no XP. Check the local rules before fishing.",
+    "sources": [
+      "FishBase: https://www.fishbase.se/summary/Epinephelus-marginatus.html",
+      "MMA, Portaria MMA nº 148/2022 (Lista Nacional de Espécies Ameaçadas de Extinção)"
+    ],
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08",
+    "review_notes": "Confirmar na Portaria MMA 148/2022 antes de aprovar."
+  },
+  {
+    "id": "mero",
+    "album_no": 35,
+    "family": "Epinephelidae",
+    "scientific_name": "Epinephelus itajara",
+    "name_pt": "Mero",
+    "name_en": "Atlantic goliath grouper",
+    "aliases_pt": ["canapu"],
+    "habitat": "marine",
+    "rubric": {
+      "range": 1,
+      "difficulty": 2,
+      "stocking": 0
+    },
+    "is_protected": true,
+    "protection_note_pt": "Espécie ameaçada de extinção ou com pesca regulada no Brasil. A figurinha pode ser preenchida, mas não rende XP. Confira a regra local antes de pescar.",
+    "protection_note_en": "Threatened or regulated in Brazil. The sticker can be filled, but it earns no XP. Check the local rules before fishing.",
+    "sources": [
+      "FishBase: https://www.fishbase.se/summary/Epinephelus-itajara.html",
+      "MMA, Portaria MMA nº 148/2022 (Lista Nacional de Espécies Ameaçadas de Extinção)"
+    ],
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08",
+    "review_notes": "Pesca proibida por moratória no Brasil. Confirmar a norma vigente."
+  },
+  {
+    "id": "enchova",
+    "album_no": 36,
+    "family": "Pomatomidae",
+    "scientific_name": "Pomatomus saltatrix",
+    "name_pt": "Enchova",
+    "name_en": "Bluefish",
+    "aliases_pt": ["anchova"],
+    "habitat": "marine",
+    "rubric": {
+      "range": 0,
+      "difficulty": 1,
+      "stocking": 0
+    },
+    "is_protected": false,
+    "protection_note_pt": null,
+    "protection_note_en": null,
+    "sources": ["FishBase: https://www.fishbase.se/summary/Pomatomus-saltatrix.html"],
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
+  },
+  {
+    "id": "sororoca",
+    "album_no": 37,
+    "family": "Scombridae",
+    "scientific_name": "Scomberomorus brasiliensis",
+    "name_pt": "Sororoca",
+    "name_en": "Serra Spanish mackerel",
+    "aliases_pt": [],
+    "habitat": "marine",
+    "rubric": {
+      "range": 0,
+      "difficulty": 1,
+      "stocking": 0
+    },
+    "is_protected": false,
+    "protection_note_pt": null,
+    "protection_note_en": null,
+    "sources": ["FishBase: https://www.fishbase.se/summary/Scomberomorus-brasiliensis.html"],
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
+  },
+  {
+    "id": "badejo",
+    "album_no": 38,
+    "family": "Serranidae",
+    "scientific_name": "Mycteroperca bonaci",
+    "name_pt": "Badejo",
+    "name_en": "Black grouper",
+    "aliases_pt": ["badejo-quadrado"],
+    "habitat": "marine",
+    "rubric": {
+      "range": 1,
+      "difficulty": 2,
+      "stocking": 0
+    },
+    "is_protected": false,
+    "protection_note_pt": null,
+    "protection_note_en": null,
+    "sources": ["FishBase: https://www.fishbase.se/summary/Mycteroperca-bonaci.html"],
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08",
+    "review_notes": "Verificar se consta na lista de ameaçadas."
+  },
+  {
+    "id": "robalo-flecha",
+    "album_no": 39,
+    "family": "Centropomidae",
+    "scientific_name": "Centropomus undecimalis",
+    "name_pt": "Robalo-flecha",
+    "name_en": "Common snook",
+    "aliases_pt": ["robalo", "robalo-branco"],
+    "habitat": "both",
+    "rubric": {
+      "range": 0,
+      "difficulty": 2,
+      "stocking": 0
+    },
+    "is_protected": false,
+    "protection_note_pt": null,
+    "protection_note_en": null,
+    "sources": ["FishBase: https://www.fishbase.se/summary/Centropomus-undecimalis.html"],
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
+  },
+  {
+    "id": "robalo-peva",
+    "album_no": 40,
+    "family": "Centropomidae",
+    "scientific_name": "Centropomus parallelus",
+    "name_pt": "Robalo-peva",
+    "name_en": "Fat snook",
+    "aliases_pt": ["robalo", "robalinho"],
+    "habitat": "both",
+    "rubric": {
+      "range": 0,
+      "difficulty": 1,
+      "stocking": 0
+    },
+    "is_protected": false,
+    "protection_note_pt": null,
+    "protection_note_en": null,
+    "sources": ["FishBase: https://www.fishbase.se/summary/Centropomus-parallelus.html"],
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
+  },
+  {
+    "id": "camurupim",
+    "album_no": 41,
+    "family": "Megalopidae",
+    "scientific_name": "Megalops atlanticus",
+    "name_pt": "Camurupim",
+    "name_en": "Tarpon",
+    "aliases_pt": ["pirapema", "tarpão"],
+    "habitat": "both",
+    "rubric": {
+      "range": 1,
+      "difficulty": 2,
+      "stocking": 0
+    },
+    "is_protected": false,
+    "protection_note_pt": null,
+    "protection_note_en": null,
+    "sources": ["FishBase: https://www.fishbase.se/summary/Megalops-atlanticus.html"],
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
+  },
+  {
+    "id": "tainha",
+    "album_no": 42,
+    "family": "Mugilidae",
+    "scientific_name": "Mugil liza",
+    "name_pt": "Tainha",
+    "name_en": "Lebranche mullet",
+    "aliases_pt": [],
+    "habitat": "both",
+    "rubric": {
+      "range": 0,
+      "difficulty": 0,
+      "stocking": 0
+    },
+    "is_protected": false,
+    "protection_note_pt": null,
+    "protection_note_en": null,
+    "sources": ["FishBase: https://www.fishbase.se/summary/Mugil-liza.html"],
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
+  },
+  {
+    "id": "corvina",
+    "album_no": 43,
+    "family": "Sciaenidae",
+    "scientific_name": "Micropogonias furnieri",
+    "name_pt": "Corvina",
+    "name_en": "Whitemouth croaker",
+    "aliases_pt": [],
+    "habitat": "both",
+    "rubric": {
+      "range": 0,
+      "difficulty": 0,
+      "stocking": 0
+    },
+    "is_protected": false,
+    "protection_note_pt": null,
+    "protection_note_en": null,
+    "sources": ["FishBase: https://www.fishbase.se/summary/Micropogonias-furnieri.html"],
+    "reviewed_by": "Guma325",
+    "reviewed_at": "2026-11-08"
+  }
+]

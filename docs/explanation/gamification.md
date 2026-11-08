@@ -46,6 +46,27 @@ This works because people log about two or three catches a month. Replaying a fe
 
 Award keys name *what* was earned (`species:tucunare-acu`), not which catch earned it, so an award can move between catches without being counted twice. An earlier design made the ledger unique on the catch's revision. That broke when an award moved from one catch to another that hadn't changed itself, which is why the sequence number belongs to the angler. See [ADR-013](decisions/ADR-013-replay-sequence.md).
 
+## Rarity rubric
+
+A species' rarity tier comes from three scores, never from opinion at the time of a catch:
+
+- **Criteria** (range), 0 to 2.
+- **Difficulty**, 0 to 2.
+- **Stocking**, -1 to 0.
+
+The tier is derived from their sum: 1 or less is `comum`, 2 is `incomum`, 3 is `raro`, 4 is `epico`.
+
+The scores live in `src/modules/catalog/data/species.json`. They are not database columns: the seed derives the tier and stores it in `species.rarity_tier`. Protected species get the `is_protected` flag, and XP ignores their tier.
+
+Sources:
+
+- Distribution comes from FishBase. Its content is CC BY-NC, so credit it.
+- The threatened flag comes from MMA Portaria 148/2022.
+
+AI may draft entries, but a person checks each one and fills `reviewed_by` and `reviewed_at`. Entries with those fields empty are not yet reviewed.
+
+Album numbers are assigned once, ordered by habitat, then family, then `name_pt`. They never change after that, so a species added later takes the next number.
+
 ## Rankings people can trust
 
 A group's season ranking counts only XP from catches the group can see: shared with the group, or public. A catch shared only with one group doesn't move another group's ranking. Your score can therefore differ between groups, but every point in a ranking is something its members can check by scrolling their feed.

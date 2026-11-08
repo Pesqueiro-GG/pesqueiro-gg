@@ -28,11 +28,12 @@ feature branch ──PR──▶ dev ──PR + 1 approval──▶ main
       │                 │                         │
    CI (ci.yml)     deploy.yml (dev)          deploy.yml (production, demo)
    + Vercel        1. migrate pesqueiro-dev  1. migrate each database
-     preview       2. deploy pesqueiro-dev   2. deploy each Vercel project
+     preview       2. seed species catalog   2. seed species catalog
+                   3. deploy pesqueiro-dev   3. deploy each Vercel project
 ```
 
 - **CI** (`.github/workflows/ci.yml`) runs on every pull request into `dev` or `main`: lint, format, types, unit tests, a local Supabase, migrations, integration tests, build and Playwright. Its job is named `ci`, and branch protection requires it.
-- **Deploy** (`.github/workflows/deploy.yml`) runs on every push to `dev` or `main`. For each environment it migrates the database first, then builds and deploys the same commit with the Vercel CLI. It never cancels a run halfway; a newer push waits.
+- **Deploy** (`.github/workflows/deploy.yml`) runs on every push to `dev` or `main`. For each environment it migrates the database first, seeds the species catalog (`npm run db:seed:catalog`, safe to repeat), then builds and deploys the same commit with the Vercel CLI. It never cancels a run halfway; a newer push waits.
 - Vercel's own Git deploys are off for `dev` and `main` (`vercel.json`), so code never reaches an environment before its migrations. Pull request previews stay on.
 - Pull request previews use the dev database, which may not have that pull request's migrations yet. A preview that needs a new migration fails until the pull request is merged into `dev`.
 

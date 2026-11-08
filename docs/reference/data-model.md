@@ -52,7 +52,7 @@ erDiagram
 
 | Table | Columns | Constraints and notes |
 |---|---|---|
-| `species` | `id` (slug), `album_no`, `scientific_name`, `name_pt`, `name_en`, `aliases_pt`, `habitat`, `rarity_tier`, `is_protected`, `protection_note_pt`, `protection_note_en`, `sources`, `reviewed_by`, `reviewed_at` | `album_no` unique and never changed once assigned |
+| `species` | `id` (slug), `album_no`, `scientific_name`, `name_pt`, `name_en`, `aliases_pt`, `habitat`, `rarity_tier`, `is_protected`, `protection_note_pt`, `protection_note_en`, `sources`, `reviewed_by`, `reviewed_at` | `album_no` unique and never changed once assigned. `habitat` is the enum `species_habitat` (`freshwater` \| `marine` \| `both`); `rarity_tier` is the enum `rarity_tier` (`comum` \| `incomum` \| `raro` \| `epico`). The rarity rubric scores are not columns: they live in `data/species.json`, and the seed derives and stores the tier. Search uses the `unaccent` extension (in the `extensions` schema). |
 | `places` | `id`, `name`, `kind` (`pay_to_fish`), `city_id`, `state`, `lat`, `lng`, `created_by`, `created_at` | Only commercial pay-to-fish lakes. Wild spots are never places. |
 
 Brazilian municipalities are a static file (`src/modules/catalog/data/municipalities.json`, IBGE code, name, UF, centroid), not a table.

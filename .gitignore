@@ -29,3 +29,7 @@ blob-report/
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# Claude Code: personal handoffs and settings
+.claude/handoff/
+.claude/settings.local.json

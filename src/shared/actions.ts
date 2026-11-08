@@ -1,6 +1,7 @@
 import type { z } from 'zod'
 import { withTransaction, type Tx } from './db/client'
 import { isDomainError } from './errors'
+import { withSpan } from './observability/span'
 import { fail, ok, type Result } from './result'
 
 /** The signed-in person a command runs for. */
@@ -14,6 +15,8 @@ export type Viewer = {
 export type ActionContext = { viewer: Viewer; tx?: Tx }
 
 export type ActionOptions = {
+  /** The command's name, such as `logbook.logCatch`; names its trace span. */
+  name?: string
   /** Applied before anything else. Wired up with rate limits (#41). */
   rateLimit?: { key: string; limit: number; windowSec: number }
   /** Run the handler in a database transaction (5-second statement timeout). */
@@ -32,14 +35,16 @@ export function setViewerResolver(resolver: () => Promise<Viewer | null>) {
 
 /**
  * Builds a server action: checks the session, validates input with Zod, runs the handler,
- * and turns expected failures into a Result. See docs/reference/code-conventions.md#writes.
+ * and turns expected failures into a Result, inside a trace span named after the command. See docs/reference/code-conventions.md#writes.
  */
 export function authedAction<S extends z.ZodType, T>(
   schema: S,
   handler: (input: z.infer<S>, ctx: ActionContext) => Promise<T>,
   options: ActionOptions = {},
 ): (raw: unknown) => Promise<Result<T>> {
-  return async (raw) => {
+  return (raw) => withSpan(options.name ?? 'action', () => run(raw))
+
+  async function run(raw: unknown): Promise<Result<T>> {
     const viewer = await resolveViewer()
     if (!viewer) return fail('UNAUTHENTICATED')
 

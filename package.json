@@ -25,6 +25,7 @@
     "db:check": "tsx scripts/db/check-app-access.ts"
   },
   "dependencies": {
+    "@sentry/nextjs": "11.9.0",
     "drizzle-orm": "0.45.4",
     "next": "16.4.5",
     "postgres": "3.4.9",

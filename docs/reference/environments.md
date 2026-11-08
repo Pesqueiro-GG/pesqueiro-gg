@@ -71,7 +71,7 @@ Every variable is listed in `.env.example`. Secrets live only in Vercel and GitH
 
 | Variable | Where | Secret | Purpose |
 |---|---|---|---|
-| `APP_ENV` | All | No | `local`, `dev`, `demo` or `production` |
+| `APP_ENV` | All | No | `local`, `dev`, `demo` or `production`. Read at build time: it picks the Sentry environment and sample rate, and turns `/api/debug/boom` off outside local and dev. |
 | `NEXT_PUBLIC_SUPABASE_URL` | All | No | Supabase project URL |
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | All | No | Public key, used only for login. Row-level security denies it every table. |
 | `SUPABASE_SERVICE_ROLE_KEY` | Server | Yes | Storage uploads and auth admin (account deletion) |
@@ -80,8 +80,7 @@ Every variable is listed in `.env.example`. Secrets live only in Vercel and GitH
 | `APP_SERVER_DB_PASSWORD` | CI only | Yes | Password `db:migrate` sets for the `app_server` role; must match the one in `DATABASE_URL` |
 | `ANTHROPIC_API_KEY` | Server | Yes | Species identification |
 | `AI_MONTHLY_CALL_CAP` | Server | No | Identifications allowed per month |
-| `SENTRY_DSN`, `NEXT_PUBLIC_SENTRY_DSN` | All | No | Error and trace reporting |
-| `SENTRY_AUTH_TOKEN` | CI only | Yes | Uploading source maps |
+| `NEXT_PUBLIC_SENTRY_DSN` | All | No | Where Sentry sends errors, traces and logs (one Sentry project for every environment). Without it, Sentry stays off. |
 | `CRON_SECRET` | Server | Yes | Protects `/api/cron/daily` |
 | `HEALTHCHECKS_PING_URL` | Server | Yes | Daily job heartbeat |
 | `DISCORD_ALERTS_WEBHOOK` | Server | Yes | AI spending alert |
@@ -104,7 +103,14 @@ Repository secrets, shared by every environment:
 | Secret | Used by |
 |---|---|
 | `VERCEL_ORG_ID` | The Vercel account that owns the projects (`team_…`, under **Settings → General → Team ID**; not the account's slug or user ID) |
-| `SENTRY_AUTH_TOKEN` | Source maps (#5) |
+| `SENTRY_AUTH_TOKEN` | Uploading source maps during the build in `deploy.yml`; without it the build skips the upload |
+
+Variables (not secrets), under **Settings → Secrets and variables → Actions → Variables**:
+
+| Variable | Level | Value |
+|---|---|---|
+| `APP_URL` | Each GitHub environment | The environment's address, such as `https://pesqueirogg.vercel.app`. After deploying, `deploy.yml` waits until `$APP_URL/api/health` answers with the new commit and `status: ok`, and fails otherwise. Without it, the check is skipped with a warning. |
+| `SENTRY_ORG`, `SENTRY_PROJECT` | Repository | The Sentry organization and project slugs, for the source map upload |
 
 `DATABASE_MIGRATION_URL` is the session pooler string as `postgres.<project-ref>`, and `APP_SERVER_DB_PASSWORD` is the one used when the project was set up; see [Apply migrations to a cloud database](../how-to/apply-migrations-to-a-cloud-database.md). To set up a whole environment, see [Set up a deploy environment](../how-to/set-up-a-deploy-environment.md).
 

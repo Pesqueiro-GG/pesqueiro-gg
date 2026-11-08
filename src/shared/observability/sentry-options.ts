@@ -30,8 +30,15 @@ export function sentryOptions() {
       queues: false,
       stackFrameVariables: false,
     },
+    // Spans are sent one by one ("streamed"), Sentry 11's default, made explicit here because
+    // the scrubbing hook depends on it: beforeSendTransaction never runs in this mode.
+    traceLifecycle: 'stream' as const,
     beforeSend: <E extends EventLike>(event: E) => scrubEvent(event),
-    beforeSendTransaction: <E extends EventLike>(event: E) => scrubEvent(event),
+    beforeSendSpan: <S extends { name: string; attributes: object }>(span: S) => ({
+      ...span,
+      name: scrub(span.name),
+      attributes: scrub(span.attributes),
+    }),
     beforeBreadcrumb: <B extends object>(breadcrumb: B) => scrubBreadcrumb(breadcrumb),
     beforeSendLog: (log: Log) => ({ ...log, message: scrub(log.message), attributes: scrub(log.attributes) }),
   }

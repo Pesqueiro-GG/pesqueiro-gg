@@ -15,13 +15,20 @@ function timeout(ms: number): Promise<never> {
   })
 }
 
+/** Drizzle wraps driver errors ("Failed query: …"); the database's own reason is in `cause`. */
+function describe(error: unknown): string {
+  if (!(error instanceof Error)) return String(error)
+  const cause = error.cause instanceof Error ? error.cause.message : undefined
+  return cause ? `${error.message.split('\n')[0]}: ${cause}` : error.message
+}
+
 export async function GET(): Promise<Response> {
   const body = { commit, env: appEnv, time: new Date().toISOString() }
   try {
     await Promise.race([db().execute(sql`select 1`), timeout(TIMEOUT_MS)])
     return Response.json({ status: 'ok', ...body }, { headers: { 'Cache-Control': 'no-store' } })
   } catch (error) {
-    log.warn('health.degraded', { reason: error instanceof Error ? error.message : String(error) })
+    log.warn('health.degraded', { reason: describe(error) })
     return Response.json(
       { status: 'degraded', ...body },
       { status: 503, headers: { 'Cache-Control': 'no-store' } },

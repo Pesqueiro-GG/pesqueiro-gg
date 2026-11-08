@@ -21,7 +21,7 @@ import {
   writeFileSync,
 } from 'node:fs'
 import { tmpdir } from 'node:os'
-import { join } from 'node:path'
+import { join, resolve } from 'node:path'
 
 const WARN = Number(process.env.CLAUDE_CONTEXT_WARN_TOKENS || 300_000)
 const URGENT = Number(process.env.CLAUDE_CONTEXT_URGENT_TOKENS || 350_000)
@@ -100,7 +100,13 @@ function main() {
   const input = readStdin()
   const event = input.hook_event_name
   if (!input.transcript_path || !existsSync(input.transcript_path)) return
-  if (userMode && input.cwd && existsSync(join(input.cwd, '.claude', 'hooks', 'context-watch.mjs'))) return
+  if (userMode && input.cwd) {
+    // Stay quiet where the project has its own copy, but not in the home folder, where the
+    // "project copy" is this file itself.
+    const projectCopy = resolve(input.cwd, '.claude', 'hooks', 'context-watch.mjs')
+    if (existsSync(projectCopy) && projectCopy.toLowerCase() !== resolve(process.argv[1]).toLowerCase())
+      return
+  }
 
   const tokens = contextTokens(input.transcript_path)
   if (tokens < WARN) return

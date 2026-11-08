@@ -49,7 +49,7 @@ Sentry posts through its Discord integration. Every other tool uses its own webh
 
 `commit` is the commit the build was made from, and `env` is `APP_ENV` at build time. No authentication, `Cache-Control: no-store`. Its regular calls also keep the free Supabase projects from pausing.
 
-After each deploy, `deploy.yml` polls the environment's `/api/health` for up to 3 minutes until it reports the pushed commit, and fails the job if it never does or if the status is `degraded`.
+After each deploy, `deploy.yml` polls the environment's `/api/health` for up to 3 minutes until it reports the pushed commit with `status: ok`. A fresh deployment's first call can be `degraded` while its first database connection opens, so only a status that stays `degraded` fails the job. The `health.degraded` log line gives the database's own reason.
 
 ## How Sentry is set up
 
@@ -73,9 +73,11 @@ Sentry 11 replaced `sendDefaultPii` with `dataCollection`, and its defaults **co
 
 Coordinates, photos, email addresses, names and catch request bodies are never sent to any monitoring tool. People appear only as internal user IDs. The scrubber in `src/shared/observability/scrub.ts` is a safety net, not a license to log them. Before anything is sent, it:
 
-- removes keys named `lat`, `lng`, `lon`, `latitude`, `longitude`, `coordinates`, `email`, `photo`, `body`, `password`, `token`, `authorization`, `cookie`, `cookies`, `phone` and query-string keys, at any depth and in any letter case;
+- removes keys named `username`, `ip_address`, `client.address`, `lat`, `lng`, `lon`, `latitude`, `longitude`, `coordinates`, `email`, `photo`, `body`, `password`, `token`, `authorization`, `cookie`, `cookies`, `phone` and query-string keys, at any depth and in any letter case, including dotted attribute names that end in one of them (`user.email`, `http.request.header.cookie`);
 - replaces email addresses inside any text with `[email]`;
 - drops the query string and fragment from URL fields (`url`, `url.full`, `http.url`, `href`, `from`, `to`…);
 - keeps only the method, URL and `user-agent` of a request, and only the `id` of a user.
 
-It runs on errors, transactions, breadcrumbs and logs, in the server and in the browser.
+It runs on errors, spans, breadcrumbs and logs, in the server and in the browser.
+
+Sentry 11 sends trace spans one by one (`traceLifecycle: 'stream'`), so span data is scrubbed in `beforeSendSpan`. `beforeSendTransaction` never runs in that mode, so don't rely on it.

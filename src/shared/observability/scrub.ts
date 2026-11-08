@@ -2,8 +2,14 @@
 // It's a safety net, not permission to log personal data: callers still pass internal IDs only.
 // See docs/reference/observability.md#what-never-leaves-the-server.
 
-/** Keys removed at any depth, compared without case. */
+/**
+ * Keys removed at any depth, compared without case. Dotted attribute names match on their last
+ * part too, so span attributes such as `user.email` or `http.request.header.cookie` are removed.
+ */
 const SENSITIVE_KEYS = new Set([
+  'username',
+  'ip_address',
+  'client.address',
   'lat',
   'lng',
   'lon',
@@ -35,7 +41,8 @@ const MAX_DEPTH = 20
 export const REDACTED_EMAIL = '[email]'
 
 function isSensitiveKey(key: string): boolean {
-  return SENSITIVE_KEYS.has(key.toLowerCase())
+  const lower = key.toLowerCase()
+  return SENSITIVE_KEYS.has(lower) || SENSITIVE_KEYS.has(lower.slice(lower.lastIndexOf('.') + 1))
 }
 
 /** Returns a copy of `value` without sensitive keys and with email addresses in strings replaced. */

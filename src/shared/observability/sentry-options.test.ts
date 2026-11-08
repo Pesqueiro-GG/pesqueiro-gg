@@ -43,4 +43,26 @@ describe('sentryOptions', () => {
     expect(log.attributes).toEqual({ userId: 'u1', nested: {} })
     expect(log.message).not.toContain('x@y.z')
   })
+
+  it('streams spans, so the span hook is the one that runs', () => {
+    expect(sentryOptions().traceLifecycle).toBe('stream')
+    expect(sentryOptions()).not.toHaveProperty('beforeSendTransaction')
+  })
+
+  it('removes personal data from span attributes and names', () => {
+    const span = sentryOptions().beforeSendSpan({
+      name: 'GET /api/spots?lat=-23.1 for x@y.z',
+      attributes: {
+        'url.full': 'https://pesqueirogg.vercel.app/api/spots?lat=-23.1',
+        'user.email': 'x@y.z',
+        'http.request.header.cookie': 'session=abc',
+        'db.system': 'postgresql',
+      },
+    })
+    expect(span.attributes).toEqual({
+      'url.full': 'https://pesqueirogg.vercel.app/api/spots',
+      'db.system': 'postgresql',
+    })
+    expect(span.name).not.toContain('x@y.z')
+  })
 })

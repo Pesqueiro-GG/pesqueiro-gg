@@ -36,6 +36,9 @@ jobs:
       - name: Format
         run: npm run format:check
 
+      - name: Message keys
+        run: npm run i18n:check
+
       - name: Typecheck
         run: npm run typecheck
 

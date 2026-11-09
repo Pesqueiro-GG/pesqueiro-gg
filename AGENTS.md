@@ -15,7 +15,8 @@ Keep this section true: update it in the pull request that changes it.
 - **Delivery:** CI on every pull request (`.github/workflows/ci.yml`, job `ci`); `deploy.yml` migrates, seeds the species catalog and then deploys `dev` to Dev and `main` to production (and demo, once it exists). Dev is https://pesqueiro-dev.vercel.app and production is https://pesqueirogg.vercel.app. `dev` is the default branch and is protected; see [Environments](docs/reference/environments.md#how-a-change-is-deployed).
 - **Observability:** Sentry (errors, traces, logs) with every personal data category off and a scrubber on everything sent; `log` and `withSpan` from `@/shared/observability`; `/api/health`, checked after every deploy; `/api/debug/boom` on local and dev only. See [Observability](docs/reference/observability.md).
 - **Agent tooling:** `scripts/agent/` (next item, item details, start, card status, pull request body, `npm run check`), and for Claude Code the skills, subagents and context hooks in `.claude/`. See [Agent tooling](docs/reference/agent-tooling.md).
-- **Not yet:** login ([#9](https://github.com/Pesqueiro-GG/pesqueiro-gg/issues/9)), styling ([#6](https://github.com/Pesqueiro-GG/pesqueiro-gg/issues/6)), languages ([#7](https://github.com/Pesqueiro-GG/pesqueiro-gg/issues/7)). `authedAction` answers `UNAUTHENTICATED` until login exists, runs handlers in a transaction when built with `{ tx: true }`, and ignores `rateLimit` until #41.
+- **Languages:** next-intl without locale routing (`src/i18n/request.ts`: the `NEXT_LOCALE` cookie, then `Accept-Language`; Portuguese → `pt-BR`, anything else → `en`), `messages/pt-BR.json` and `messages/en.json`, the formatters and locale helpers in `@/shared/i18n`, a language switch on the stub `/settings` page, and `npm run i18n:check` in CI.
+- **Not yet:** login ([#9](https://github.com/Pesqueiro-GG/pesqueiro-gg/issues/9)), styling ([#6](https://github.com/Pesqueiro-GG/pesqueiro-gg/issues/6)). `authedAction` answers `UNAUTHENTICATED` until login exists, runs handlers in a transaction when built with `{ tx: true }`, and ignores `rateLimit` until #41.
 
 ### Commands
 
@@ -25,6 +26,7 @@ Keep this section true: update it in the pull request that changes it.
 | `npm run dev` | Starts the app at http://localhost:3000 |
 | `npm run lint` | ESLint, including the module-boundary rule |
 | `npm run typecheck` | TypeScript, no output files |
+| `npm run i18n:check` | Fails when a message key is in only one of `messages/pt-BR.json` and `messages/en.json`, or a value is empty |
 | `npm test` | Unit tests (Vitest) |
 | `npm run db:start` / `db:stop` / `db:status` | Starts, stops or shows the local Supabase (needs Docker running) |
 | `npm run db:migrate` | Applies migrations (local by default; see the cloud how-to) |
@@ -33,7 +35,7 @@ Keep this section true: update it in the pull request that changes it.
 | `npm run db:check` | Confirms `DATABASE_URL` connects as `app_server` |
 | `npm run test:int` | Integration tests against the local Supabase (applies migrations first) |
 | `npm run test:e2e` | Builds, starts the app and runs Playwright (run `npx playwright install chromium` once first) |
-| `npm run check` | Lint, format, types, unit and integration tests in one run, printing only failures (`-- --quick` skips integration) |
+| `npm run check` | Lint, format, message keys, types, unit and integration tests in one run, printing only failures (`-- --quick` skips integration) |
 | `npm run format` | Prettier on code (Markdown is left as written) |
 | `npm run build` | Production build |
 

@@ -1,0 +1,39 @@
+{
+  "common": {
+    "appName": "Pesqueiro.GG",
+    "tagline": "The fishing social network: every fish becomes a sticker, a ranking and a story."
+  },
+  "home": {
+    "title": "Pesqueiro.GG",
+    "underConstruction": "Under construction for Hack Brasil 2026.",
+    "openSettings": "Open settings"
+  },
+  "nav": {
+    "feed": "Feed",
+    "album": "Album",
+    "log": "Log",
+    "challenges": "Challenges",
+    "profile": "Profile",
+    "settings": "Settings"
+  },
+  "settings": {
+    "title": "Settings",
+    "language": {
+      "label": "Language",
+      "description": "Choose the app's language. What people write is never translated.",
+      "options": {
+        "pt-BR": "Português (Brasil)",
+        "en": "English"
+      }
+    }
+  },
+  "errors": {
+    "UNAUTHENTICATED": "Your session ended. Sign in again to continue.",
+    "FORBIDDEN": "You don't have permission to do that.",
+    "NOT_FOUND": "We couldn't find that. It may have been deleted or isn't visible to you.",
+    "VALIDATION": "Check the highlighted fields and try again.",
+    "RATE_LIMITED": "Too many tries in a row. Wait a moment and try again.",
+    "CONFLICT": "This changed while you were editing. Reload the page and try again.",
+    "UNAVAILABLE": "A service we use didn't respond. Try again in a few minutes."
+  }
+}

@@ -11,6 +11,7 @@ const quick = process.argv.includes('--quick')
 const steps = [
   ['lint', 'npm', ['run', '--silent', 'lint']],
   ['format', 'npm', ['run', '--silent', 'format:check']],
+  ['message keys', 'npm', ['run', '--silent', 'i18n:check']],
   ['types', 'npm', ['run', '--silent', 'typecheck']],
   ['unit tests', 'npm', ['test', '--silent']],
   ...(quick ? [] : [['integration tests', 'npm', ['run', '--silent', 'test:int']]]),

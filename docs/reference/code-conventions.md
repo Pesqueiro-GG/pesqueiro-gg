@@ -28,7 +28,7 @@ src/
     rate-limit.ts            rateLimit()
     limits.ts                every rate limit in one place
     observability/           log.ts, span.ts, scrub.ts
-    i18n/                    formatters for weight, length, numbers, dates
+    i18n/                    locales and their resolution, formatters for weight, length, numbers, dates
   ui/                        design-system primitives: Button, Chip, Avatar, Icon, Logo, Sticker…
 messages/pt-BR.json          Portuguese strings
 messages/en.json             English strings
@@ -97,7 +97,8 @@ These never break. Reviewers reject any pull request that does.
 ## Text and languages
 
 - next-intl, with no locale in the URL. The locale comes from the profile (through the `NEXT_LOCALE` cookie), then `Accept-Language`.
-- Every visible string lives in `messages/pt-BR.json` and `messages/en.json` under the namespace an item names. CI fails when a key exists in only one file.
+- Every visible string lives in `messages/pt-BR.json` and `messages/en.json` under the namespace an item names. CI fails when a key exists in only one file or a value is empty (`npm run i18n:check`).
+- Server components read strings with `getTranslations('<namespace>')` from `next-intl/server`; client components with `useTranslations`. Error codes map to `errors.<CODE>`.
 - Format weights, lengths, numbers and dates with `src/shared/i18n`. Season and challenge dates use the `America/Sao_Paulo` time zone.
 
 ## UI

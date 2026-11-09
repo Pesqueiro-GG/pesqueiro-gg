@@ -42,6 +42,7 @@ Production dependencies and their licenses. Filled in as each dependency is adde
 | drizzle-orm | 0.45.4 | Apache-2.0 | Typed database queries |
 | postgres | 3.4.9 | Unlicense | Postgres driver |
 | @sentry/nextjs | 11.9.0 | MIT | Error, trace and log reporting |
+| next-intl | 4.14.9 | MIT | Portuguese and English interface |
 
 Development tools (not shipped to users): TypeScript 6.0.3 (Apache-2.0), ESLint 10.14.0 and eslint-config-next 16.4.5 (MIT), eslint-config-prettier 10.1.8 (MIT), Prettier 3.9.10 (MIT), Vitest 5.1.0 and Vite 8.3.6 (MIT), Playwright 1.65.0 (Apache-2.0), Supabase CLI 2.122.1 (MIT), drizzle-kit 0.31.11 (MIT), tsx 4.23.15 (MIT), @types/node, @types/react, @types/react-dom (MIT).
 

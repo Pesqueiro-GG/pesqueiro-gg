@@ -43,8 +43,9 @@ Production dependencies and their licenses. Filled in as each dependency is adde
 | postgres | 3.4.9 | Unlicense | Postgres driver |
 | @sentry/nextjs | 11.9.0 | MIT | Error, trace and log reporting |
 | next-intl | 4.14.9 | MIT | Portuguese and English interface |
+| lucide-react | 1.60.0 | ISC | Icons |
 
-Development tools (not shipped to users): TypeScript 6.0.3 (Apache-2.0), ESLint 10.14.0 and eslint-config-next 16.4.5 (MIT), eslint-config-prettier 10.1.8 (MIT), Prettier 3.9.10 (MIT), Vitest 5.1.0 and Vite 8.3.6 (MIT), Playwright 1.65.0 (Apache-2.0), Supabase CLI 2.122.1 (MIT), drizzle-kit 0.31.11 (MIT), tsx 4.23.15 (MIT), @types/node, @types/react, @types/react-dom (MIT).
+Development tools (not shipped to users): TypeScript 6.0.3 (Apache-2.0), ESLint 10.14.0 and eslint-config-next 16.4.5 (MIT), eslint-config-prettier 10.1.8 (MIT), Prettier 3.9.10 (MIT), Tailwind CSS and @tailwindcss/postcss 4.3.3 (MIT), Vitest 5.1.0 and Vite 8.3.6 (MIT), Playwright 1.65.0 (Apache-2.0), Supabase CLI 2.122.1 (MIT), drizzle-kit 0.31.11 (MIT), tsx 4.23.15 (MIT), @types/node, @types/react, @types/react-dom (MIT).
 
 ## External services
 
@@ -66,7 +67,7 @@ Development tools (not shipped to users): TypeScript 6.0.3 (Apache-2.0), ESLint 
 |---|---|---|
 | Logo and app icon | Drawn for this project | MIT (this repository) |
 | Icons | [Lucide](https://lucide.dev) 1.60.0 | ISC |
-| Fonts | Big Shoulders Display and Atkinson Hyperlegible from Google Fonts | SIL Open Font License 1.1 |
+| Fonts | Big Shoulders Display (published on Google Fonts as "Big Shoulders") and Atkinson Hyperlegible, self-hosted through `next/font` | SIL Open Font License 1.1 |
 | Brazilian municipalities | IBGE public data ([#11](https://github.com/Pesqueiro-GG/pesqueiro-gg/issues/11)) | To be recorded when imported |
 | Demo photos | To be added with the demo seed ([#52](https://github.com/Pesqueiro-GG/pesqueiro-gg/issues/52)) | Team-owned or openly licensed, each credited here |
 

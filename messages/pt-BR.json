@@ -3,18 +3,15 @@
     "appName": "Pesqueiro.GG",
     "tagline": "A rede social da pesca: cada peixe vira figurinha, ranking e história."
   },
-  "home": {
-    "title": "Pesqueiro.GG",
-    "underConstruction": "Em construção para o Hack Brasil 2026.",
-    "openSettings": "Abrir configurações"
-  },
   "nav": {
     "feed": "Feed",
     "album": "Álbum",
     "log": "Registrar",
     "challenges": "Desafios",
     "profile": "Perfil",
-    "settings": "Configurações"
+    "settings": "Configurações",
+    "main": "Principal",
+    "notifications": "Notificações"
   },
   "settings": {
     "title": "Configurações",
@@ -24,6 +21,14 @@
       "options": {
         "pt-BR": "Português (Brasil)",
         "en": "English"
+      }
+    },
+    "theme": {
+      "label": "Tema",
+      "options": {
+        "system": "Igual ao aparelho",
+        "light": "Claro",
+        "dark": "Escuro"
       }
     }
   },
@@ -35,5 +40,31 @@
     "RATE_LIMITED": "Muitas tentativas seguidas. Espere um pouco e tente de novo.",
     "CONFLICT": "Isso mudou enquanto você editava. Recarregue a página e tente de novo.",
     "UNAVAILABLE": "Um serviço que usamos não respondeu. Tente de novo em alguns minutos."
+  },
+  "placeholders": {
+    "feed": {
+      "title": "Feed",
+      "note": "Aqui vão aparecer as capturas e histórias do seu grupo."
+    },
+    "album": {
+      "title": "Álbum",
+      "note": "Cada espécie que você pescar vira uma figurinha neste álbum."
+    },
+    "log": {
+      "title": "Registrar peixe",
+      "note": "Em breve você registra sua captura por aqui."
+    },
+    "challenges": {
+      "title": "Desafios",
+      "note": "Os desafios da temporada aparecem aqui."
+    },
+    "profile": {
+      "title": "Perfil",
+      "note": "Seu cargo, seus recordes e suas figurinhas vão ficar aqui."
+    },
+    "notifications": {
+      "title": "Notificações",
+      "note": "Quando alguém reagir ou comentar, você fica sabendo aqui."
+    }
   }
 }

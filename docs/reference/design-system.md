@@ -2,6 +2,13 @@
 
 A summary of the Pesqueiro.GG design system for building screens. The complete source files (every token with its usage note, the brand book, one guideline per component, and a working prototype of each component) are in [`design/`](../../design/README.md). The values below are what the code uses.
 
+## In the code
+
+- `src/app/tokens.css` holds every token as a CSS variable, light under `:root`, dark under `[data-theme='dark']` and under `prefers-color-scheme: dark` when no theme was chosen. It is generated from `design/tokens.json`: after changing that file, run `node scripts/generate-tokens.mjs` (a unit test fails while the two disagree).
+- Tailwind maps the tokens in `src/app/globals.css`, so components write `bg-surface text-ink rounded-md shadow-card text-label font-display`. Tailwind's default palette is removed, so a color that isn't a token doesn't exist. `min-h-tap`, `size-tap` and `max-w-content` use the size tokens; Tailwind's 4 px spacing scale matches the `space-*` tokens.
+- The theme comes from the `theme` cookie (`system`, `light`, `dark`), read by the root layout to set `data-theme` on `<html>` before the first paint. Settings changes it.
+- Primitives live in `src/ui/`; `Icon` only knows the names listed in `src/ui/Icon.tsx`, so add a name there when an item needs a new icon.
+
 ## Colors
 
 Every color is a token with a light and a dark value. Components use tokens only, never literal colors.

@@ -1,9 +1,11 @@
 import type { Metadata, Viewport } from 'next'
+import { NextIntlClientProvider } from 'next-intl'
+import { getLocale, getTranslations } from 'next-intl/server'
 import './globals.css'
 
-export const metadata: Metadata = {
-  title: 'Pesqueiro.GG',
-  description: 'A rede social da pesca: cada peixe vira figurinha, ranking e história.',
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations('common')
+  return { title: t('appName'), description: t('tagline') }
 }
 
 export const viewport: Viewport = {
@@ -12,10 +14,13 @@ export const viewport: Viewport = {
   viewportFit: 'cover',
 }
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  const locale = await getLocale()
   return (
-    <html lang="pt-BR">
-      <body>{children}</body>
+    <html lang={locale}>
+      <body>
+        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+      </body>
     </html>
   )
 }

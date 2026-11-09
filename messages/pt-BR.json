@@ -1,0 +1,39 @@
+{
+  "common": {
+    "appName": "Pesqueiro.GG",
+    "tagline": "A rede social da pesca: cada peixe vira figurinha, ranking e história."
+  },
+  "home": {
+    "title": "Pesqueiro.GG",
+    "underConstruction": "Em construção para o Hack Brasil 2026.",
+    "openSettings": "Abrir configurações"
+  },
+  "nav": {
+    "feed": "Feed",
+    "album": "Álbum",
+    "log": "Registrar",
+    "challenges": "Desafios",
+    "profile": "Perfil",
+    "settings": "Configurações"
+  },
+  "settings": {
+    "title": "Configurações",
+    "language": {
+      "label": "Idioma",
+      "description": "Escolha o idioma do app. O que as pessoas escrevem não é traduzido.",
+      "options": {
+        "pt-BR": "Português (Brasil)",
+        "en": "English"
+      }
+    }
+  },
+  "errors": {
+    "UNAUTHENTICATED": "Sua sessão terminou. Entre de novo para continuar.",
+    "FORBIDDEN": "Você não tem permissão para fazer isso.",
+    "NOT_FOUND": "Não encontramos isso. Pode ter sido apagado ou não estar visível para você.",
+    "VALIDATION": "Confira os campos destacados e tente de novo.",
+    "RATE_LIMITED": "Muitas tentativas seguidas. Espere um pouco e tente de novo.",
+    "CONFLICT": "Isso mudou enquanto você editava. Recarregue a página e tente de novo.",
+    "UNAVAILABLE": "Um serviço que usamos não respondeu. Tente de novo em alguns minutos."
+  }
+}

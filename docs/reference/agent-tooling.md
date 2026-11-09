@@ -15,7 +15,7 @@ In `scripts/agent/`. They need Node.js 22 and the GitHub CLI signed in with the 
 | `node scripts/agent/start-item.mjs <ID> [--force] [--dry-run]` | Updates `dev`, creates `feat/<id>-<slug>` (stories) or `chore/<id>-<slug>` (tasks), assigns you, moves the card to In Progress. Refuses a dirty tree, or unfinished dependencies without `--force` | Git branch, issue, board |
 | `node scripts/agent/set-status.mjs <ID> <column>` | Moves the card to Backlog, Todo, In Progress, Review or Done | Board |
 | `node scripts/agent/pr-body.mjs [<ID>]` | Prints a pull request body from the template, with `Closes #N` and one evidence line per acceptance criterion. Without an ID, reads it from the branch name | No |
-| `npm run check [-- --quick]` | Runs lint, format, types, unit and integration tests, and prints only the failures. `--quick` skips integration tests | No |
+| `npm run check [-- --quick]` | Runs lint, format, message keys, types, unit and integration tests, and prints only the failures. `--quick` skips integration tests | No |
 
 Workstream owners come from `owners` in `scripts/board/seed-backlog.json`. Status comes from the board's **Status** field; an item counts as finished only in **Done**.
 

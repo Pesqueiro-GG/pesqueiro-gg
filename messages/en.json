@@ -3,18 +3,15 @@
     "appName": "Pesqueiro.GG",
     "tagline": "The fishing social network: every fish becomes a sticker, a ranking and a story."
   },
-  "home": {
-    "title": "Pesqueiro.GG",
-    "underConstruction": "Under construction for Hack Brasil 2026.",
-    "openSettings": "Open settings"
-  },
   "nav": {
     "feed": "Feed",
     "album": "Album",
     "log": "Log",
     "challenges": "Challenges",
     "profile": "Profile",
-    "settings": "Settings"
+    "settings": "Settings",
+    "main": "Main",
+    "notifications": "Notifications"
   },
   "settings": {
     "title": "Settings",
@@ -24,6 +21,14 @@
       "options": {
         "pt-BR": "Português (Brasil)",
         "en": "English"
+      }
+    },
+    "theme": {
+      "label": "Theme",
+      "options": {
+        "system": "Same as device",
+        "light": "Light",
+        "dark": "Dark"
       }
     }
   },
@@ -35,5 +40,31 @@
     "RATE_LIMITED": "Too many tries in a row. Wait a moment and try again.",
     "CONFLICT": "This changed while you were editing. Reload the page and try again.",
     "UNAVAILABLE": "A service we use didn't respond. Try again in a few minutes."
+  },
+  "placeholders": {
+    "feed": {
+      "title": "Feed",
+      "note": "Your group's catches and stories will show up here."
+    },
+    "album": {
+      "title": "Album",
+      "note": "Every species you catch becomes a sticker in this album."
+    },
+    "log": {
+      "title": "Log a fish",
+      "note": "Soon you will log your catch here."
+    },
+    "challenges": {
+      "title": "Challenges",
+      "note": "The season's challenges show up here."
+    },
+    "profile": {
+      "title": "Profile",
+      "note": "Your title, records and stickers will live here."
+    },
+    "notifications": {
+      "title": "Notifications",
+      "note": "When someone reacts or comments, you will see it here."
+    }
   }
 }

@@ -1,6 +1,9 @@
 import type { Metadata, Viewport } from 'next'
 import { NextIntlClientProvider } from 'next-intl'
 import { getLocale, getTranslations } from 'next-intl/server'
+import { cookies } from 'next/headers'
+import { THEME_COOKIE, parseTheme, themeAttribute } from '@/ui/theme'
+import { bodyFont, displayFont } from './fonts'
 import './globals.css'
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -15,9 +18,11 @@ export const viewport: Viewport = {
 }
 
 export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  const locale = await getLocale()
+  const [locale, cookieStore] = await Promise.all([getLocale(), cookies()])
+  // Set on the server, so a dark theme never flashes light first.
+  const theme = themeAttribute(parseTheme(cookieStore.get(THEME_COOKIE)?.value))
   return (
-    <html lang={locale}>
+    <html lang={locale} data-theme={theme} className={`${displayFont.variable} ${bodyFont.variable}`}>
       <body>
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
       </body>

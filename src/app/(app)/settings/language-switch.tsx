@@ -4,6 +4,7 @@ import { useTranslations } from 'next-intl'
 import { useRouter } from 'next/navigation'
 import { useTransition } from 'react'
 import { LOCALE_COOKIE, LOCALES, isLocale } from '@/shared/i18n/locale'
+import { SELECT_CLASSES } from './select'
 
 const ONE_YEAR = 60 * 60 * 24 * 365
 
@@ -23,15 +24,20 @@ export function LanguageSwitch({ current }: { current: string }) {
   }
 
   return (
-    <div>
-      <label htmlFor="language">{t('label')}</label>
-      <p id="language-description">{t('description')}</p>
+    <div className="grid gap-1">
+      <label htmlFor="language" className="text-label font-bold">
+        {t('label')}
+      </label>
+      <p id="language-description" className="text-small text-ink-muted">
+        {t('description')}
+      </p>
       <select
         id="language"
         aria-describedby="language-description"
         value={current}
         disabled={pending}
         onChange={(event) => choose(event.target.value)}
+        className={SELECT_CLASSES}
       >
         {LOCALES.map((locale) => (
           <option key={locale} value={locale} lang={locale}>

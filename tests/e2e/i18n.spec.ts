@@ -9,7 +9,7 @@ test.describe('interface language', () => {
     const page = await context.newPage()
     await page.goto('/')
     await expect(page.locator('html')).toHaveAttribute('lang', 'pt-BR')
-    await expect(page.getByText('Em construção para o Hack Brasil 2026.')).toBeVisible()
+    await expect(page.getByRole('link', { name: 'Desafios' })).toBeVisible()
     await context.close()
   })
 
@@ -21,7 +21,7 @@ test.describe('interface language', () => {
     const page = await context.newPage()
     await page.goto('/')
     await expect(page.locator('html')).toHaveAttribute('lang', 'en')
-    await expect(page.getByText('Under construction for Hack Brasil 2026.')).toBeVisible()
+    await expect(page.getByRole('link', { name: 'Challenges' })).toBeVisible()
     await context.close()
   })
 
@@ -40,7 +40,7 @@ test.describe('interface language', () => {
     await page.reload()
     await expect(page.getByRole('heading', { name: 'Settings' })).toBeVisible()
     await page.goto('/')
-    await expect(page.getByText('Under construction for Hack Brasil 2026.')).toBeVisible()
+    await expect(page.getByRole('link', { name: 'Challenges' })).toBeVisible()
     await context.close()
   })
 })

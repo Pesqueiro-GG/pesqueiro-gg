@@ -1,16 +1,120 @@
-/* Replaced by the design tokens and Tailwind setup in #6. */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+@import 'tailwindcss';
+@import './tokens.css';
+
+/*
+ * Tailwind reads the design tokens from tokens.css (generated from design/tokens.json).
+ * `inline reference` makes utilities point straight at the token variables (`bg-surface` is
+ * `background-color: var(--surface)`) without Tailwind redefining them, so the dark theme only
+ * has to swap the tokens. Tailwind's own palette is removed: components can't use a color that
+ * isn't a token. Tailwind's 4 px spacing scale already matches the space-* tokens (p-4 is 16 px).
+ */
+@theme inline reference {
+  --color-*: initial;
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-sunken: var(--surface-sunken);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-water: var(--water);
+  --color-water-soft: var(--water-soft);
+  --color-on-water: var(--on-water);
+  --color-bobber: var(--bobber);
+  --color-bobber-hover: var(--bobber-hover);
+  --color-bobber-text: var(--bobber-text);
+  --color-bobber-soft: var(--bobber-soft);
+  --color-on-bobber: var(--on-bobber);
+  --color-reed: var(--reed);
+  --color-reed-soft: var(--reed-soft);
+  --color-on-reed: var(--on-reed);
+  --color-gold: var(--gold);
+  --color-gold-text: var(--gold-text);
+  --color-gold-soft: var(--gold-soft);
+  --color-on-gold: var(--on-gold);
+  --color-podium-silver: var(--podium-silver);
+  --color-podium-bronze: var(--podium-bronze);
+  --color-on-podium: var(--on-podium);
+  --color-paper: var(--paper);
+  --color-paper-ink: var(--paper-ink);
+  --color-paper-line: var(--paper-line);
+  --color-rarity-comum: var(--rarity-comum);
+  --color-rarity-incomum: var(--rarity-incomum);
+  --color-rarity-raro: var(--rarity-raro);
+  --color-rarity-epico: var(--rarity-epico);
+  --color-mark-cream: var(--mark-cream);
+  --color-mark-band: var(--mark-band);
+  --color-sea-shallow: var(--sea-shallow);
+  --color-sea-deep: var(--sea-deep);
+  --color-overlay: var(--overlay);
+  --color-on-overlay: var(--on-overlay);
+  --color-link: var(--link);
+  --color-transparent: transparent;
+  --color-current: currentColor;
+
+  --font-*: initial;
+  --font-display: var(--font-big-shoulders), 'Arial Narrow', 'Roboto Condensed', sans-serif;
+  --font-body: var(--font-atkinson), system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --radius-*: initial;
+  --radius-sticker: var(--radius-sticker);
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-full: var(--radius-full);
+
+  --shadow-*: initial;
+  --shadow-card: var(--shadow-card);
+  --shadow-float: var(--shadow-float);
+  --shadow-sticker: var(--shadow-sticker);
+  --shadow-focus: var(--focus-ring);
+
+  --text-*: initial;
+  --text-display-xl: var(--type-display-xl-size);
+  --text-display-xl--line-height: var(--type-display-xl-line);
+  --text-display: var(--type-display-size);
+  --text-display--line-height: var(--type-display-line);
+  --text-title: var(--type-title-size);
+  --text-title--line-height: var(--type-title-line);
+  --text-stat: var(--type-stat-size);
+  --text-stat--line-height: var(--type-stat-line);
+  --text-heading: var(--type-heading-size);
+  --text-heading--line-height: var(--type-heading-line);
+  --text-body: var(--type-body-size);
+  --text-body--line-height: var(--type-body-line);
+  --text-small: var(--type-small-size);
+  --text-small--line-height: var(--type-small-line);
+  --text-label: var(--type-label-size);
+  --text-label--line-height: var(--type-label-line);
+  --text-caption: var(--type-caption-size);
+  --text-caption--line-height: var(--type-caption-line);
+
+  --container-content: var(--content-max);
+  --spacing-tap: var(--tap-min);
 }
 
-body {
-  margin: 0;
-  padding: 24px max(16px, env(safe-area-inset-left, 0px));
-  font-family:
-    system-ui,
-    -apple-system,
-    'Segoe UI',
-    sans-serif;
+@layer base {
+  html {
+    background-color: var(--bg);
+    color: var(--ink);
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: var(--type-body-size);
+    line-height: var(--type-body-line);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a {
+    color: var(--link);
+  }
+
+  /* Every control shows the design system's focus ring when reached by keyboard. */
+  :focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring);
+  }
 }
